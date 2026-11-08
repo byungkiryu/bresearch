@@ -1,0 +1,2106 @@
+{
+  "profile": {
+    "education": [
+      {
+        "period": "2005.03–2011.02",
+        "title": "Ph.D. in Physics",
+        "organization": "Korea Advanced Institute of Science and Technology (KAIST)",
+        "id": "profile-education-0001",
+        "order": 9,
+        "public": true
+      },
+      {
+        "period": "2000.03–2005.02",
+        "title": "B.S. in Physics and Mathematics (double major)",
+        "organization": "Korea Advanced Institute of Science and Technology (KAIST)",
+        "id": "profile-education-0002",
+        "order": 10,
+        "public": true
+      }
+    ],
+    "career": [
+      {
+        "period": "2013.12–Present",
+        "title": "Research appointment",
+        "organization": "Korea Electrotechnology Research Institute (KERI)",
+        "id": "profile-career-0001",
+        "order": 11,
+        "public": true
+      },
+      {
+        "period": "2011.03–2013.12",
+        "title": "Research Staff Member",
+        "organization": "Samsung Advanced Institute of Technology (SAIT)",
+        "id": "profile-career-0002",
+        "order": 12,
+        "public": true
+      }
+    ],
+    "awards": [
+      {
+        "period": "2022.10",
+        "title": "논문상",
+        "organization": "한국물리학회",
+        "id": "profile-award-0001",
+        "order": 13,
+        "public": true
+      },
+      {
+        "period": "2022.09",
+        "title": "우수논문상",
+        "organization": "한국계산과학공학회",
+        "id": "profile-award-0002",
+        "order": 14,
+        "public": true
+      },
+      {
+        "period": "2022.06",
+        "title": "표창장 최우수상(개인)",
+        "organization": "한국전기연구원",
+        "id": "profile-award-0003",
+        "order": 15,
+        "public": true
+      },
+      {
+        "period": "2020.10",
+        "title": "한국과학기술이사회 이사장 포상 표창장",
+        "organization": "",
+        "id": "profile-award-0004",
+        "order": 16,
+        "public": true
+      },
+      {
+        "period": "2020.05.13",
+        "title": "Featured Article",
+        "organization": "Applied Physics Letters",
+        "id": "profile-award-0005",
+        "order": 17,
+        "public": true
+      },
+      {
+        "period": "2017.07.07",
+        "title": "제27회 과학기술우수논문상",
+        "organization": "한국과학기술단체총연합회",
+        "id": "profile-award-0006",
+        "order": 18,
+        "public": true
+      },
+      {
+        "period": "2017.01.02",
+        "title": "KERI 대상 우수상(팀)",
+        "organization": "한국전기연구원",
+        "id": "profile-award-0007",
+        "order": 19,
+        "public": true
+      },
+      {
+        "period": "2016.10.22",
+        "title": "가을추계 우수발표상",
+        "organization": "한국물리학회",
+        "id": "profile-award-0008",
+        "order": 20,
+        "public": true
+      },
+      {
+        "period": "2016.07.25",
+        "title": "우수논문상",
+        "organization": "한국세라믹학회",
+        "id": "profile-award-0009",
+        "order": 21,
+        "public": true
+      },
+      {
+        "period": "2012.11",
+        "title": "삼성논문상 금상",
+        "organization": "삼성",
+        "id": "profile-award-0010",
+        "order": 22,
+        "public": true
+      },
+      {
+        "period": "2011.01",
+        "title": "우수논문상",
+        "organization": "4th BK21 Young Physicists Workshop",
+        "id": "profile-award-0011",
+        "order": 23,
+        "public": true
+      },
+      {
+        "period": "2007.06",
+        "title": "Kaleidoscope of June",
+        "organization": "Physical Review B",
+        "id": "profile-award-0012",
+        "order": 24,
+        "public": true
+      }
+    ],
+    "links": [
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=fldxgiEAAAAJ",
+        "id": "profile-link-0001",
+        "order": 31,
+        "public": true
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/byungki-ryu-9896a222",
+        "id": "profile-link-0002",
+        "order": 32,
+        "public": true
+      }
+    ],
+    "about_sections": [
+      {
+        "title": "Research statement",
+        "entries": [
+          "Thermoelectric energy conversion spanning fundamental phenomena and practical applications, theoretical modeling and experimental validation, and materials, devices, and system-level integration.",
+          "Recent research focuses on enhancing thermoelectric generator performance and understanding incommensurate interphase boundaries.",
+          "Broader interests include thermal management, thermoelectric cooling, and temperature-driven information technology."
+        ],
+        "id": "profile-about-0001",
+        "order": 25,
+        "public": true
+      },
+      {
+        "title": "Research expertise",
+        "entries": [
+          "Thermoelectric materials and devices: from phenomena to performance.",
+          "Defect physics and interface science: alloy design and incommensurate phase boundaries.",
+          "Computational methods: first-principles calculations, machine-learning potentials, and finite-element simulations.",
+          "Experimental validation: design and analysis of high-performance, reliable devices.",
+          "Data-driven research: thermoelectric property data and machine-learning prediction."
+        ],
+        "id": "profile-about-0002",
+        "order": 26,
+        "public": true
+      },
+      {
+        "title": "Research contributions",
+        "entries": [
+          "General efficiency theory of thermoelectric conversion and three thermoelectric degrees of freedom.",
+          "An algebraic framework for thermoelectric devices under the constant-Seebeck approximation.",
+          "Thermoelectric materials and devices, metastable structures, and intrinsic, extrinsic, and complex defects.",
+          "Large-scale interface modeling for alloys and interfaces.",
+          "Thermoelectric instability and device physics in modules.",
+          "Data structures for thermoelectric material properties and device performance.",
+          "The pykeri2019 thermoelectric device simulator and LaNN representation for property curves, with core development by Dr. Jaywan Chung.",
+          "Supervision of postdoctoral researchers and thermoelectric design projects.",
+          "Earlier SAIT research: materials design for thermoelectrics, H₂/CO₂ membranes, LED phosphors, and transparent electrodes."
+        ],
+        "id": "profile-about-0003",
+        "order": 27,
+        "public": true
+      },
+      {
+        "title": "Appointments",
+        "entries": [
+          "Principal Researcher, Energy Conversion Research Center, Electrical Materials Division, KERI.",
+          "Professor, Electric Energy and Materials Engineering, KERI School, University of Science and Technology."
+        ],
+        "id": "profile-about-0004",
+        "order": 28,
+        "public": true
+      },
+      {
+        "title": "Doctoral thesis",
+        "entries": [
+          "First-principles study of the atomic and electronic structures of semiconductor/insulator interfaces and transparent amorphous oxide semiconductors."
+        ],
+        "id": "profile-about-0005",
+        "order": 29,
+        "public": true
+      },
+      {
+        "title": "Methods and software",
+        "entries": [
+          "Thermoelectric transport, density-functional theory, and numerical modeling.",
+          "VASP, Python, Excel, COMSOL Multiphysics, m3gnet, and SevenNet.",
+          "Korean (native) and English (professional working proficiency)."
+        ],
+        "id": "profile-about-0006",
+        "order": 30,
+        "public": true
+      }
+    ],
+    "scalar_metadata": {
+      "name": {
+        "id": "profile-name",
+        "order": 1,
+        "public": true
+      },
+      "role": {
+        "id": "profile-role",
+        "order": 2,
+        "public": true
+      },
+      "institution": {
+        "id": "profile-institution",
+        "order": 3,
+        "public": true
+      },
+      "location": {
+        "id": "profile-location",
+        "order": 4,
+        "public": true
+      },
+      "email": {
+        "id": "profile-email",
+        "order": 5,
+        "public": true
+      },
+      "description": {
+        "id": "profile-description",
+        "order": 6,
+        "public": true
+      },
+      "image": {
+        "id": "profile-image",
+        "order": 7,
+        "public": true
+      },
+      "image_alt": {
+        "id": "profile-image_alt",
+        "order": 8,
+        "public": true
+      }
+    },
+    "name": "Byungki Ryu",
+    "role": "Principal Researcher · Professor",
+    "institution": "Korea Electrotechnology Research Institute (KERI) · University of Science and Technology (UST)",
+    "location": "Changwon, South Korea",
+    "email": "byungkiryu@keri.re.kr",
+    "description": "A physicist working across thermoelectric energy conversion, materials and interfaces, and computational materials design—from fundamental phenomena to practical devices.",
+    "image": "",
+    "image_alt": ""
+  },
+  "research": {
+    "intro": "We investigate thermoelectric phenomena and the physics of materials, connecting fundamental understanding with energy conversion and thermal management.",
+    "topics": [
+      {
+        "id": "devices",
+        "title": "Thermoelectric devices & applications",
+        "kicker": "Conversion & cooling",
+        "description": "From materials interfaces to generator performance and active cooling.",
+        "details": [
+          "Thermoelectric material interface design based on solute chemical potentials.",
+          "Thermoelectric efficiency and invariance under temperature and geometry transformations.",
+          "Thermoelectric metrology for device and module power characteristics.",
+          "Chip hot spots and thermoelectric active cooling.",
+          "Thermoelectric lifetime modeling."
+        ],
+        "keywords": [
+          "Efficiency",
+          "Interfaces",
+          "Thermal management"
+        ],
+        "links": [],
+        "image": "",
+        "image_alt": "",
+        "order": 1,
+        "public": true
+      },
+      {
+        "id": "transport",
+        "title": "Thermoelectric phenomena & transport",
+        "kicker": "Fundamental physics",
+        "description": "Electronic and phononic transport from first principles.",
+        "details": [
+          "First-principles Boltzmann transport calculations for electrons and phonons.",
+          "Diffusion and Kim's Law.",
+          "Temperature quantization."
+        ],
+        "keywords": [
+          "First principles",
+          "Electron–phonon",
+          "Transport"
+        ],
+        "links": [],
+        "image": "",
+        "image_alt": "",
+        "order": 2,
+        "public": true
+      },
+      {
+        "id": "data-ai",
+        "title": "Data & machine learning",
+        "kicker": "Property curves",
+        "description": "High-quality thermoelectric data and machine-learning representations of temperature-dependent properties.",
+        "details": [
+          "teMatDb: an ultra-high-quality thermoelectric material property database and self-consistent ZT filter.",
+          "LaNN: an artificial neural-network model predicting thermoelectric property curves.",
+          "Online models for BiTe-based materials, PbTe-based materials, and copper alloys."
+        ],
+        "keywords": [
+          "teMatDb",
+          "LaNN",
+          "σ(T) · S(T) · κ(T)"
+        ],
+        "links": [
+          {
+            "label": "teMatDb",
+            "url": "https://tematdb.streamlit.app/"
+          },
+          {
+            "label": "BiTe model",
+            "url": "https://jaywan-chung.github.io/ml-tep-BiTe/"
+          },
+          {
+            "label": "PbTe model",
+            "url": "https://jaywan-chung.github.io/ml-tep-PbTe/"
+          },
+          {
+            "label": "Copper alloys model",
+            "url": "https://jaywan-chung.github.io/ml-copper-poongsan/"
+          }
+        ],
+        "image": "",
+        "image_alt": "",
+        "order": 3,
+        "public": true
+      },
+      {
+        "id": "materials",
+        "title": "Thermoelectric materials design",
+        "kicker": "Structure & composition",
+        "description": "Lattice structures, chemical stacking faults, and reference materials for thermoelectric performance.",
+        "details": [
+          "Ag-induced chemical stacking faults and metastable BiSbTe thermoelectric alloys.",
+          "Lattice similarity for PGEC-like materials.",
+          "Reference BiTe thermoelectric alloys: compositions, legs, and thermoelectric generator modules.",
+          "Origin of incommensurate structures in higher manganese silicides.",
+          "Order–disorder and high-power-factor Bi–Te–Se thermoelectric alloys.",
+          "Fermi-surface anisotropy and material texture."
+        ],
+        "keywords": [
+          "Metastability",
+          "BiTe",
+          "Lattice similarity"
+        ],
+        "links": [],
+        "image": "",
+        "image_alt": "",
+        "order": 4,
+        "public": true
+      },
+      {
+        "id": "simulation",
+        "title": "Simulation & circuits",
+        "kicker": "Models to modules",
+        "description": "Thermoelectric simulation across legs, modules, and circuits.",
+        "details": [
+          "The pykeri2019 thermoelectric simulator and the TES web simulator.",
+          "Finite-element analysis of thermoelectric generator modules.",
+          "Thermoelectric circuits."
+        ],
+        "keywords": [
+          "pykeri2019",
+          "Finite elements",
+          "TES"
+        ],
+        "links": [
+          {
+            "label": "Open TESimulator",
+            "url": "https://tes.keri.re.kr/"
+          }
+        ],
+        "image": "",
+        "image_alt": "",
+        "order": 5,
+        "public": true
+      },
+      {
+        "id": "defects",
+        "title": "Defect-rich thermoelectric materials",
+        "kicker": "Local environments",
+        "description": "Defects and impurity clusters as a route to understanding thermoelectric materials.",
+        "details": [
+          "Defect–impurity clustering in thermoelectric materials."
+        ],
+        "keywords": [
+          "Defects",
+          "Impurities",
+          "Clustering"
+        ],
+        "links": [],
+        "image": "",
+        "image_alt": "",
+        "order": 6,
+        "public": true
+      },
+      {
+        "id": "alloys",
+        "title": "Materials, interfaces & alloys",
+        "kicker": "Beyond periodic structures",
+        "description": "Modeling incommensurate structures and alloy interfaces with first-principles data and machine-learning potentials.",
+        "details": [
+          "Modeling methods for incommensurate structures.",
+          "A database of single and clustered solutes in alloys.",
+          "Graph machine-learning potentials for solutes and interfaces in copper alloys.",
+          "Tilted and twisted grain boundaries in Cu–Ni–Si–Mn alloys.",
+          "Orientation-independent interface energies."
+        ],
+        "keywords": [
+          "ML potentials",
+          "Grain boundaries",
+          "Alloy design"
+        ],
+        "links": [
+          {
+            "label": "Alloy Design DB",
+            "url": "https://byungkiryu-alloydesigndb-demo-v0-33-main-v0-33-u86ejf.streamlit.app/"
+          }
+        ],
+        "image": "",
+        "image_alt": "",
+        "order": 7,
+        "public": true
+      }
+    ]
+  },
+  "people": [
+    {
+      "id": "person-0001",
+      "name": "SuDong PARK",
+      "category": "Members",
+      "title": "Dr.",
+      "affiliation": "KERI",
+      "period": "",
+      "description": "metallurgist, thermoelectric materials and systems",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 1,
+      "public": true
+    },
+    {
+      "id": "person-0002",
+      "name": "Byungki RYU",
+      "category": "Members",
+      "title": "Dr. Prof.",
+      "affiliation": "KERI",
+      "period": "Since 2013-Dec-20",
+      "description": "physicist, thermoelectric materials and devices, efficiency theory, new phenomena",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 2,
+      "public": true
+    },
+    {
+      "id": "person-0003",
+      "name": "Jaywan CHUNG",
+      "category": "Members",
+      "title": "Dr.",
+      "affiliation": "KERI",
+      "period": "Since 2017-Jan",
+      "description": "Mathematician. PDE, heat equation, machine learning thermoelectric data",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 3,
+      "public": true
+    },
+    {
+      "id": "person-0004",
+      "name": "Jongho PARK",
+      "category": "Members",
+      "title": "Master",
+      "affiliation": "KERI",
+      "period": "",
+      "description": "PbTe based material synthesis, module fabrication and evaluation",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 4,
+      "public": true
+    },
+    {
+      "id": "person-0005",
+      "name": "Ji Hui SON",
+      "category": "Members",
+      "title": "Master",
+      "affiliation": "KERI",
+      "period": "",
+      "description": "BiTe-based material synthesis and thermoelectric data",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 5,
+      "public": true
+    },
+    {
+      "id": "person-0006",
+      "name": "Jeongin JANG",
+      "category": "Members",
+      "title": "Master",
+      "affiliation": "KERI",
+      "period": "",
+      "description": "BiTe based material synthesis",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 6,
+      "public": true
+    },
+    {
+      "id": "person-0015",
+      "name": "Dipanwita Bhattacharjee",
+      "category": "Members",
+      "title": "Post-doc.",
+      "affiliation": "KERI",
+      "period": "",
+      "description": "Thermoelectric materials and interfaces for solid state cooling",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 7,
+      "public": true
+    },
+    {
+      "id": "person-0007",
+      "name": "Seunghyun OH",
+      "category": "Alumni",
+      "title": "Ms.",
+      "affiliation": "KERI",
+      "period": "",
+      "description": "FEM analysis and TE cooling",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 8,
+      "public": true
+    },
+    {
+      "id": "person-0008",
+      "name": "Nirma KUMARI",
+      "category": "Alumni",
+      "title": "Post-doc.",
+      "affiliation": "KERI",
+      "period": "",
+      "description": "Thermoelectric materials and leg analysis",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 9,
+      "public": true
+    },
+    {
+      "id": "person-0009",
+      "name": "Aadil Fayaz WANI",
+      "category": "Alumni",
+      "title": "Post-doc.",
+      "affiliation": "KERI",
+      "period": "",
+      "description": "First-principles thermoelectric transport calculations",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 10,
+      "public": true
+    },
+    {
+      "id": "person-0010",
+      "name": "Sungjin Park",
+      "category": "Alumni",
+      "title": "Post-doc.",
+      "affiliation": "",
+      "period": "",
+      "description": "first-principles calculations for thermoelectric materials and defects",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 11,
+      "public": true
+    },
+    {
+      "id": "person-0011",
+      "name": "Min-Ho Lee",
+      "category": "Alumni",
+      "title": "Post-doc.",
+      "affiliation": "",
+      "period": "",
+      "description": "thermoelectric materials and experiments",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 12,
+      "public": true
+    },
+    {
+      "id": "person-0012",
+      "name": "Jae Ki Lee",
+      "category": "Alumni",
+      "title": "Post-doc.",
+      "affiliation": "",
+      "period": "",
+      "description": "thermoelectric materials synthesis and module fabrication",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 13,
+      "public": true
+    },
+    {
+      "id": "person-0013",
+      "name": "Johannes de Boor",
+      "category": "Visitors",
+      "title": "Prof. Dr.",
+      "affiliation": "German Aerospace Center (DLR), Germany",
+      "period": "2024-Nov-24 to Dec-10",
+      "description": "Invited for KERI–DLR collaboration; German Aerospace Center (DLR), Germany.",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 14,
+      "public": true
+    },
+    {
+      "id": "person-0014",
+      "name": "Wabi Diribia Demeke",
+      "category": "Visitors",
+      "title": "Dr.",
+      "affiliation": "KAIST, Korea",
+      "period": "2023-Feb",
+      "description": "machine learning thermoelectric energy conversion and devices",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 15,
+      "public": true
+    }
+  ],
+  "news": [
+    {
+      "id": "news-0001",
+      "date": "2025-05-01",
+      "title": "Link-Home Website Now Live",
+      "body": "The Link-Home and Byungki Ryu websites are now live, offering information via Python, Streamlit, and GitHub.",
+      "url": "https://byungkiryu.github.io/link-home/",
+      "featured": true,
+      "image": "",
+      "image_alt": "",
+      "order": 1,
+      "public": true
+    },
+    {
+      "id": "news-0002",
+      "date": "2025-04-30",
+      "title": "Samsung Heavy Industry Visits KERI",
+      "body": "The thermoelectric demonstration project is ongoing. The ship TEG power-pack performance was evaluated using KERI’s measurement system, developed by Dr. SuDong Park. The results show growing performance and industrial potential for TEG systems, as emphasized by Dr. Park.",
+      "url": "",
+      "featured": true,
+      "image": "",
+      "image_alt": "",
+      "order": 2,
+      "public": true
+    },
+    {
+      "id": "news-0004",
+      "date": "2025-03-26",
+      "title": "Invited Talk Scheduled at ICT-2025",
+      "body": "Dr. Ryu will deliver an invited talk on thermoelectric materials and devices at ICT-2025.",
+      "url": "https://ict2025.jp/program.html",
+      "featured": true,
+      "image": "",
+      "image_alt": "",
+      "order": 3,
+      "public": true
+    },
+    {
+      "id": "news-0005",
+      "date": "2025-03-21",
+      "title": "Thermoelectric Inequality Paper Published in Journal of Applied Physics",
+      "body": "Our work on thermoelectric inequality has been published in Journal of Applied Physics. The study reveals that single-leg efficiency can be misleading and highlights the importance of P-N leg-pair structures.",
+      "url": "https://doi.org/10.1063/5.0247466",
+      "featured": true,
+      "image": "",
+      "image_alt": "",
+      "order": 4,
+      "public": true
+    },
+    {
+      "id": "news-0006",
+      "date": "2025-02-14",
+      "title": "Front-Cover Article Published in Small Science",
+      "body": "Our international collaboration has been featured on the front cover of Small Science. The paper addresses materials instability arising from native defect formation at surfaces.",
+      "url": "https://doi.org/10.1002/smsc.202300298",
+      "featured": true,
+      "image": "",
+      "image_alt": "",
+      "order": 5,
+      "public": true
+    },
+    {
+      "id": "news-0007",
+      "date": "2025-02-07",
+      "title": "Thermoelectric Algebra Paper Published in Journal of Applied Physics",
+      "body": "We have developed thermoelectric algebraic formalism made simple. While thermoelectric properties are temperature-dependent, many cases we may describe power generator performances using a constant Seebeck coefficient model (CSM): simple and powerful.",
+      "url": "https://doi.org/10.1063/5.0242991",
+      "featured": true,
+      "image": "",
+      "image_alt": "",
+      "order": 6,
+      "public": true
+    },
+    {
+      "id": "news-0003",
+      "date": "2025-01-01",
+      "title": "Alloy Design Project Enters Phase 2",
+      "body": "Our alloy design project, funded by the NRF, has entered its second phase. KIMS leads the project, with contributions from KERI, SNU, Kookmin University, and UNIST. The project will explore incommensurate structures frequently observed in alloys at grain boundaries and inter-phase interfaces.",
+      "url": "",
+      "featured": true,
+      "image": "",
+      "image_alt": "",
+      "order": 7,
+      "public": true
+    }
+  ],
+  "links": [
+    {
+      "id": "link-0001",
+      "category": "Main Link Hub",
+      "title": "Main Link Hub",
+      "description": "Main Link Hub github page - research, data, machine learning, simulators, and webpages.",
+      "url": "https://byungkiryu.github.io/link-home/",
+      "image": "",
+      "image_alt": "",
+      "order": 1,
+      "public": true
+    },
+    {
+      "id": "link-0002",
+      "category": "Simulator",
+      "title": "TESimulator",
+      "description": "Thermoelectric Power Generation Web Simulator Lite ver.0.53a. Developed by Dr. Jaywan Chung. Designed by Dr. Byungki Ryu.",
+      "url": "https://tes.keri.re.kr/",
+      "image": "",
+      "image_alt": "",
+      "order": 2,
+      "public": true
+    },
+    {
+      "id": "link-0003",
+      "category": "Simulator",
+      "title": "pykeri2019",
+      "description": "Thermoelectric simulator for power TGM, standalone, multistage, 1D. Designed and developed by Drs. Jaywan Chung and Byungki Ryu.",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "order": 3,
+      "public": true
+    },
+    {
+      "id": "link-0004",
+      "category": "Data",
+      "title": "teMatDb (new)",
+      "description": "Ultra-high quality thermoelectric material property database. Developed by Dr. Byungki Ryu. (v1.1.6)",
+      "url": "https://tematdb.streamlit.app/",
+      "image": "",
+      "image_alt": "",
+      "order": 4,
+      "public": true
+    },
+    {
+      "id": "link-0005",
+      "category": "Data",
+      "title": "teMatDb v1.1.4 (old)",
+      "description": "Ultra-high quality thermoelectric material property database. Developed by Dr. Byungki Ryu.",
+      "url": "https://tematdbv114.streamlit.app/",
+      "image": "",
+      "image_alt": "",
+      "order": 5,
+      "public": true
+    },
+    {
+      "id": "link-0006",
+      "category": "Data",
+      "title": "Alloy Design DB (v0.33)",
+      "description": "Alloy Design DB (v0.33). Data from KIMS. Designed and developed by Dr. Byungki Ryu",
+      "url": "https://byungkiryu-alloydesigndb-demo-v0-33-main-v0-33-u86ejf.streamlit.app/",
+      "image": "",
+      "image_alt": "",
+      "order": 6,
+      "public": true
+    },
+    {
+      "id": "link-0007",
+      "category": "Data",
+      "title": "Cu-Ni-Si Alloy Design DB (v0.1)",
+      "description": "Database of solution, segregation, binding, and doping energies of alloying elements for the design of high-performance Cu-Ni-Si alloys. Data from KIMS. Designed and developed by Dr. Byungki Ryu",
+      "url": "https://cunisi-v01.streamlit.app/",
+      "image": "",
+      "image_alt": "",
+      "order": 7,
+      "public": true
+    },
+    {
+      "id": "link-0008",
+      "category": "Data",
+      "title": "Li Alloy Design DB (v0.10)",
+      "description": "A database of calculated solid solution, segregation, and binding characteristics of additive elements in lithium alloys for the design of high-strength, long-life anode materials in Li-S batteries. Data from KIMS. Designed and developed by Dr. Byungki Ryu",
+      "url": "https://lithiumalloydesigndbv010.streamlit.app/",
+      "image": "",
+      "image_alt": "",
+      "order": 8,
+      "public": true
+    },
+    {
+      "id": "link-0009",
+      "category": "Machine Learning",
+      "title": "BiTe ML Model Predicting TEP Curves",
+      "description": "Machine Learning Model Predicting Thermoelectric Properties of BiTe-based materials ver.0.2a. Developed by Dr. Jaywan Chung. Powered by LaNN.",
+      "url": "https://jaywan-chung.github.io/ml-tep-BiTe/",
+      "image": "",
+      "image_alt": "",
+      "order": 9,
+      "public": true
+    },
+    {
+      "id": "link-0010",
+      "category": "Machine Learning",
+      "title": "PbTe ML Model Predicting TEP Curves",
+      "description": "Machine Learning Model Predicting Thermoelectric Properties of PbTe-based materials ver.0.1a. Developed by Dr. Jaywan Chung. Powered by LaNN.",
+      "url": "https://jaywan-chung.github.io/ml-tep-PbTe/",
+      "image": "",
+      "image_alt": "",
+      "order": 10,
+      "public": true
+    },
+    {
+      "id": "link-0011",
+      "category": "Machine Learning",
+      "title": "Cu alloys ML Model Predicting mechanicals",
+      "description": "Machine Learning Model Predicting Strength and Conductivity of Copper alloys (POONGSAN data) ver.0.5b. Developed by Dr. Jaywan Chung. Powered by LaNN.",
+      "url": "https://jaywan-chung.github.io/ml-copper-poongsan/",
+      "image": "",
+      "image_alt": "",
+      "order": 11,
+      "public": true
+    },
+    {
+      "id": "link-0012",
+      "category": "webpage",
+      "title": "Physicist RBK",
+      "description": "Dr. Byungki Ryu's Legacy webpage",
+      "url": "https://sites.google.com/view/tesimulator/",
+      "image": "",
+      "image_alt": "",
+      "order": 12,
+      "public": true
+    },
+    {
+      "id": "link-0013",
+      "category": "webpage",
+      "title": "BR @ TES",
+      "description": "Byungki Ryu's research webpage for Thermoelectric Science Team at KERI",
+      "url": "https://byungkiryu.streamlit.app/",
+      "image": "",
+      "image_alt": "",
+      "order": 13,
+      "public": true
+    }
+  ],
+  "maps": {
+    "collaborations": [
+      {
+        "id": "collaboration-0001",
+        "name": "KERI",
+        "place": "Changwon, Korea",
+        "lat": 35.1898917,
+        "lon": 128.718154,
+        "description": "ThermoElectric Science",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 1,
+        "public": true
+      },
+      {
+        "id": "collaboration-0002",
+        "name": "KIMS",
+        "place": "Changwon, Korea",
+        "lat": 35.2149597,
+        "lon": 128.6770389,
+        "description": "Eun-Ae CHOI; Seungzeon HAN · Alloy design and interface structure",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 2,
+        "public": true
+      },
+      {
+        "id": "collaboration-0003",
+        "name": "Seoul National University",
+        "place": "Seoul, Korea",
+        "lat": 37.456275,
+        "lon": 126.950866,
+        "description": "Seungwu HAN · Machine Learning Potential",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 3,
+        "public": true
+      },
+      {
+        "id": "collaboration-0004",
+        "name": "KAIST",
+        "place": "Daejeon, Korea",
+        "lat": 36.3723596,
+        "lon": 127.358697,
+        "description": "Seunghwa RYU · Advanced TE Device",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 4,
+        "public": true
+      },
+      {
+        "id": "collaboration-0005",
+        "name": "DLR",
+        "place": "Koln, Germany",
+        "lat": 50.85522,
+        "lon": 7.11964,
+        "description": "Johannes de Boor; Pawel Ziolkowski; Eckhard Mueller · TGM characterization, silicide TE mater.",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 5,
+        "public": true
+      },
+      {
+        "id": "collaboration-0006",
+        "name": "University of Warwick",
+        "place": "Coventry, UK",
+        "lat": 52.38262,
+        "lon": -1.56124,
+        "description": "Neophytos Neophytou · TE transport",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 6,
+        "public": true
+      },
+      {
+        "id": "collaboration-0007",
+        "name": "Univ of Milano bicocca",
+        "place": "Milan, Italy",
+        "lat": 45.51244,
+        "lon": 9.21261,
+        "description": "Dario Narducci",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 7,
+        "public": true
+      },
+      {
+        "id": "collaboration-0008",
+        "name": "AIST",
+        "place": "Tsukuba, Japan",
+        "lat": 36.05369,
+        "lon": 140.11903,
+        "description": "Michihiro Ohta; Atsushi YAMAMOTO · TGM characterization",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 8,
+        "public": true
+      },
+      {
+        "id": "collaboration-0009",
+        "name": "NIMS",
+        "place": "Tsukuba, Japan",
+        "lat": 36.0646982,
+        "lon": 140.1204458,
+        "description": "Yukari Katsura · TE data and efficiency map",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 9,
+        "public": true
+      }
+    ],
+    "visits": [
+      {
+        "id": "visit-0001",
+        "name": "Cheorwon",
+        "place": "Cheorwon, South Korea",
+        "lat": 38.211815,
+        "lon": 127.21859,
+        "description": "born",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 1,
+        "public": true
+      },
+      {
+        "id": "visit-0002",
+        "name": "Changwon",
+        "place": "Changwon, South Korea",
+        "lat": 35.1898917,
+        "lon": 128.718154,
+        "description": "KERI",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 2,
+        "public": true
+      },
+      {
+        "id": "visit-0003",
+        "name": "Alburquerque",
+        "place": "Alburquerque, United States",
+        "lat": 35.11919,
+        "lon": -106.638927,
+        "description": "2007-07 · [ICDS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 3,
+        "public": true
+      },
+      {
+        "id": "visit-0004",
+        "name": "Hirhoshima",
+        "place": "Hirhoshima, Japan",
+        "lat": 34.39227,
+        "lon": 132.45434,
+        "description": "2007-11 · [Asian Workshop on E/S]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 4,
+        "public": true
+      },
+      {
+        "id": "visit-0005",
+        "name": "Montpellier",
+        "place": "Montpellier, France",
+        "lat": 43.6124789152093,
+        "lon": 3.87502932513372,
+        "description": "2008-08 · [NT'08], with AT Lee",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 5,
+        "public": true
+      },
+      {
+        "id": "visit-0006",
+        "name": "Kaohsiung",
+        "place": "Kaohsiung, Taiwan",
+        "lat": 22.5686785154203,
+        "lon": 120.369638158132,
+        "description": "2008-11 · [Asian Workshop on E/S]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 6,
+        "public": true
+      },
+      {
+        "id": "visit-0007",
+        "name": "Pittsburgh",
+        "place": "Pittsburgh, United States",
+        "lat": 40.4458609954278,
+        "lon": -79.9964147341124,
+        "description": "2009-03 · [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 7,
+        "public": true
+      },
+      {
+        "id": "visit-0008",
+        "name": "Saint Petersburg",
+        "place": "Saint Petersburg, Russia",
+        "lat": 59.9318321619651,
+        "lon": 30.3547900043198,
+        "description": "2009-08 · [ICDS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 8,
+        "public": true
+      },
+      {
+        "id": "visit-0009",
+        "name": "Beijing",
+        "place": "Beijing, China",
+        "lat": 39.9908529702975,
+        "lon": 116.304608750865,
+        "description": "2009-10 · [Asian Workshop on E/S]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 9,
+        "public": true
+      },
+      {
+        "id": "visit-0010",
+        "name": "Portland",
+        "place": "Portland, United States",
+        "lat": 45.5159711875315,
+        "lon": -122.663299175491,
+        "description": "2010-03 · [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 10,
+        "public": true
+      },
+      {
+        "id": "visit-0011",
+        "name": "Osaka",
+        "place": "Osaka, Japan",
+        "lat": 34.697861403327,
+        "lon": 135.500482386618,
+        "description": "2010-05 · GCOE conference",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 11,
+        "public": true
+      },
+      {
+        "id": "visit-0012",
+        "name": "Lisbon",
+        "place": "Lisbon, Portugal",
+        "lat": 38.7161687142263,
+        "lon": -9.14216502050765,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 12,
+        "public": true
+      },
+      {
+        "id": "visit-0013",
+        "name": "Madrid",
+        "place": "Madrid, Spain",
+        "lat": 40.4257304605425,
+        "lon": -3.7029134733883,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 13,
+        "public": true
+      },
+      {
+        "id": "visit-0014",
+        "name": "Sevilla",
+        "place": "Sevilla, Spain",
+        "lat": 37.3903084340339,
+        "lon": -6.00009416185186,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 14,
+        "public": true
+      },
+      {
+        "id": "visit-0015",
+        "name": "Ronda",
+        "place": "Ronda, Spain",
+        "lat": 36.746760616009,
+        "lon": -5.16132552666147,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 15,
+        "public": true
+      },
+      {
+        "id": "visit-0016",
+        "name": "Antequera",
+        "place": "Antequera, Spain",
+        "lat": 37.0204425488395,
+        "lon": -4.55896431170219,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 16,
+        "public": true
+      },
+      {
+        "id": "visit-0017",
+        "name": "Nerja",
+        "place": "Nerja, Spain",
+        "lat": 36.7505122533192,
+        "lon": -3.87083701724692,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 17,
+        "public": true
+      },
+      {
+        "id": "visit-0018",
+        "name": "Granada",
+        "place": "Granada, Spain",
+        "lat": 37.1826996049284,
+        "lon": -3.60118319224376,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 18,
+        "public": true
+      },
+      {
+        "id": "visit-0019",
+        "name": "Barcelona",
+        "place": "Barcelona, Spain",
+        "lat": 41.386686253144,
+        "lon": 2.15139634513363,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 19,
+        "public": true
+      },
+      {
+        "id": "visit-0020",
+        "name": "Amsterdam",
+        "place": "Amsterdam, Netherland",
+        "lat": 52.3715878926002,
+        "lon": 4.89049657231672,
+        "description": "2010-10 · honeymoon",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 20,
+        "public": true
+      },
+      {
+        "id": "visit-0021",
+        "name": "Baltimore",
+        "place": "Baltimore, United States",
+        "lat": 39.2856576225736,
+        "lon": -76.6164266019884,
+        "description": "2013-03 · [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 21,
+        "public": true
+      },
+      {
+        "id": "visit-0022",
+        "name": "Braunschweig",
+        "place": "Braunschweig, Germany",
+        "lat": 52.2719273005189,
+        "lon": 10.5244507051922,
+        "description": "2014-09 · Berlin, Germany & Warsaw, Poland (Sept 2014) [EMRS (business)]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 22,
+        "public": true
+      },
+      {
+        "id": "visit-0023",
+        "name": "Berlin",
+        "place": "Berlin, Germany",
+        "lat": 52.525440599559,
+        "lon": 13.4117469588773,
+        "description": "2014-09 · Berlin, Germany & Warsaw, Poland (Sept 2014) [EMRS (business)]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 23,
+        "public": true
+      },
+      {
+        "id": "visit-0024",
+        "name": "Krakow",
+        "place": "Krakow, Poland",
+        "lat": 50.0624285634846,
+        "lon": 19.9396327920016,
+        "description": "2014-09 · Berlin, Germany & Warsaw, Poland (Sept 2014) [EMRS (business)]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 24,
+        "public": true
+      },
+      {
+        "id": "visit-0025",
+        "name": "Warsaw",
+        "place": "Warsaw, Poland",
+        "lat": 52.2277650030683,
+        "lon": 20.9961932589191,
+        "description": "2014-09 · Berlin, Germany & Warsaw, Poland (Sept 2014) [EMRS (business)]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 25,
+        "public": true
+      },
+      {
+        "id": "visit-0026",
+        "name": "San Antonio",
+        "place": "San Antonio, United States",
+        "lat": 29.4275200669999,
+        "lon": -98.4840327936544,
+        "description": "2015-03 · [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 26,
+        "public": true
+      },
+      {
+        "id": "visit-0027",
+        "name": "Houston",
+        "place": "Houston, United States",
+        "lat": 29.7525721425933,
+        "lon": -95.358728560659,
+        "description": "2015-11 · Houston for ASME2015, Oakland for BerkeleyGW WS, US (Nov 2015) [business]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 27,
+        "public": true
+      },
+      {
+        "id": "visit-0028",
+        "name": "Oakland",
+        "place": "Oakland, United States",
+        "lat": 37.8024137568227,
+        "lon": -122.274208076652,
+        "description": "2015-11 · Houston for ASME2015, Oakland for BerkeleyGW WS, US (Nov 2015) [business]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 28,
+        "public": true
+      },
+      {
+        "id": "visit-0029",
+        "name": "Baltimore",
+        "place": "Baltimore, United States",
+        "lat": 39.2856576225736,
+        "lon": -76.6164266019884,
+        "description": "2016-03 · Baltimore, US (March 2016) [APS], Cincinnati, US [Cincinnati University, Prof. Bahk] // 15th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 29,
+        "public": true
+      },
+      {
+        "id": "visit-0030",
+        "name": "Bahk's group at Cincinnati Univ",
+        "place": "Cincinnati, United States",
+        "lat": 39.1051254404209,
+        "lon": -84.5142630075251,
+        "description": "2016-03 · Baltimore, US (March 2016) [APS], Cincinnati, US [Cincinnati University, Prof. Bahk] // 15th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 30,
+        "public": true
+      },
+      {
+        "id": "visit-0031",
+        "name": "Zagreb",
+        "place": "Zagreb, Croatia",
+        "lat": 45.8061881821708,
+        "lon": 15.9522463919101,
+        "description": "2016-09 · Croatia, Slovenia, (Sept 2016) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 31,
+        "public": true
+      },
+      {
+        "id": "visit-0032",
+        "name": "Bled",
+        "place": "Bled, Slovenia",
+        "lat": 46.3621678104263,
+        "lon": 14.0939601056546,
+        "description": "2016-09 · Croatia, Slovenia, (Sept 2016) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 32,
+        "public": true
+      },
+      {
+        "id": "visit-0033",
+        "name": "Postojna Cave",
+        "place": "Postojna, Slovenia",
+        "lat": 45.7834461531623,
+        "lon": 14.2041002768187,
+        "description": "2016-09 · Croatia, Slovenia, (Sept 2016) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 33,
+        "public": true
+      },
+      {
+        "id": "visit-0034",
+        "name": "Plitvička jezera",
+        "place": "Croatia",
+        "lat": 44.8824315717867,
+        "lon": 15.6189141890504,
+        "description": "2016-09 · Croatia, Slovenia, (Sept 2016) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 34,
+        "public": true
+      },
+      {
+        "id": "visit-0035",
+        "name": "Zadar",
+        "place": "Zadar, Croatia",
+        "lat": 44.1176140378845,
+        "lon": 15.2200375494929,
+        "description": "2016-09 · Croatia, Slovenia, (Sept 2016) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 35,
+        "public": true
+      },
+      {
+        "id": "visit-0036",
+        "name": "Split",
+        "place": "Split, Croatia",
+        "lat": 43.5089786540937,
+        "lon": 16.4412629462,
+        "description": "2016-09 · Croatia, Slovenia, (Sept 2016) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 36,
+        "public": true
+      },
+      {
+        "id": "visit-0037",
+        "name": "Mostar",
+        "place": "Mostar, 보스니아 헤르체고비나",
+        "lat": 43.3381679091892,
+        "lon": 17.8150595404409,
+        "description": "2016-09 · Croatia, Slovenia, (Sept 2016) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 37,
+        "public": true
+      },
+      {
+        "id": "visit-0038",
+        "name": "Dubrovnik",
+        "place": "Dubrovnik, Croatia",
+        "lat": 42.6407453153092,
+        "lon": 18.1072554684494,
+        "description": "2016-09 · Croatia, Slovenia, (Sept 2016) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 38,
+        "public": true
+      },
+      {
+        "id": "visit-0039",
+        "name": "Okinawa",
+        "place": "Okinawa, Japan",
+        "lat": 26.7024730607341,
+        "lon": 127.878045254618,
+        "description": "2017-01 · Okinawa (Jan 2017) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 39,
+        "public": true
+      },
+      {
+        "id": "visit-0040",
+        "name": "New Orleans",
+        "place": "New Orleans, United States",
+        "lat": 29.9511172211159,
+        "lon": -90.0758752560941,
+        "description": "2017-03 · New Orleans (March 2017) [APS], w/ EAC",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 40,
+        "public": true
+      },
+      {
+        "id": "visit-0041",
+        "name": "Puket",
+        "place": "Puket, Thailand",
+        "lat": 8.11639106020322,
+        "lon": 98.3067130312578,
+        "description": "2017-05 · Puket (May 2017) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 41,
+        "public": true
+      },
+      {
+        "id": "visit-0042",
+        "name": "Knappenberg",
+        "place": "Knappenberg, Austria",
+        "lat": 46.9378521011657,
+        "lon": 14.5639120221503,
+        "description": "2017-09 · Knappenberg, Austria & Pdova, Italy (Sept 2017) [GK TE workshop and ECT-2017] // 20th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 42,
+        "public": true
+      },
+      {
+        "id": "visit-0043",
+        "name": "Padova",
+        "place": "Padova, Italy",
+        "lat": 45.4094781701407,
+        "lon": 11.878060676424,
+        "description": "2017-09 · Knappenberg, Austria & Pdova, Italy (Sept 2017) [GK TE workshop and ECT-2017] // 20th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 43,
+        "public": true
+      },
+      {
+        "id": "visit-0044",
+        "name": "LA",
+        "place": "LA, United States",
+        "lat": 34.0388928891631,
+        "lon": -118.268156294997,
+        "description": "2018-03 · LA, US (March 2018) [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 44,
+        "public": true
+      },
+      {
+        "id": "visit-0045",
+        "name": "Caen",
+        "place": "Caen, France",
+        "lat": 49.1782613297956,
+        "lon": -0.370140655637774,
+        "description": "2018-07 · Caen, France & Köln, Germany (July 2018) [ICT-2018 & DLR visit]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 45,
+        "public": true
+      },
+      {
+        "id": "visit-0046",
+        "name": "DLR",
+        "place": "Koeln, Germany",
+        "lat": 50.943208510535,
+        "lon": 6.95847883153117,
+        "description": "2018-07 · Caen, France & Köln, Germany (July 2018) [ICT-2018 & DLR visit]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 46,
+        "public": true
+      },
+      {
+        "id": "visit-0047",
+        "name": "Kashiwa-si",
+        "place": "Kashiwa-si, Japan",
+        "lat": 35.8953202169018,
+        "lon": 139.952528290632,
+        "description": "2018-08 · Kashiwa campus, University of Tokyo, Kashiwa-si, Japan (Aug 2018) [To discuss TE material data with starryweb]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 47,
+        "public": true
+      },
+      {
+        "id": "visit-0048",
+        "name": "Boston",
+        "place": "Boston, United States",
+        "lat": 42.3454069544856,
+        "lon": -71.0470009117935,
+        "description": "2019-03 · Boston, US (March 2019) [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 48,
+        "public": true
+      },
+      {
+        "id": "visit-0049",
+        "name": "DLR",
+        "place": "Koeln, Germany",
+        "lat": 50.943208510535,
+        "lon": 6.95847883153117,
+        "description": "2019-04 · Koln, Germany (April-8 to April-24), for the international exchange between KERI and DLR // 25th oversea trip University of Warwick, UK (April-11 to April-13), to visit Prof. Neophytos Neophytou's group",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 49,
+        "public": true
+      },
+      {
+        "id": "visit-0050",
+        "name": "Univ of Warwick",
+        "place": "Coventry, United Kingdom",
+        "lat": 52.3826509796849,
+        "lon": -1.56708361785728,
+        "description": "2019-04 · Koln, Germany (April-8 to April-24), for the international exchange between KERI and DLR // 25th oversea trip University of Warwick, UK (April-11 to April-13), to visit Prof. Neophytos Neophytou's group",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 50,
+        "public": true
+      },
+      {
+        "id": "visit-0051",
+        "name": "셀포스 South Coast",
+        "place": "Selfoss, Iceland",
+        "lat": 63.9749974192781,
+        "lon": -21.0368082495424,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 51,
+        "public": true
+      },
+      {
+        "id": "visit-0052",
+        "name": "골든서클",
+        "place": "비크, Iceland",
+        "lat": 64.285172938596,
+        "lon": -21.074215656131,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 52,
+        "public": true
+      },
+      {
+        "id": "visit-0053",
+        "name": "남부지역",
+        "place": "회픈, Iceland",
+        "lat": 64.0020196359191,
+        "lon": -16.8801236464119,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 53,
+        "public": true
+      },
+      {
+        "id": "visit-0054",
+        "name": "동부피오르드",
+        "place": "에이일스타디르, Iceland",
+        "lat": 64.657997326235,
+        "lon": -14.2871601973726,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 54,
+        "public": true
+      },
+      {
+        "id": "visit-0055",
+        "name": "북부여행",
+        "place": "아쿠레이리, Iceland",
+        "lat": 65.8156618149447,
+        "lon": -16.3690028274948,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 55,
+        "public": true
+      },
+      {
+        "id": "visit-0056",
+        "name": "아쿠레이리",
+        "place": "아쿠레이리, Iceland",
+        "lat": 65.8741058569005,
+        "lon": -18.2009728879323,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 56,
+        "public": true
+      },
+      {
+        "id": "visit-0057",
+        "name": "초등학교 놀이터",
+        "place": "글라움베르, Iceland",
+        "lat": 65.6778763578462,
+        "lon": -20.2808497801829,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 57,
+        "public": true
+      },
+      {
+        "id": "visit-0058",
+        "name": "서부피오르드",
+        "place": "스나이펠스, Iceland",
+        "lat": 64.9278937337528,
+        "lon": -23.3133173462554,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 58,
+        "public": true
+      },
+      {
+        "id": "visit-0059",
+        "name": "랭요쿨",
+        "place": "레이캬비크, Iceland",
+        "lat": 64.1305010269195,
+        "lon": -21.9195466064298,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 59,
+        "public": true
+      },
+      {
+        "id": "visit-0060",
+        "name": "레이캬비크",
+        "place": "레이캬비크, Iceland",
+        "lat": 63.9721796373348,
+        "lon": -22.534168857816,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 60,
+        "public": true
+      },
+      {
+        "id": "visit-0061",
+        "name": "수오멘린나",
+        "place": "Helsinki, Finalnd",
+        "lat": 60.146177,
+        "lon": 24.988094,
+        "description": "2019-10 · Iceland (Oct 2019) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 61,
+        "public": true
+      },
+      {
+        "id": "visit-0062",
+        "name": "Las Vegas, NV",
+        "place": "Las Vegas, NV, United States",
+        "lat": 36.1198946514221,
+        "lon": -115.171454290643,
+        "description": "2023-03 · Las Vegas, NV, US (March 3-10, 2023) [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 62,
+        "public": true
+      },
+      {
+        "id": "visit-0063",
+        "name": "Seattle, WA",
+        "place": "Seattle, WA, United States",
+        "lat": 47.6186647654583,
+        "lon": -122.337190818217,
+        "description": "2023-06 · Seattle, WA, US (June 21-25, 2023) [ICT2023], Invited Talk",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 63,
+        "public": true
+      },
+      {
+        "id": "visit-0064",
+        "name": "Tokyo",
+        "place": "Tokyo, Japan",
+        "lat": 35.6788631151276,
+        "lon": 139.769607561744,
+        "description": "2023-08 · Tokyo (August 28 - September 2, 2023) [VACATION]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 64,
+        "public": true
+      },
+      {
+        "id": "visit-0065",
+        "name": "Prague",
+        "place": "Prague, Chech Republic",
+        "lat": 50.0854993826851,
+        "lon": 14.3797258889237,
+        "description": "2023-09 · Prague, Chezh Republic (September 16-21, 2023) [ECT2023], Oral talk // 30th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 65,
+        "public": true
+      },
+      {
+        "id": "visit-0066",
+        "name": "AIST",
+        "place": "Tsukuba, Japan",
+        "lat": 36.0825238366276,
+        "lon": 140.081502258322,
+        "description": "2023-09 · Tskuba and Koriyama, Japan (September 25 to October 6, 2023) [Tsukuba Conference 2023, VISIT AIST and RD20], invited by AIST",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 66,
+        "public": true
+      },
+      {
+        "id": "visit-0067",
+        "name": "Koriyama",
+        "place": "Koriyama, Japan",
+        "lat": 37.3978553267484,
+        "lon": 140.387044968476,
+        "description": "2023-09 · Tskuba and Koriyama, Japan (September 25 to October 6, 2023) [Tsukuba Conference 2023, VISIT AIST and RD20], invited by AIST",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 67,
+        "public": true
+      },
+      {
+        "id": "visit-0068",
+        "name": "Fukushima",
+        "place": "Fukushima, Japan",
+        "lat": 37.4519422559037,
+        "lon": 141.009338901935,
+        "description": "2023-09 · Tskuba and Koriyama, Japan (September 25 to October 6, 2023) [Tsukuba Conference 2023, VISIT AIST and RD20], invited by AIST",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 68,
+        "public": true
+      },
+      {
+        "id": "visit-0069",
+        "name": "Kyoto",
+        "place": "Kyoto, Japan",
+        "lat": 35.0036201668337,
+        "lon": 135.751038218006,
+        "description": "2024-12 · Kyoto, Japan (Dec 10-17, 2023) [MRM2023], Invited talk",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 69,
+        "public": true
+      },
+      {
+        "id": "visit-0070",
+        "name": "Minneapolis",
+        "place": "Minneapolis, United States",
+        "lat": 44.9698086941337,
+        "lon": -93.2739395804762,
+        "description": "2024-03 · Minneapolis, MN, US (March 4-8, 2024) [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 70,
+        "public": true
+      },
+      {
+        "id": "visit-0071",
+        "name": "Krakow",
+        "place": "Krakow, Poland",
+        "lat": 50.0624285634846,
+        "lon": 19.9396327920016,
+        "description": "2024-07 · [ICT2024]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 71,
+        "public": true
+      },
+      {
+        "id": "visit-0072",
+        "name": "London",
+        "place": "London, United Kingdom",
+        "lat": 51.51992842141,
+        "lon": -0.173963842776226,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 72,
+        "public": true
+      },
+      {
+        "id": "visit-0073",
+        "name": "Paris",
+        "place": "Paris, France",
+        "lat": 48.8812280302749,
+        "lon": 2.35547403564424,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 73,
+        "public": true
+      },
+      {
+        "id": "visit-0074",
+        "name": "Rigi",
+        "place": "Luzern, Switzland",
+        "lat": 47.050574894314,
+        "lon": 8.31040073321153,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 74,
+        "public": true
+      },
+      {
+        "id": "visit-0075",
+        "name": "Milano",
+        "place": "Milano, Italy",
+        "lat": 45.4871398741567,
+        "lon": 9.20536692887537,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 75,
+        "public": true
+      },
+      {
+        "id": "visit-0076",
+        "name": "Venezia",
+        "place": "Venezia, Italy",
+        "lat": 45.4372114872013,
+        "lon": 12.3266484782058,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 76,
+        "public": true
+      },
+      {
+        "id": "visit-0077",
+        "name": "Pisa",
+        "place": "Pisa, Italy",
+        "lat": 43.7234002811702,
+        "lon": 10.3967078023331,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 77,
+        "public": true
+      },
+      {
+        "id": "visit-0078",
+        "name": "Firenze",
+        "place": "Firenze, Italy",
+        "lat": 43.777440915414,
+        "lon": 11.2503227216075,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 78,
+        "public": true
+      },
+      {
+        "id": "visit-0079",
+        "name": "Rome",
+        "place": "Rome, Italy",
+        "lat": 41.8901809772537,
+        "lon": 12.5065891314483,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 79,
+        "public": true
+      },
+      {
+        "id": "visit-0080",
+        "name": "주바일 맹그로브",
+        "place": "Abu Dhabi, Arab Emirates",
+        "lat": 24.5459570426341,
+        "lon": 54.4854785141541,
+        "description": "2024-08 · Europe tour (London-Paris-Switzland-Milano-Venezia-Pisa-Firenze-Rome-Abu Dabi) (Aug, 2024) [VACATION] // 35th oversea trip",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 80,
+        "public": true
+      },
+      {
+        "id": "visit-0081",
+        "name": "Anaheim, CA",
+        "place": "Anaheim, CA, United States",
+        "lat": 33.7981824846057,
+        "lon": -117.914611697654,
+        "description": "2025-03 · [APS]",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 81,
+        "public": true
+      }
+    ]
+  },
+  "provenance": {
+    "source_repository": "https://github.com/byungkiryu/byungkiryu",
+    "source_commit": "23a1be7b36725e95268465599db9d23e3e10ca1c",
+    "import_date": "2026-11-08"
+  },
+  "events": [],
+  "home": {
+    "site_title": "Byungki Ryu · Thermo-Electric Science",
+    "site_description": "Thermoelectric science, materials physics, computation, data, and experiment.",
+    "site_subtitle": "Thermo-Electric Science · KERI",
+    "hero_kicker": "THERMO-ELECTRIC SCIENCE · KERI",
+    "hero_title": "Thermoelectric science,",
+    "hero_emphasis": "from atoms to applications.",
+    "hero_summary": "We investigate thermoelectric phenomena and the physics of materials, connecting fundamental understanding with energy conversion and thermal management.",
+    "hero_image": "",
+    "hero_image_alt": "",
+    "primary_label": "Explore publications",
+    "primary_url": "#publications",
+    "secondary_label": "About Byungki Ryu",
+    "secondary_url": "#about",
+    "research_heading": "Research directions",
+    "research_description": "We investigate thermoelectric phenomena and the physics of materials, connecting fundamental understanding with energy conversion and thermal management.",
+    "featured_publication_ids": "",
+    "footer_text": "Byungki Ryu · Thermo-Electric Science",
+    "footer_location": "Changwon, South Korea"
+  }
+}

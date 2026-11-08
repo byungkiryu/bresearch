@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Zotero CSV 준비 · bresearch</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#203b32;background:#f3f5ef;line-height:1.65;font-size:16px}*{box-sizing:border-box}body{margin:0}main{max-width:960px;margin:56px auto;padding:0 24px 56px}.brand{font-size:12px;font-weight:750;letter-spacing:.18em;text-transform:uppercase;color:#647b69}h1{font-size:clamp(30px,5vw,44px);line-height:1.25;letter-spacing:-.045em;margin:14px 0 18px}h2{font-size:22px;margin:4px 0 10px;letter-spacing:-.035em}.intro{max-width:740px;color:#51685d}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0;margin:32px 0;list-style:none;counter-reset:step}.steps li{border-top:1px solid #cdd7ca;padding-top:12px;font-size:14px}.steps li:before{counter-increment:step;content:"0" counter(step);display:block;color:#588253;font-weight:700;font-size:12px;margin-bottom:6px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{background:#fff;border:1px solid #d8e1d5;border-radius:16px;padding:28px;box-shadow:0 4px 16px #223f2a04}.eyebrow{font-size:12px;color:#66816b;letter-spacing:.1em;font-weight:700}.card p{font-size:14px;color:#5d7165}.file-label{display:block;font-size:13px;font-weight:650;margin:24px 0 8px}input[type=file]{width:100%;font-size:13px;color:#3c5448}input::file-selector-button{background:#edf2e9;border:1px solid #d1ddca;padding:10px 14px;border-radius:7px;color:#284831;font:inherit;font-weight:650;cursor:pointer;margin-right:10px}.status{min-height:76px;margin:18px 0 12px!important;font-size:13px!important;white-space:pre-line;overflow-wrap:anywhere}.status.error{color:#a43a2e}.download{display:block;width:100%;border:0;background:#285b3d;color:white;border-radius:8px;padding:13px 18px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}.download:disabled{background:#e3e9df;color:#7c8a7d;cursor:not-allowed}.download:not(:disabled):hover{background:#1b462d}:focus-visible{outline:3px solid #b2ce66;outline-offset:3px}.note{border-left:3px solid #98ad78;margin-top:26px;padding:4px 0 4px 17px;color:#506552;font-size:13px}.note strong{color:#284831}.foot{font-size:12px;color:#708374;margin-top:26px}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#eaf0e5;border-radius:4px;padding:2px 5px;font-size:.92em}@media(max-width:640px){main{margin:32px auto;padding:0 18px 36px}.cards{grid-template-columns:1fr}.card{padding:22px}.steps{gap:10px}.steps li{font-size:12px}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="brand">bresearch · content tools</div>
+  <h1>Zotero CSV를<br>홈페이지에 올릴 준비</h1>
+  <p class="intro">Zotero에서 내보낸 원본 CSV를 선택하면 홈페이지에 쓰는 17개 열만 남깁니다. 선택한 파일은 이 브라우저 안에서 처리하며, 원본 파일은 바뀌지 않습니다.</p>
+  <ol class="steps">
+    <li>Zotero에서 논문·발표를<br><strong>CSV로 내보내기</strong></li>
+    <li>아래에서 원본 선택 후<br><strong>준비된 CSV 다운로드</strong></li>
+    <li>GitHub 저장소의 <code>input/</code>에<br><strong>같은 이름으로 업로드</strong></li>
+  </ol>
+  <div class="cards">
+    <section class="card" aria-labelledby="papers-title">
+      <div class="eyebrow">01 / PUBLICATIONS</div>
+      <h2 id="papers-title">논문 CSV</h2>
+      <p>논문·도서·학술자료의 제목, 전체 저자, DOI, 태그 등을 유지합니다.</p>
+      <label class="file-label" for="papers">Zotero 원본 논문 CSV</label>
+      <input id="papers" type="file" accept=".csv,text/csv">
+      <p id="papers-status" class="status" role="status" aria-live="polite">파일을 선택하면 기록 수와 제외한 열 수가 표시됩니다.</p>
+      <button id="papers-download" class="download" disabled>논문 CSV 다운로드</button>
+    </section>
+    <section class="card" aria-labelledby="talks-title">
+      <div class="eyebrow">02 / PRESENTATIONS</div>
+      <h2 id="talks-title">발표 CSV</h2>
+      <p>발표 제목, 전체 저자, 학회명, 장소, 날짜와 발표 유형을 유지합니다.</p>
+      <label class="file-label" for="talks">Zotero 원본 발표 CSV</label>
+      <input id="talks" type="file" accept=".csv,text/csv">
+      <p id="talks-status" class="status" role="status" aria-live="polite">논문과 발표 중 필요한 파일만 준비해도 됩니다.</p>
+      <button id="talks-download" class="download" disabled>발표 CSV 다운로드</button>
+    </section>
+  </div>
+  <div class="note"><strong>공개할 내용을 한 번 확인하세요.</strong><br>Notes, Extra, 첨부파일 열과 PC의 파일 경로가 들어가는 첨부정보는 제외합니다. URL 열도 http·https 웹 주소만 유지합니다. 제목·저자·태그 등 남겨진 17개 열의 내용은 GitHub에 업로드하면 공개됩니다. 이 도구는 남겨진 문장 속 개인정보까지 찾아 지우지는 않습니다.</div>
+  <p class="foot">인터넷 연결 없이 사용할 수 있습니다. 파일을 서버로 전송하지 않으며, 준비된 CSV는 UTF-8 BOM 형식으로 저장됩니다. Zotero Key는 그대로 유지합니다.</p>
+</main>
+<script>
+"use strict";
+const FIELDS = ["Key", "Item Type", "Publication Year", "Author", "Title", "Date", "Publication Title", "DOI", "Url", "Pages", "Manual Tags", "Automatic Tags", "Meeting Name", "Place", "Type", "Volume", "Issue"];
+const REQUIRED = {
+  publication: ["Key", "Item Type", "Publication Year", "Author", "Title", "Date", "Publication Title", "DOI"],
+  presentation: ["Key", "Item Type", "Publication Year", "Author", "Title", "Date", "Meeting Name", "Place", "Type"]
+};
+const PUBLICATION_TYPES = new Set(["journalArticle", "conferencePaper", "thesis", "dataset", "book", "bookSection", "report", "preprint", "magazineArticle", "newspaperArticle"]);
+const OUTPUT_NAMES = {publication: "zotero-publications.csv", presentation: "zotero-presentations.csv"};
+
+function parseCsv(source) {
+  const text = source.replace(/^\uFEFF/, "");
+  const rows = [];
+  let row = [], cell = "", state = "start", line = 1;
+  function endCell() { row.push(cell); cell = ""; state = "start"; }
+  function endRow() { endCell(); rows.push(row); row = []; }
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (state === "quoted") {
+      if (c === '"') {
+        if (text[i + 1] === '"') { cell += '"'; i++; }
+        else state = "closed";
+      } else { cell += c; if (c === "\n") line++; }
+      continue;
+    }
+    if (c === ",") { endCell(); continue; }
+    if (c === "\n" || c === "\r") {
+      endRow();
+      if (c === "\r" && text[i + 1] === "\n") i++;
+      line++;
+      continue;
+    }
+    if (state === "closed") throw new Error(`CSV ${line}행의 닫는 따옴표 뒤에 잘못된 문자가 있습니다.`);
+    if (state === "start" && c === '"') state = "quoted";
+    else { cell += c; state = "plain"; }
+  }
+  if (state === "quoted") throw new Error("CSV의 따옴표가 닫히지 않았습니다.");
+  if (state !== "start" || cell || row.length) endRow();
+  return rows;
+}
+
+function publicUrl(value) {
+  if (!value.trim()) return value;
+  try {
+    // Require a literal web URL. Relative paths and local-file URLs are excluded.
+    if (!/^https?:\/\//i.test(value.trim()) || /^https?:\/\/[^/?#]*@/i.test(value.trim())) return "";
+    const url = new URL(value.trim());
+    if (["http:", "https:"].includes(url.protocol) && url.hostname && !url.username && !url.password) return value;
+  } catch (_) { /* An invalid URL is omitted. */ }
+  return "";
+}
+
+function csvCell(value) {
+  return /[",\r\n]/.test(value) ? '"' + value.replace(/"/g, '""') + '"' : value;
+}
+
+function prepareCsv(text, kind) {
+  if (!REQUIRED[kind]) throw new Error("파일 종류를 확인하세요.");
+  const records = parseCsv(text);
+  if (!records.length) throw new Error("CSV 파일이 비어 있습니다.");
+  const headers = records.shift();
+  if (new Set(headers).size !== headers.length) throw new Error("CSV 헤더에 중복된 열 이름이 있습니다.");
+  const missing = REQUIRED[kind].filter(key => !headers.includes(key)).sort();
+  if (missing.length) throw new Error("필수 열이 없습니다: " + missing.join(", "));
+  const indexes = FIELDS.map(key => headers.indexOf(key));
+  const keyIndex = headers.indexOf("Key"), typeIndex = headers.indexOf("Item Type");
+  const output = [], removedColumns = headers.filter(key => !FIELDS.includes(key));
+  let omittedUrls = 0;
+  for (let i = 0; i < records.length; i++) {
+    const row = records[i];
+    if (row.every(value => value === "")) continue;
+    if (row.length !== headers.length) throw new Error(`CSV ${i + 2}번째 기록의 열 개수가 헤더와 다릅니다.`);
+    if (!/^[A-Z0-9]{8}$/.test(row[keyIndex].trim())) throw new Error(`CSV ${i + 2}번째 기록의 Zotero Key를 확인하세요.`);
+    const type = row[typeIndex].trim();
+    if (kind === "publication" ? !PUBLICATION_TYPES.has(type) : type !== "presentation") throw new Error(`CSV ${i + 2}번째 기록의 Item Type이 선택한 파일 종류와 다릅니다.`);
+    const cells = indexes.map(index => index < 0 ? "" : row[index]);
+    const urlIndex = FIELDS.indexOf("Url"), originalUrl = cells[urlIndex];
+    cells[urlIndex] = publicUrl(originalUrl);
+    if (originalUrl && !cells[urlIndex]) omittedUrls++;
+    output.push(cells);
+  }
+  if (!output.length) throw new Error("CSV에 기록이 없습니다.");
+  const csv = "\uFEFF" + [FIELDS, ...output].map(row => row.map(csvCell).join(",")).join("\r\n") + "\r\n";
+  return {csv, records: output.length, removedColumns, omittedUrls};
+}
+
+if (typeof document !== "undefined") {
+  for (const [id, kind] of [["papers", "publication"], ["talks", "presentation"]]) {
+    const input = document.getElementById(id), status = document.getElementById(id + "-status"), button = document.getElementById(id + "-download");
+    let prepared = null, sequence = 0;
+    input.addEventListener("change", async () => {
+      const current = ++sequence;
+      prepared = null; button.disabled = true; status.classList.remove("error");
+      const file = input.files[0];
+      if (!file) { status.textContent = "원본 CSV 파일을 선택하세요."; return; }
+      status.textContent = "파일을 확인하고 있습니다…";
+      try {
+        const bytes = await file.arrayBuffer();
+        const text = new TextDecoder("utf-8", {fatal: true}).decode(bytes);
+        const result = prepareCsv(text, kind);
+        if (current !== sequence) return;
+        prepared = result.csv; button.disabled = false;
+        status.textContent = `${result.records}개 기록 · 17개 열 유지 · ${result.removedColumns.length}개 열 제외\n저장 이름: ${OUTPUT_NAMES[kind]}` + (result.omittedUrls ? `\n웹 주소가 아닌 URL ${result.omittedUrls}개 제외` : "");
+      } catch (error) {
+        if (current !== sequence) return;
+        status.classList.add("error");
+        status.textContent = error instanceof TypeError ? "UTF-8 CSV로 읽을 수 없습니다. Zotero에서 CSV로 다시 내보내 주세요." : error.message;
+      }
+    });
+    button.addEventListener("click", () => {
+      if (!prepared) return;
+      const url = URL.createObjectURL(new Blob([prepared], {type: "text/csv;charset=utf-8"}));
+      const link = document.createElement("a");
+      link.href = url; link.download = OUTPUT_NAMES[kind];
+      document.body.appendChild(link); link.click(); link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+  }
+}
+if (typeof module !== "undefined") module.exports = {FIELDS, parseCsv, prepareCsv, publicUrl};
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+# Reads input/content.xlsx. Editing the workbook requires no Python package.
+openpyxl==3.1.5

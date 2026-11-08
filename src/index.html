@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173e39">
+  <meta name="description" content="Byungki Ryu — thermoelectric science, materials, interfaces, and data-driven research at KERI.">
+  <title>Byungki Ryu · Thermo-Electric Science</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#research" aria-label="Byungki Ryu home">
+        <span class="brand-mark" aria-hidden="true">BR<span class="brand-dot"></span></span>
+        <span class="brand-copy"><strong>Byungki Ryu</strong><span>THERMO-ELECTRIC SCIENCE · KERI</span></span>
+      </a>
+      <a class="contact-link" href="mailto:byungkiryu@keri.re.kr">Get in touch <span class="arrow-up-right" aria-hidden="true"></span></a>
+    </div>
+    <div class="navigation-wrap">
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#research" data-page="research" aria-current="page">Research</a>
+        <a href="#people" data-page="people">People</a>
+        <a href="#publications" data-page="publications">Publications</a>
+        <a href="#presentations" data-page="presentations">Presentations</a>
+        <a href="#news" data-page="news">News</a>
+        <a href="#about" data-page="about">About BR</a>
+        <a href="#maps" data-page="maps">Maps</a>
+        <a href="#links" data-page="links">Link <span class="nav-detail">(Data / SW)</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="site-main" tabindex="-1">
+    <div class="loading-state"><span class="eyebrow">THERMO-ELECTRIC SCIENCE</span><h1>Opening the research archive.</h1><p>Loading publications, presentations, and research.</p></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="footer-monogram">BR.</span><div><strong>Byungki Ryu</strong><p>Thermo-Electric Science Group<br>Korea Electrotechnology Research Institute</p></div></div>
+      <div class="footer-links"><a href="mailto:byungkiryu@keri.re.kr">byungkiryu@keri.re.kr <span class="arrow-up-right" aria-hidden="true"></span></a><a href="https://github.com/byungkiryu" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow-up-right" aria-hidden="true"></span></a><span class="footer-location">Changwon, Republic of Korea</span></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Byungki Ryu</span><span>Materials. Transport. Understanding.</span></div>
+  </footer>
+
+  <dialog id="detail-dialog" class="detail-dialog" aria-label="Research record details">
+    <button id="dialog-close" class="dialog-close" aria-label="Close details" type="button">×</button>
+    <div id="detail-content" class="dialog-body"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <template id="lattice-visual">
+    <div class="lattice-panel">
+      <div class="lattice-overline"><span class="live-dot" aria-hidden="true"></span> FROM ATOMS TO APPLICATIONS</div>
+      <svg class="lattice-svg" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="transport-color" x1="70" y1="300" x2="400" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#c6b47c"/><stop offset=".53" stop-color="#8fb8a2"/><stop offset="1" stop-color="#7ec5c9"/></linearGradient>
+          <radialGradient id="lattice-glow"><stop stop-color="#76a9a0" stop-opacity=".17"/><stop offset="1" stop-color="#76a9a0" stop-opacity="0"/></radialGradient>
+          <pattern id="lattice-grid" x="0" y="0" width="37" height="37" patternUnits="userSpaceOnUse"><path d="M0 0H37M0 0V37" stroke="#adc8ba" stroke-opacity=".4" stroke-width=".8"/><circle cx="0" cy="0" r="3.2" fill="#d5d7bc"/></pattern>
+        </defs>
+        <circle cx="255" cy="190" r="175" fill="url(#lattice-glow)"/>
+        <path d="M46 274L249 330L459 179" stroke="#aac2b5" stroke-opacity=".15"/>
+        <path d="M47 235L249 291L459 140M47 196L249 252L459 101" stroke="#aac2b5" stroke-opacity=".08"/>
+        <g transform="matrix(.95 .28 -.55 .7 174 67)"><rect width="222" height="222" fill="url(#lattice-grid)" stroke="#bcd4c2" stroke-opacity=".55"/><path d="M0 0V222M37 0V222M74 0V222M111 0V222M148 0V222M185 0V222M222 0V222M0 0H222M0 37H222M0 74H222M0 111H222M0 148H222M0 185H222M0 222H222" stroke="#9ac2ad" stroke-opacity=".18"/></g>
+        <g transform="matrix(.95 .28 -.55 .7 174 105)"><rect width="222" height="222" fill="url(#lattice-grid)" stroke="#bcd4c2" stroke-opacity=".35"/></g>
+        <g transform="matrix(.95 .28 -.55 .7 174 143)"><rect width="222" height="222" fill="url(#lattice-grid)" stroke="#bcd4c2" stroke-opacity=".15"/></g>
+        <g stroke="#b8cfbb" stroke-opacity=".3"><path d="M174 67V143M385 129V205M52 222V298M263 284V360M209 77V153M244 88V164M279 98V174M314 108V184M349 119V195M154 93V169M133 119V195M113 145V221M93 171V247M72 196V272"/></g>
+        <path d="M68 274C109 231 119 239 152 200C184 161 190 186 225 159C262 130 280 146 310 118C337 93 358 104 399 73" stroke="url(#transport-color)" stroke-width="2.4"/>
+        <path d="M61 290C105 250 122 260 159 220C194 181 200 204 235 179C270 154 290 168 320 139C345 115 368 127 412 96" stroke="url(#transport-color)" stroke-opacity=".4" stroke-width="1"/>
+        <g fill="#e4dfb9"><circle cx="152" cy="200" r="5"/><circle cx="225" cy="159" r="5"/><circle cx="310" cy="118" r="5"/></g>
+        <g stroke="#c7ddcb" stroke-opacity=".6"><circle cx="225" cy="159" r="12"/><circle cx="225" cy="159" r="20" stroke-opacity=".15"/></g>
+        <path d="M399 73L395 85M399 73L387 76" stroke="#80c4c7" stroke-width="2"/>
+      </svg>
+      <div class="lattice-caption"><span class="lattice-properties">σ <i>·</i> S <i>·</i> κ</span><span>Composition & structure<br>to transport properties</span></div>
+    </div>
+  </template>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

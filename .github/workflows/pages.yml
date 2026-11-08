@@ -1,0 +1,144 @@
+name: Update and deploy homepage
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Keep the registry commit and its deployment together. A newer queued run
+# checks out the latest main, including IDs saved by the preceding run.
+concurrency:
+  group: github-pages-main
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: read
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install workbook reader
+        run: python -m pip install -r requirements.txt
+
+      - name: Run checks
+        run: python -m unittest discover -s tests -v
+
+      - name: Import content and build site
+        run: python scripts/update.py
+
+      - name: Show import diagnostics
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          # Log only actionable diagnostics, never source rows, titles, raw
+          # values, attachment fields, or local file paths from CSV exports.
+          fields = ("sheet", "row", "column", "code", "kind", "key", "candidates")
+          replacement_messages = {
+              "unknown_person_id": "사람 시트의 ID와 person_ids를 확인하세요.",
+              "unknown_featured_id": "선택 논문 ID를 data/identity-map.csv에서 확인하세요.",
+          }
+          for name in ("content-import-report.json", "zotero-import-report.json"):
+              path = Path("reports") / name
+              print(f"::group::{name}")
+              if not path.is_file():
+                  print("No report: this import stage was not reached.")
+                  print("::endgroup::")
+                  continue
+              if path.stat().st_size > 2_000_000:
+                  print("Report exceeds the log size limit; run update.py locally to inspect it.")
+                  print("::endgroup::")
+                  continue
+              try:
+                  report = json.loads(path.read_text(encoding="utf-8"))
+              except (OSError, ValueError):
+                  print("Report could not be read; consult the preceding failed step.")
+                  print("::endgroup::")
+                  continue
+              print(json.dumps({"status": report.get("status"), "counts": report.get("counts", {})}, ensure_ascii=False))
+              for category in ("errors", "pending", "warnings"):
+                  entries = report.get(category, [])
+                  print(f"{category}: {len(entries)}")
+                  for entry in entries[:30]:
+                      safe = {}
+                      for field in fields:
+                          if field in entry:
+                              value = entry[field]
+                              safe[field] = [str(x)[:160] for x in value[:20]] if isinstance(value, list) else str(value)[:400]
+                      if name == "content-import-report.json":
+                          safe["message"] = replacement_messages.get(entry.get("code"), entry.get("message", ""))[:600]
+                      print(json.dumps(safe, ensure_ascii=False))
+                  if len(entries) > 30:
+                      print(f"Showing first 30 of {len(entries)}; fix these and rerun, or inspect the local report.")
+              print("::endgroup::")
+          PY
+
+      - name: Preserve stable IDs and generated content
+        shell: bash
+        run: |
+          set -euo pipefail
+          built_from=$(git rev-parse HEAD)
+          git fetch origin main
+          latest_main=$(git rev-parse refs/remotes/origin/main)
+          if [ "$built_from" != "$latest_main" ]; then
+            echo '::error::main changed during the build. No generated files were pushed or deployed. The next run will build the newer main; otherwise choose Run workflow.'
+            exit 1
+          fi
+          git add -- \
+            data/registry.json \
+            data/identity-map.csv \
+            data/publications.json \
+            data/presentations.json \
+            data/import_report.json \
+            content/site.json \
+            content/items.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Update generated homepage data [skip ci]'
+            # Normal push also rejects a main change after the check above.
+            # Never force-push or rebase independently generated registry IDs.
+            git push origin HEAD:main
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload built site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
