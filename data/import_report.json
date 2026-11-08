@@ -12,14 +12,14 @@
     {
       "kind": "presentation",
       "filename": "zotero-presentations.csv",
-      "sha256": "f0040f3acfc6a39aaf4bd81c247c2024d766a15506648bbd53055de80838f3c2"
+      "sha256": "2840e24313582a8ea3655ef206bd09901a524823e98e9fa4129162e36986cea1"
     }
   ],
   "counts": {
     "publications": 106,
     "presentations": 159,
-    "new": 1,
-    "updated": 264,
+    "new": 0,
+    "updated": 265,
     "reconnected": 0,
     "missing": 0,
     "pending": 0,
@@ -27,9 +27,7 @@
     "doi_corrected": 0
   },
   "changes": {
-    "new": [
-      "talk-0159"
-    ],
+    "new": [],
     "updated": [
       "talk-0001",
       "talk-0002",
@@ -187,6 +185,7 @@
       "talk-0154",
       "talk-0155",
       "talk-0156",
+      "talk-0159",
       "talk-0157",
       "talk-0158",
       "pub-0001",
