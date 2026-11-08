@@ -758,9 +758,9 @@
     {
       "id": "news-20261108-workshop",
       "date": "2026-11-08",
-      "title": "Korean-German-Japanese Workshop on Thermoelectric Matters",
-      "body": "We will organize the Korean-German-Japanese Workshop on Thermoelectric Matters on November 20, 2026.\n\nThe workshop will bring together colleagues from Korea, Germany, and Japan:\n\n• IFW Dresden, Germany: Kornelius Nielsch, Heiko Reith, Nicolas Perez Rodriguez, Esteban Zuniga Puelles, and Irene Garcia Santamaria\n• Toyota Technological Institute, Japan: Tsunehiro Takeuchi\n• National Institute for Materials Science (NIMS), Japan: Yukari Katsura\n• National Institute of Advanced Industrial Science and Technology (AIST), Japan: Kazuki Imasato\n• Kyung Hee University, Korea: Jong-Soo Rhyee\n\nTogether with our thermoelectric research team at KERI, we will share recent research on thermoelectric materials, transport, devices, and data, and discuss opportunities for further collaboration.\n\nEveryone is welcome to join us!",
-      "url": "",
+      "title": "Korean-German-Japanese Small Workshop on Thermoelectric Matters",
+      "body": "We will organize the Korean-German-Japanese Small Workshop on Thermoelectric Matters at KERI in Changwon on November 20, 2026, as part of the visit program on November 19–21, 2026.\n\nThe workshop is tentatively scheduled for 09:00–16:20 on Friday, November 20. Each presentation is 20 minutes including Q&A.\n\nThe workshop will bring together colleagues from Korea, Germany, and Japan:\n\n• IFW Dresden, Germany: Kornelius Nielsch, Heiko Reith, Nicolas Perez Rodriguez, Esteban Zuniga Puelles, and Irene Garcia Santamaria\n• Toyota Technological Institute, Japan: Tsunehiro Takeuchi\n• National Institute for Materials Science (NIMS), Japan: Yukari Katsura\n• National Institute of Advanced Industrial Science and Technology (AIST), Japan: Kazuki Imasato\n• Kyung Hee University, Korea: Jong-Soo Rhyee\n\nTogether with our thermoelectric research team at KERI, we will share recent research on thermoelectric materials, transport, devices, and data, and discuss opportunities for further collaboration.\n\nEveryone is welcome to join us!",
+      "url": "https://byungkiryu.github.io/bresearch/events/2026-11-20/",
       "image": "",
       "image_alt": "",
       "featured": true,
@@ -2404,7 +2404,23 @@
     "source_commit": "23a1be7b36725e95268465599db9d23e3e10ca1c",
     "import_date": "2026-11-08"
   },
-  "events": [],
+  "events": [
+    {
+      "id": "event-20261120-thermoelectric-matters",
+      "title": "Korean-German-Japanese Small Workshop on Thermoelectric Matters",
+      "category": "Workshop",
+      "start_date": "2026-11-19",
+      "end_date": "2026-11-21",
+      "place": "KERI, Changwon, South Korea",
+      "description": "Workshop: November 20, 2026 (Friday), 09:00–16:20. Presentation schedule is tentative. Each presentation is 20 minutes including Q&A.",
+      "status": "Tentative",
+      "url": "https://byungkiryu.github.io/bresearch/events/2026-11-20/",
+      "image": "",
+      "image_alt": "",
+      "order": 1,
+      "public": true
+    }
+  ],
   "home": {
     "site_title": "Byungki Ryu · Thermo-Electric Science",
     "site_description": "Thermoelectric science, materials physics, computation, data, and experiment.",

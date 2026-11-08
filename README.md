@@ -56,6 +56,12 @@ GitHub 웹 화면에서는 폴더를 연 뒤 **Add file → Upload files**로 �
 
 사람 구분과 연구 소개에는 요청된 수정이 반영되어 있습니다. SH Oh, Nirma, Aadil은 Alumni이며 Dipanwita Bhattacharjee는 새 박사후연구원으로 표시합니다. Ji Hui SON 소개에는 thermoelectric data가 포함됩니다. 저자는 `et al.`로 줄이지 않고 입력된 전체 저자를 표시합니다.
 
+## 행사 전용 페이지
+
+행사별 안내와 프로그램은 `src/events/<행사주소>/index.html`에 보관합니다. 빌드하면 같은 경로의 `events/<행사주소>/`로 게시되므로, 행사 종료 뒤에도 파일을 유지하면 주소가 계속 유지됩니다. 각 페이지는 CSS와 인쇄 버튼을 포함한 독립 HTML입니다. 새 행사에는 폴더를 추가하고 제목·날짜·프로그램을 수정합니다.
+
+2026년 11월 20일 워크숍은 `src/events/2026-11-20/index.html`에서 관리하며, `https://byungkiryu.github.io/bresearch/events/2026-11-20/`에 게시됩니다. 화면의 **Print / Save as PDF**로 A4 세로 프로그램을 출력할 수 있습니다. 행사 상세 일정은 이 HTML에서 수정하고, 홈페이지 뉴스와 행사 목록의 제목·기간·링크는 `input/content.xlsx`에서 관리합니다. 인쇄 시 A4 세로, 배율 100%, 브라우저 머리글·바닥글 끄기를 사용합니다.
+
 ## Zotero 목록 갱신
 
 논문과 발표를 Zotero에서 각각 **CSV**로 내보냅니다. Zotero CSV에는 `Notes`, `Extra`, `File Attachments`, `Link Attachments`, 로컬 파일 경로가 포함될 수 있으므로 **원본을 공개 저장소에 바로 올리지 않습니다.**

@@ -67,6 +67,20 @@ def prepare_assets(payload):
     return visit(payload), copies
 
 
+def copy_event_pages(out):
+    """Publish standalone, self-contained event pages at stable URLs."""
+    destination = out / "events"
+    if destination.exists():
+        shutil.rmtree(destination)
+    pages = []
+    for source in sorted((ROOT / "src/events").glob("*/index.html")):
+        target = destination / source.parent.name / "index.html"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+        pages.append(target.relative_to(out).as_posix())
+    return pages
+
+
 def build():
     site = public_site(read_json("content/site.json"))
     curated = read_json("content/items.json")
@@ -114,7 +128,8 @@ def build():
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
     (out / "index.html").write_text(html, encoding="utf-8")
-    print(json.dumps({"output": "dist/index.html", "publications": len(publications), "presentations": len(presentations), "people": len(site["people"]), "bytes": len(html.encode("utf-8"))}, ensure_ascii=False))
+    event_pages = copy_event_pages(out)
+    print(json.dumps({"output": "dist/index.html", "event_pages": event_pages, "publications": len(publications), "presentations": len(presentations), "people": len(site["people"]), "bytes": len(html.encode("utf-8"))}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

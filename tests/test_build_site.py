@@ -9,6 +9,28 @@ SPEC.loader.exec_module(build_site)
 
 
 class PublicBuildTests(unittest.TestCase):
+    def test_standalone_event_pages_keep_urls_without_publishing_source_notes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / 'src/events/2026-11-20'
+            source.mkdir(parents=True)
+            html = '<!doctype html><title>Workshop</title><p>α-MgAgSb · Sb₂Te₃</p>'
+            (source / 'index.html').write_text(html, encoding='utf-8')
+            (source / 'draft-notes.txt').write_text('private editorial note')
+            out = root / 'dist'
+            stale = out / 'events/old-event'
+            stale.mkdir(parents=True)
+            (stale / 'index.html').write_text('removed event')
+            old = build_site.ROOT
+            build_site.ROOT = root
+            try:
+                pages = build_site.copy_event_pages(out)
+            finally:
+                build_site.ROOT = old
+            self.assertEqual(pages, ['events/2026-11-20/index.html'])
+            self.assertEqual((out / pages[0]).read_text(encoding='utf-8'), html)
+            self.assertEqual([p.relative_to(out).as_posix() for p in out.rglob('*') if p.is_file()], pages)
+
     def test_hidden_content_and_profile_scalars_are_removed(self):
         source = {'people': [{'id': 'a', 'public': False}, {'id': 'b'}],
                   'events': [{'id': 'e', 'public': False}],
