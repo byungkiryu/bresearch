@@ -159,6 +159,41 @@ class ContentPipelineTests(unittest.TestCase):
         self.assertEqual(records[0]["id"], "pub-0001")
         self.assertNotIn("PRIVATE VALUE", (self.root / "data/registry.json").read_text())
 
+    def test_visit_without_coordinates_keeps_record_and_warns(self):
+        self.rows["위치"] = [{"id": "visit-0001", "group": "visits", "name": "Chiba",
+                              "description": "2026-03 · Vacation"},
+                             {"id": "visit-0002", "group": "visits", "name": "Equator",
+                              "lat": 0, "lon": 0}]
+        self.write_workbook()
+        site, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+        self.assertEqual(report["status"], "ok", report)
+        self.assertEqual(len(site["maps"]["visits"]), 2)
+        self.assertIsNone(site["maps"]["visits"][0]["lat"])
+        self.assertIsNone(site["maps"]["visits"][0]["lon"])
+        self.assertEqual(site["maps"]["visits"][0]["description"], "2026-03 · Vacation")
+        self.assertEqual((site["maps"]["visits"][1]["lat"], site["maps"]["visits"][1]["lon"]), (0, 0))
+        self.assertEqual([x["code"] for x in report["warnings"]], ["unconfirmed_coordinates"])
+
+    def test_partial_or_invalid_visit_coordinates_fail(self):
+        for coordinates in ({"lat": 35}, {"lon": 140}, {"lat": 91, "lon": 140},
+                            {"lat": 35, "lon": -181}, {"lat": "unknown", "lon": "unknown"}):
+            with self.subTest(coordinates=coordinates):
+                self.rows["위치"] = [{"id": "visit-0001", "group": "visits", "name": "Visit", **coordinates}]
+                self.write_workbook()
+                _, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+                self.assertNotEqual(report["status"], "ok", report)
+                self.assertIn("missing_location", {x["code"] for x in report["errors"]})
+                self.assertNotIn("unconfirmed_coordinates", {x["code"] for x in report["warnings"]})
+
+    def test_collaborations_need_coordinates_and_visits_need_names(self):
+        for location in ({"id": "collaboration-0001", "group": "collaborations", "name": "Institute"},
+                         {"id": "visit-0001", "group": "visits", "lat": 35, "lon": 140}):
+            with self.subTest(location=location):
+                self.rows["위치"] = [location]
+                self.write_workbook()
+                _, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+                self.assertIn("missing_location", {x["code"] for x in report["errors"]})
+
     def test_invalid_workbook_preserves_every_output(self):
         self.rows["논문해설"][0]["id"] = "pub-9999"
         self.write_workbook()

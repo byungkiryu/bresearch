@@ -327,8 +327,14 @@ def convert_workbook(workbook, root=ROOT, data_dir=None):
         if group not in {"collaborations", "visits"}:
             reader.issue(ctx, "group", "collaborations 또는 visits를 입력하세요.", "invalid_location_group")
             continue
-        if not record["name"] or record["lat"] is None or record["lon"] is None:
-            reader.issue(ctx, "name/lat/lon", "위치 이름과 위도·경도가 필요합니다.", "missing_location")
+        if not record["name"]:
+            reader.issue(ctx, "name", "위치 이름이 필요합니다.", "missing_location")
+        if group == "visits" and not _text(row["lat"]) and not _text(row["lon"]):
+            reader.issue(ctx, "lat/lon", "좌표 미확인: 방문 목록에는 표시하고 지도에는 표시하지 않습니다.",
+                         "unconfirmed_coordinates", warning=True)
+        elif record["lat"] is None or record["lon"] is None:
+            reader.issue(ctx, "lat/lon", "위도와 경도를 함께 입력하세요. 방문 기록은 둘 다 비울 수 있습니다.",
+                         "missing_location")
         site["maps"][group].append(record)
     people = {x["id"] for x in site["people"]}
     events = {x["id"] for x in site["events"]}

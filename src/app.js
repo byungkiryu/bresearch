@@ -333,8 +333,11 @@
     });
     return polygons.map(polygon => `<path d="${polygon.map(ring => ring.map((coordinate, index) => `${index ? 'L' : 'M'}${projectPoint(...coordinate).map(value => value.toFixed(1)).join(',')}`).join('') + 'Z').join('')}"/>`).join('');
   }
+  function hasMapCoordinates(point) {
+    return [point.lat, point.lon].every(value => value !== null && value !== undefined && String(value).trim() !== '' && Number.isFinite(Number(value))) && Math.abs(Number(point.lat)) <= 90 && Math.abs(Number(point.lon)) <= 180;
+  }
   function mapRows() {
-    return publicRows((site.maps || {})[state.maps.mode]).filter(point => Number.isFinite(Number(point.lat)) && Number.isFinite(Number(point.lon)) && point.lat !== null && point.lon !== null && Math.abs(Number(point.lat)) <= 90 && Math.abs(Number(point.lon)) <= 180 && normalize([point.name, point.place, point.description].join(' ')).includes(normalize(state.maps.query)));
+    return publicRows((site.maps || {})[state.maps.mode]).filter(point => normalize([point.name, point.place, point.description].join(' ')).includes(normalize(state.maps.query)));
   }
   function renderMaps() {
     app.innerHTML = heading('SCIENTIFIC EXCHANGE', 'Research around the world', 'Explore collaboration locations and places visited.') + `<div class="map-controls">${chips(['Collaborations', 'Visits'], state.maps.mode === 'collaborations' ? 'Collaborations' : 'Visits', 'data-map-mode')}<label class="search-field map-search"><span class="visually-hidden">Search locations</span><input type="search" data-map-search placeholder="Search an institution or place…" value="${esc(state.maps.query)}"></label></div><div class="map-panel"><div id="map-canvas" class="world-map"></div><div class="map-count" id="map-count" role="status"></div></div><div class="map-layout"><div id="map-detail" class="map-detail"></div><div id="map-list" class="map-list"></div></div>`;
@@ -345,7 +348,7 @@
     if (!points.some(point => point.id === state.maps.selected)) state.maps.selected = points[0]?.id || null;
     const selected = points.find(point => point.id === state.maps.selected);
     const groups = new Map();
-    for (const point of points) {
+    for (const point of points.filter(hasMapCoordinates)) {
       const key = `${Number(point.lat).toFixed(2)},${Number(point.lon).toFixed(2)}`;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(point);
@@ -358,9 +361,11 @@
     }).join('');
     const grid = [-120, -60, 0, 60, 120].map(lon => `<path d="M${projectPoint(lon, 90)[0]},0V480"/>`).join('') + [-60, -30, 0, 30, 60].map(lat => `<path d="M0,${projectPoint(-180, lat)[1]}H960"/>`).join('');
     document.getElementById('map-canvas').innerHTML = `<svg viewBox="0 0 960 480" role="group" aria-label="${state.maps.mode === 'collaborations' ? 'Collaboration' : 'Visit'} locations. Select a point or use the location list."><rect class="map-ocean" width="960" height="480"/><g class="map-grid">${grid}</g><g class="map-land">${landPaths()}</g><g class="map-markers">${markers}</g></svg>`;
-    document.getElementById('map-count').textContent = `${points.length} ${state.maps.mode === 'collaborations' ? 'collaboration records' : 'visit records'} · ${groups.size} mapped locations`;
-    document.getElementById('map-detail').innerHTML = selected ? `<p class="eyebrow">SELECTED LOCATION</p><h2>${esc(selected.name)}</h2>${selected.place ? `<p>${esc(selected.place)}</p>` : ''}${selected.description ? `<p class="quiet long-text">${esc(selected.description)}</p>` : ''}${contentImage(selected.image, selected.image_alt || '')}<p class="quiet small">${Math.abs(Number(selected.lat)).toFixed(2)}° ${Number(selected.lat) >= 0 ? 'N' : 'S'} · ${Math.abs(Number(selected.lon)).toFixed(2)}° ${Number(selected.lon) >= 0 ? 'E' : 'W'}</p>${external('Related link', selected.url)}${external('View on OpenStreetMap', `https://www.openstreetmap.org/?mlat=${encodeURIComponent(selected.lat)}&mlon=${encodeURIComponent(selected.lon)}#map=12/${encodeURIComponent(selected.lat)}/${encodeURIComponent(selected.lon)}`)}` : empty('No matching locations');
-    document.getElementById('map-list').innerHTML = points.map(point => `<button type="button" class="map-list-item${point.id === state.maps.selected ? ' is-selected' : ''}" data-select-map="${esc(point.id)}" aria-pressed="${point.id === state.maps.selected}"><strong>${esc(point.name)}</strong><span>${esc(point.place || point.description || '')}</span><span class="arrow-up-right" aria-hidden="true"></span></button>`).join('');
+    const unmapped = points.filter(point => !hasMapCoordinates(point)).length;
+    document.getElementById('map-count').textContent = `${points.length} ${state.maps.mode === 'collaborations' ? 'collaboration records' : 'visit records'} · ${groups.size} mapped locations${unmapped ? ` · ${unmapped} coordinates unconfirmed (미확인)` : ''}`;
+    const coordinates = selected && hasMapCoordinates(selected) ? `<p class="quiet small">${Math.abs(Number(selected.lat)).toFixed(2)}° ${Number(selected.lat) >= 0 ? 'N' : 'S'} · ${Math.abs(Number(selected.lon)).toFixed(2)}° ${Number(selected.lon) >= 0 ? 'E' : 'W'}</p>${external('View on OpenStreetMap', `https://www.openstreetmap.org/?mlat=${encodeURIComponent(selected.lat)}&mlon=${encodeURIComponent(selected.lon)}#map=12/${encodeURIComponent(selected.lat)}/${encodeURIComponent(selected.lon)}`)}` : '<p class="quiet small">Coordinates unconfirmed (미확인) · This visit is listed without a map marker.</p>';
+    document.getElementById('map-detail').innerHTML = selected ? `<p class="eyebrow">SELECTED LOCATION</p><h2>${esc(selected.name)}</h2>${selected.place ? `<p>${esc(selected.place)}</p>` : ''}${selected.description ? `<p class="quiet long-text">${esc(selected.description)}</p>` : ''}${contentImage(selected.image, selected.image_alt || '')}${coordinates}${external('Related link', selected.url)}` : empty('No matching locations');
+    document.getElementById('map-list').innerHTML = points.length ? points.map(point => `<button type="button" class="map-list-item${point.id === state.maps.selected ? ' is-selected' : ''}" data-select-map="${esc(point.id)}" aria-pressed="${point.id === state.maps.selected}"><strong>${esc(point.name)}</strong><span>${esc(point.place || '')}</span>${state.maps.mode === 'visits' && point.description ? `<span>${esc(point.description.split('\n')[0])}</span>` : ''}${!hasMapCoordinates(point) ? '<span>Coordinates unconfirmed (미확인)</span>' : ''}<span class="arrow-up-right" aria-hidden="true"></span></button>`).join('') : empty('No matching locations');
     app.querySelectorAll('[data-map-mode]').forEach(button => {
       const active = (button.dataset.mapMode === 'Collaborations' ? 'collaborations' : 'visits') === state.maps.mode;
       button.classList.toggle('is-active', active);
