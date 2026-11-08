@@ -1072,6 +1072,45 @@
         "public": true
       },
       {
+        "id": "visit-0097",
+        "name": "Wonju",
+        "place": "Wonju, South Korea",
+        "lat": null,
+        "lon": null,
+        "description": "Education\n\nKangwon Science High School\n\nCoordinates unconfirmed (미확인).",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 2,
+        "public": true
+      },
+      {
+        "id": "visit-0098",
+        "name": "Daejeon",
+        "place": "Daejeon, South Korea",
+        "lat": null,
+        "lon": null,
+        "description": "Education\n\nKAIST\n\nCoordinates unconfirmed (미확인).",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 3,
+        "public": true
+      },
+      {
+        "id": "visit-0099",
+        "name": "Hwasung",
+        "place": "Hwasung, South Korea",
+        "lat": null,
+        "lon": null,
+        "description": "Experience\n\nSamsung Electronics - Samsung Advanced Institute of Technology\n\nCoordinates unconfirmed (미확인).",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 4,
+        "public": true
+      },
+      {
         "id": "visit-0002",
         "name": "Changwon",
         "place": "Changwon, South Korea",
@@ -1081,7 +1120,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 2,
+        "order": 5,
         "public": true
       },
       {
@@ -1094,7 +1133,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 3,
+        "order": 6,
         "public": true
       },
       {
@@ -1107,7 +1146,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 4,
+        "order": 7,
         "public": true
       },
       {
@@ -1120,7 +1159,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 5,
+        "order": 8,
         "public": true
       },
       {
@@ -1133,7 +1172,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 6,
+        "order": 9,
         "public": true
       },
       {
@@ -1146,7 +1185,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 7,
+        "order": 10,
         "public": true
       },
       {
@@ -1159,7 +1198,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 8,
+        "order": 11,
         "public": true
       },
       {
@@ -1172,7 +1211,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 9,
+        "order": 12,
         "public": true
       },
       {
@@ -1185,7 +1224,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 10,
+        "order": 13,
         "public": true
       },
       {
@@ -1198,7 +1237,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 11,
+        "order": 14,
         "public": true
       },
       {
@@ -1211,7 +1250,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 12,
+        "order": 15,
         "public": true
       },
       {
@@ -1224,7 +1263,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 13,
+        "order": 16,
         "public": true
       },
       {
@@ -1237,7 +1276,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 14,
+        "order": 17,
         "public": true
       },
       {
@@ -1250,7 +1289,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 15,
+        "order": 18,
         "public": true
       },
       {
@@ -1263,7 +1302,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 16,
+        "order": 19,
         "public": true
       },
       {
@@ -1276,7 +1315,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 17,
+        "order": 20,
         "public": true
       },
       {
@@ -1289,7 +1328,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 18,
+        "order": 21,
         "public": true
       },
       {
@@ -1302,7 +1341,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 19,
+        "order": 22,
         "public": true
       },
       {
@@ -1315,7 +1354,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 20,
+        "order": 23,
         "public": true
       },
       {
@@ -1328,7 +1367,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 21,
+        "order": 24,
         "public": true
       },
       {
@@ -1341,7 +1380,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 22,
+        "order": 25,
         "public": true
       },
       {
@@ -1354,7 +1393,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 23,
+        "order": 26,
         "public": true
       },
       {
@@ -1367,7 +1406,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 24,
+        "order": 27,
         "public": true
       },
       {
@@ -1380,7 +1419,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 25,
+        "order": 28,
         "public": true
       },
       {
@@ -1393,7 +1432,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 26,
+        "order": 29,
         "public": true
       },
       {
@@ -1406,7 +1445,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 27,
+        "order": 30,
         "public": true
       },
       {
@@ -1419,7 +1458,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 28,
+        "order": 31,
         "public": true
       },
       {
@@ -1432,7 +1471,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 29,
+        "order": 32,
         "public": true
       },
       {
@@ -1445,7 +1484,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 30,
+        "order": 33,
         "public": true
       },
       {
@@ -1458,7 +1497,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 31,
+        "order": 34,
         "public": true
       },
       {
@@ -1471,7 +1510,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 32,
+        "order": 35,
         "public": true
       },
       {
@@ -1484,7 +1523,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 33,
+        "order": 36,
         "public": true
       },
       {
@@ -1497,7 +1536,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 34,
+        "order": 37,
         "public": true
       },
       {
@@ -1510,7 +1549,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 35,
+        "order": 38,
         "public": true
       },
       {
@@ -1523,7 +1562,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 36,
+        "order": 39,
         "public": true
       },
       {
@@ -1536,7 +1575,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 37,
+        "order": 40,
         "public": true
       },
       {
@@ -1549,7 +1588,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 38,
+        "order": 41,
         "public": true
       },
       {
@@ -1562,7 +1601,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 39,
+        "order": 42,
         "public": true
       },
       {
@@ -1575,7 +1614,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 40,
+        "order": 43,
         "public": true
       },
       {
@@ -1588,7 +1627,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 41,
+        "order": 44,
         "public": true
       },
       {
@@ -1601,7 +1640,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 42,
+        "order": 45,
         "public": true
       },
       {
@@ -1614,7 +1653,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 43,
+        "order": 46,
         "public": true
       },
       {
@@ -1627,7 +1666,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 44,
+        "order": 47,
         "public": true
       },
       {
@@ -1640,7 +1679,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 45,
+        "order": 48,
         "public": true
       },
       {
@@ -1653,7 +1692,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 46,
+        "order": 49,
         "public": true
       },
       {
@@ -1666,7 +1705,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 47,
+        "order": 50,
         "public": true
       },
       {
@@ -1679,7 +1718,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 48,
+        "order": 51,
         "public": true
       },
       {
@@ -1692,7 +1731,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 49,
+        "order": 52,
         "public": true
       },
       {
@@ -1705,7 +1744,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 50,
+        "order": 53,
         "public": true
       },
       {
@@ -1718,7 +1757,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 51,
+        "order": 54,
         "public": true
       },
       {
@@ -1731,7 +1770,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 52,
+        "order": 55,
         "public": true
       },
       {
@@ -1744,7 +1783,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 53,
+        "order": 56,
         "public": true
       },
       {
@@ -1757,7 +1796,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 54,
+        "order": 57,
         "public": true
       },
       {
@@ -1770,7 +1809,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 55,
+        "order": 58,
         "public": true
       },
       {
@@ -1783,7 +1822,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 56,
+        "order": 59,
         "public": true
       },
       {
@@ -1796,7 +1835,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 57,
+        "order": 60,
         "public": true
       },
       {
@@ -1809,7 +1848,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 58,
+        "order": 61,
         "public": true
       },
       {
@@ -1822,7 +1861,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 59,
+        "order": 62,
         "public": true
       },
       {
@@ -1835,7 +1874,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 60,
+        "order": 63,
         "public": true
       },
       {
@@ -1848,7 +1887,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 61,
+        "order": 64,
         "public": true
       },
       {
@@ -1861,7 +1900,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 62,
+        "order": 65,
         "public": true
       },
       {
@@ -1874,7 +1913,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 63,
+        "order": 66,
         "public": true
       },
       {
@@ -1887,7 +1926,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 64,
+        "order": 67,
         "public": true
       },
       {
@@ -1900,7 +1939,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 65,
+        "order": 68,
         "public": true
       },
       {
@@ -1913,7 +1952,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 66,
+        "order": 69,
         "public": true
       },
       {
@@ -1926,7 +1965,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 67,
+        "order": 70,
         "public": true
       },
       {
@@ -1939,7 +1978,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 68,
+        "order": 71,
         "public": true
       },
       {
@@ -1952,7 +1991,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 69,
+        "order": 72,
         "public": true
       },
       {
@@ -1965,7 +2004,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 70,
+        "order": 73,
         "public": true
       },
       {
@@ -1978,7 +2017,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 71,
+        "order": 74,
         "public": true
       },
       {
@@ -1991,7 +2030,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 72,
+        "order": 75,
         "public": true
       },
       {
@@ -2004,7 +2043,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 73,
+        "order": 76,
         "public": true
       },
       {
@@ -2017,7 +2056,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 74,
+        "order": 77,
         "public": true
       },
       {
@@ -2030,7 +2069,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 75,
+        "order": 78,
         "public": true
       },
       {
@@ -2043,7 +2082,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 76,
+        "order": 79,
         "public": true
       },
       {
@@ -2056,7 +2095,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 77,
+        "order": 80,
         "public": true
       },
       {
@@ -2069,7 +2108,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 78,
+        "order": 81,
         "public": true
       },
       {
@@ -2082,7 +2121,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 79,
+        "order": 82,
         "public": true
       },
       {
@@ -2095,7 +2134,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 80,
+        "order": 83,
         "public": true
       },
       {
@@ -2108,7 +2147,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 81,
+        "order": 84,
         "public": true
       },
       {
@@ -2121,7 +2160,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 82,
+        "order": 85,
         "public": true
       },
       {
@@ -2134,7 +2173,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 83,
+        "order": 86,
         "public": true
       },
       {
@@ -2147,7 +2186,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 84,
+        "order": 87,
         "public": true
       },
       {
@@ -2160,7 +2199,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 85,
+        "order": 88,
         "public": true
       },
       {
@@ -2173,7 +2212,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 86,
+        "order": 89,
         "public": true
       },
       {
@@ -2186,7 +2225,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 87,
+        "order": 90,
         "public": true
       },
       {
@@ -2199,7 +2238,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 88,
+        "order": 91,
         "public": true
       },
       {
@@ -2212,7 +2251,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 89,
+        "order": 92,
         "public": true
       },
       {
@@ -2225,7 +2264,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 90,
+        "order": 93,
         "public": true
       },
       {
@@ -2238,7 +2277,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 91,
+        "order": 94,
         "public": true
       },
       {
@@ -2251,7 +2290,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 92,
+        "order": 95,
         "public": true
       },
       {
@@ -2264,7 +2303,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 93,
+        "order": 96,
         "public": true
       },
       {
@@ -2277,7 +2316,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 94,
+        "order": 97,
         "public": true
       },
       {
@@ -2290,7 +2329,7 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 95,
+        "order": 98,
         "public": true
       },
       {
@@ -2303,7 +2342,59 @@
         "url": "",
         "image": "",
         "image_alt": "",
-        "order": 96,
+        "order": 99,
+        "public": true
+      },
+      {
+        "id": "visit-0100",
+        "name": "Sendai",
+        "place": "Sendai, Japan",
+        "lat": null,
+        "lon": null,
+        "description": "2027-04 · Planned · Vacation\n\nCoordinates unconfirmed (미확인).",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 100,
+        "public": true
+      },
+      {
+        "id": "visit-0101",
+        "name": "Atlanta",
+        "place": "Atlanta, United States",
+        "lat": null,
+        "lon": null,
+        "description": "2027-04 · Planned · Business\n\n[APS]\n\nCoordinates unconfirmed (미확인).",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 101,
+        "public": true
+      },
+      {
+        "id": "visit-0102",
+        "name": "Torremolinos",
+        "place": "Torremolinos, Spain",
+        "lat": null,
+        "lon": null,
+        "description": "2027-06 · Planned · Business\n\n[ICT]\n\nCoordinates unconfirmed (미확인).",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 102,
+        "public": true
+      },
+      {
+        "id": "visit-0103",
+        "name": "Sendai",
+        "place": "Sendai, Japan",
+        "lat": null,
+        "lon": null,
+        "description": "2027-07 · Planned · Business\n\n[IMR, Tohoku University]\n\nCoordinates unconfirmed (미확인).",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 103,
         "public": true
       }
     ]
