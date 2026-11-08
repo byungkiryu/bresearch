@@ -2,7 +2,7 @@
   "schema_version": 1,
   "next_ids": {
     "publication": 107,
-    "presentation": 159
+    "presentation": 160
   },
   "records": [
     {
@@ -10432,11 +10432,14 @@
           "Wani, Aadil Fayaz",
           "Son, Ji Hui",
           "Park, Jongho",
-          "Jang, Jeongin"
+          "Jang, Jeongin",
+          "CHUNG, Jaywan",
+          "Park, SuDong",
+          "Ryu, Byungki"
         ],
         "year": 2026,
         "date": "2026-07",
-        "venue": "Nano Korea 2025",
+        "venue": "Nano Korea 2026",
         "place": "KINTEX, Ilsan, Korea",
         "presentation_type": "Oral",
         "doi": null,
@@ -10477,7 +10480,7 @@
         ],
         "year": 2026,
         "date": "2026-07",
-        "venue": "Nano Korea 2025",
+        "venue": "Nano Korea 2026",
         "place": "KINTEX, Ilsan, Korea",
         "presentation_type": "Oral",
         "doi": null,
@@ -10782,6 +10785,46 @@
         "presentation_type": "Invited Oral",
         "doi": null,
         "url": "https://www.enge2026.org/",
+        "volume": null,
+        "issue": null,
+        "pages": null,
+        "manual_tags": [],
+        "automatic_tags": [],
+        "roles": []
+      },
+      "source_missing": false
+    },
+    {
+      "id": "talk-0159",
+      "kind": "presentation",
+      "source_refs": [
+        {
+          "namespace": "bk-zotero",
+          "key": "83T9483H"
+        }
+      ],
+      "metadata": {
+        "id": "talk-0159",
+        "kind": "presentation",
+        "zotero_key": "83T9483H",
+        "title": "Visualization and Overview of Thermoelectric Generator Performance Based on Literature Data through 2025",
+        "source_namespace": "bk-zotero",
+        "item_type": "presentation",
+        "authors": [
+          "손, 지희",
+          "장, 정인",
+          "박, 종호",
+          "정, 재환",
+          "박, 수동",
+          "류, 병기"
+        ],
+        "year": 2026,
+        "date": "2026-10-29",
+        "venue": "대한금속재료학회(KIM) 2026 Fall",
+        "place": "DCC, Daejeon, Korea",
+        "presentation_type": "열전분과 Poster",
+        "doi": null,
+        "url": null,
         "volume": null,
         "issue": null,
         "pages": null,

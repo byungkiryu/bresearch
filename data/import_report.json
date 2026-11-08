@@ -12,22 +12,24 @@
     {
       "kind": "presentation",
       "filename": "zotero-presentations.csv",
-      "sha256": "bc699749451e5a357d21b7484d4768c201740cb256a6873de155acf5f7816f30"
+      "sha256": "f0040f3acfc6a39aaf4bd81c247c2024d766a15506648bbd53055de80838f3c2"
     }
   ],
   "counts": {
     "publications": 106,
-    "presentations": 158,
-    "new": 0,
+    "presentations": 159,
+    "new": 1,
     "updated": 264,
     "reconnected": 0,
     "missing": 0,
     "pending": 0,
-    "warnings": 35,
+    "warnings": 33,
     "doi_corrected": 0
   },
   "changes": {
-    "new": [],
+    "new": [
+      "talk-0159"
+    ],
     "updated": [
       "talk-0001",
       "talk-0002",
@@ -490,14 +492,6 @@
       "key": "GY2ZYTKZ"
     },
     {
-      "code": "event_year_difference",
-      "kind": "presentation",
-      "title": "Ag-induced coherent twin boundaries enable charge and phonon transport engineering for enhanced thermoelectric performance in Bi0.5Sb1.5Te3",
-      "key": "GY2ZYTKZ",
-      "date": "2026-07",
-      "venue": "Nano Korea 2025"
-    },
-    {
       "code": "repeated_author_name",
       "kind": "presentation",
       "title": "Understanding precipitation behavior in Cu-Ni-Si-Mn alloys using machine- learning interatomic potential calculations",
@@ -508,14 +502,6 @@
       "kind": "presentation",
       "title": "Understanding precipitation behavior in Cu-Ni-Si-Mn alloys using machine- learning interatomic potential calculations",
       "key": "XZI9Q2W9"
-    },
-    {
-      "code": "event_year_difference",
-      "kind": "presentation",
-      "title": "Understanding precipitation behavior in Cu-Ni-Si-Mn alloys using machine- learning interatomic potential calculations",
-      "key": "XZI9Q2W9",
-      "date": "2026-07",
-      "venue": "Nano Korea 2025"
     }
   ]
 }
