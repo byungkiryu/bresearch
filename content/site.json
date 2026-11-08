@@ -754,6 +754,42 @@
       "image_alt": "",
       "order": 7,
       "public": true
+    },
+    {
+      "id": "news-20261108-workshop",
+      "date": "2026-11-08",
+      "title": "Korean-German-Japanese Workshop on Thermoelectric Matters",
+      "body": "We will organize the Korean-German-Japanese Workshop on Thermoelectric Matters on November 20, 2026.\n\nThe workshop will bring together colleagues from Korea, Germany, and Japan:\n\n• IFW Dresden, Germany: Kornelius Nielsch, Heiko Reith, Nicolas Perez Rodriguez, Esteban Zuniga Puelles, and Irene Garcia Santamaria\n• Toyota Technological Institute, Japan: Tsunehiro Takeuchi\n• National Institute for Materials Science (NIMS), Japan: Yukari Katsura\n• National Institute of Advanced Industrial Science and Technology (AIST), Japan: Kazuki Imasato\n• Kyung Hee University, Korea: Jong-Soo Rhyee\n\nTogether with our thermoelectric research team at KERI, we will share recent research on thermoelectric materials, transport, devices, and data, and discuss opportunities for further collaboration.\n\nEveryone is welcome to join us!",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "featured": true,
+      "order": -3,
+      "public": true
+    },
+    {
+      "id": "news-20261108-nais",
+      "date": "2026-11-08",
+      "title": "NST-Supported NAIS AI Project: Giving Decades of Materials Data New Value",
+      "body": "We have been awarded a new NAIS AI project supported by the National Research Council of Science & Technology (NST), in collaboration with KAIST.\n\nOver the past two to three decades, our team at KERI has studied thermoelectric materials and accumulated extensive experimental data. These data are stored across different measurement instruments and systems. Through this project, we will bring them together and make them a resource for electrical materials design and thermoelectric property prediction.\n\nBy combining our electrical materials data with KAIST’s agentic AI technology, we aim to create new value from decades of research and build a foundation for discovering and designing the electrical materials of the future.",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "featured": true,
+      "order": -2,
+      "public": true
+    },
+    {
+      "id": "news-20261108-conferences",
+      "date": "2026-11-08",
+      "title": "2026 Invited Talks and Conference Activities",
+      "body": "Throughout 2026, Byungki Ryu has shared our research through invited talks and conference presentations in Korea and abroad.\n\nHe delivered invited talks at ICT 2026 in Houston, MS&T 2026 in Pittsburgh, the Summer Workshop of the Korean Society of Thermophysical Properties, and the Fall Meeting of the Korean Institute of Metals and Materials. He is also scheduled to deliver an invited talk at ENGE2026 in Jeju on November 16.\n\nHe presented research at the APS Global Physics Summit, the MRS Spring Meeting, and the European Conference on Thermoelectrics (ECT2026).\n\nThese activities provided opportunities to discuss our work on thermoelectric materials, transport phenomena, interfaces, and computational materials design with the wider research community.",
+      "url": "",
+      "image": "",
+      "image_alt": "",
+      "featured": true,
+      "order": -1,
+      "public": true
     }
   ],
   "links": [

@@ -191,7 +191,7 @@
     const research = site.research || {};
     const topics = publicRows(research.topics);
     const lattice = document.getElementById('lattice-visual');
-    const latestNews = [...publicRows(site.news)].sort((a, b) => String(b.date || '').localeCompare(String(a.date || ''))).slice(0, 2);
+    const latestNews = [...publicRows(site.news)].sort((a, b) => String(b.date || '').localeCompare(String(a.date || ''))).slice(0, 3);
     const selectedIds = list(home.featured_publication_ids);
     const selectedPublications = selectedIds.map(id => publications.find(record => record.id === id)).filter(Boolean);
     const featured = publications.filter(record => content[record.id]?.featured);
