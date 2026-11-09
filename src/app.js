@@ -1,4 +1,4 @@
-/* Research homepage: all content stays local to this static document. */
+/* Research content is local; the published homepage uses a visitor-map service. */
 (() => {
   'use strict';
 
@@ -15,6 +15,8 @@
   const dialog = document.getElementById('detail-dialog');
   const dialogContent = document.getElementById('detail-content');
   const toast = document.getElementById('toast');
+  const visitorPanel = document.getElementById('visitor-panel');
+  const mapModes = { Collaborations: 'collaborations', Visits: 'visits', Visitors: 'visitors' };
   const pageNames = { research: 'Research', people: 'People', publications: 'Publications', presentations: 'Presentations', news: 'News', about: 'About BR', maps: 'Maps', links: 'Link · Data / SW' };
   const types = { journalArticle: 'Journal article', conferencePaper: 'Conference paper', thesis: 'Thesis', dataset: 'Dataset', book: 'Book', bookSection: 'Book chapter', report: 'Report', preprint: 'Preprint', magazineArticle: 'Magazine article', newspaperArticle: 'Newspaper article' };
   const roles = { first_author: 'First author', co_first_author: 'Co-first author', corresponding_author: 'Corresponding author', co_corresponding_author: 'Co-corresponding author' };
@@ -340,10 +342,58 @@
     return publicRows((site.maps || {})[state.maps.mode]).filter(point => normalize([point.name, point.place, point.description].join(' ')).includes(normalize(state.maps.query)));
   }
   function renderMaps() {
-    app.innerHTML = heading('SCIENTIFIC EXCHANGE', 'Research around the world', 'Explore collaboration locations and places visited.') + `<div class="map-controls">${chips(['Collaborations', 'Visits'], state.maps.mode === 'collaborations' ? 'Collaborations' : 'Visits', 'data-map-mode')}<label class="search-field map-search"><span class="visually-hidden">Search locations</span><input type="search" data-map-search placeholder="Search an institution or place…" value="${esc(state.maps.query)}"></label></div><div class="map-panel"><div id="map-canvas" class="world-map"></div><div class="map-count" id="map-count" role="status"></div></div><div class="map-layout"><div id="map-detail" class="map-detail"></div><div id="map-list" class="map-list"></div></div>`;
-    updateMaps();
+    const visitors = state.maps.mode === 'visitors';
+    const selectedLabel = Object.keys(mapModes).find(label => mapModes[label] === state.maps.mode);
+    app.innerHTML = heading('SCIENTIFIC EXCHANGE', 'Research around the world', 'Explore collaborations, places visited, and our website visitors.') + `<div class="map-controls">${chips(Object.keys(mapModes), selectedLabel, 'data-map-mode')}${visitors ? '' : `<label class="search-field map-search"><span class="visually-hidden">Search locations</span><input type="search" data-map-search placeholder="Search an institution or place…" value="${esc(state.maps.query)}"></label>`}</div>${visitors ? '' : '<div class="map-panel"><div id="map-canvas" class="world-map"></div><div class="map-count" id="map-count" role="status"></div></div><div class="map-layout"><div id="map-detail" class="map-detail"></div><div id="map-list" class="map-list"></div></div>'}`;
+    syncVisitorPanel();
+    if (!visitors) updateMaps();
+  }
+  function syncVisitorPanel() {
+    const active = state.page === 'maps' && state.maps.mode === 'visitors';
+    app.classList.toggle('is-visitor-view', active);
+    if (!visitorPanel) return;
+    visitorPanel.classList.toggle('is-parked', !active);
+    visitorPanel.inert = !active;
+    visitorPanel.setAttribute('aria-hidden', String(!active));
+  }
+  function initVisitorWidget() {
+    const widget = document.getElementById('visitor-widget');
+    const status = document.getElementById('visitor-status');
+    if (!widget || !status || document.getElementById('mapmyvisitors')) return;
+    // Do not add development and downloaded-preview visits to the live counter.
+    if (location.hostname !== 'byungkiryu.github.io' || !location.pathname.startsWith('/bresearch/')) {
+      status.textContent = 'The visitor map is available on the published website. You can open the statistics using the link above.';
+      return;
+    }
+    const fallback = () => {
+      status.hidden = false;
+      status.textContent = 'The visitor map could not be loaded. Open Visitor counts & statistics above to see the recorded visits.';
+    };
+    // Wait for a rendered image, canvas or frame, not just the script's load event.
+    const hasMap = () => [...widget.querySelectorAll('img')].some(img => img.complete && img.naturalWidth > 10) ||
+      Boolean(widget.querySelector('canvas, svg, iframe[data-visitor-loaded]'));
+    const checkMap = () => {
+      if (!hasMap()) return;
+      status.hidden = true;
+      clearTimeout(timeout);
+    };
+    widget.addEventListener('load', event => {
+      if (event.target.tagName === 'IFRAME') event.target.dataset.visitorLoaded = 'true';
+      checkMap();
+    }, true);
+    const observer = new MutationObserver(checkMap);
+    observer.observe(widget, { childList: true, subtree: true });
+    const timeout = setTimeout(fallback, 15000);
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'mapmyvisitors';
+    script.src = 'https://mapmyvisitors.com/map.js?d=-00QWIWpD4vLg07w0VXFdgovJq5gd6V1O1ndzMcoBH4&cl=ffffff&w=a';
+    script.async = true;
+    script.onerror = () => { clearTimeout(timeout); fallback(); };
+    widget.appendChild(script);
   }
   function updateMaps() {
+    if (state.maps.mode === 'visitors') return;
     const points = mapRows();
     if (!points.some(point => point.id === state.maps.selected)) state.maps.selected = points[0]?.id || null;
     const selected = points.find(point => point.id === state.maps.selected);
@@ -367,7 +417,7 @@
     document.getElementById('map-detail').innerHTML = selected ? `<p class="eyebrow">SELECTED LOCATION</p><h2>${esc(selected.name)}</h2>${selected.place ? `<p>${esc(selected.place)}</p>` : ''}${selected.description ? `<p class="quiet long-text">${esc(selected.description)}</p>` : ''}${contentImage(selected.image, selected.image_alt || '')}${coordinates}${external('Related link', selected.url)}` : empty('No matching locations');
     document.getElementById('map-list').innerHTML = points.length ? points.map(point => `<button type="button" class="map-list-item${point.id === state.maps.selected ? ' is-selected' : ''}" data-select-map="${esc(point.id)}" aria-pressed="${point.id === state.maps.selected}"><strong>${esc(point.name)}</strong><span>${esc(point.place || '')}</span>${state.maps.mode === 'visits' && point.description ? `<span>${esc(point.description.split('\n')[0])}</span>` : ''}${!hasMapCoordinates(point) ? '<span>Coordinates unconfirmed (미확인)</span>' : ''}<span class="arrow-up-right" aria-hidden="true"></span></button>`).join('') : empty('No matching locations');
     app.querySelectorAll('[data-map-mode]').forEach(button => {
-      const active = (button.dataset.mapMode === 'Collaborations' ? 'collaborations' : 'visits') === state.maps.mode;
+      const active = mapModes[button.dataset.mapMode] === state.maps.mode;
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     });
@@ -404,6 +454,11 @@
   }
   function renderPage(scroll = false) {
     state.page = getPage();
+    if (state.page === 'maps') {
+      const view = new URLSearchParams(location.hash.split('?')[1] || '').get('view');
+      if (Object.values(mapModes).includes(view)) state.maps.mode = view;
+    }
+    syncVisitorPanel();
     closeDialog();
     document.title = `${pageNames[state.page]} — ${home.site_title || 'Byungki Ryu · TES'}`;
     document.querySelectorAll('a[data-page]').forEach(link => {
@@ -482,9 +537,11 @@
       state.publications = { query: target.dataset.topicSearch, year: '', type: '', role: '', limit: 20 };
       location.hash = 'publications';
     } else if (target.hasAttribute('data-map-mode')) {
-      state.maps.mode = target.dataset.mapMode === 'Collaborations' ? 'collaborations' : 'visits';
+      state.maps.mode = mapModes[target.dataset.mapMode] || 'collaborations';
       state.maps.selected = null;
-      updateMaps();
+      history.replaceState(null, '', `#maps?view=${state.maps.mode}`);
+      renderMaps();
+      app.querySelector(`[data-map-mode="${target.dataset.mapMode}"]`)?.focus({ preventScroll: true });
     } else if (target.hasAttribute('data-select-map')) {
       state.maps.selected = target.dataset.selectMap;
       updateMaps();
@@ -513,4 +570,6 @@
   window.addEventListener('hashchange', () => renderPage(true));
   applySiteIdentity();
   renderPage();
+  initVisitorWidget();
 })();
+

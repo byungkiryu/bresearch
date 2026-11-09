@@ -62,6 +62,14 @@ GitHub 웹 화면에서는 폴더를 연 뒤 **Add file → Upload files**로 �
 
 2026년 11월 20일 워크숍은 `src/events/2026-11-20/index.html`에서 관리하며, `https://byungkiryu.github.io/bresearch/events/2026-11-20/`에 게시됩니다. 화면의 **Print / Save as PDF**로 A4 세로 프로그램을 출력할 수 있습니다. 행사 상세 일정은 이 HTML에서 수정하고, 홈페이지 뉴스와 행사 목록의 제목·기간·링크는 `input/content.xlsx`에서 관리합니다. 인쇄 시 A4 세로, 배율 100%, 브라우저 머리글·바닥글 끄기를 사용합니다.
 
+## 방문자 지도
+
+**Maps → Visitors**에서 MapMyVisitors 방문자 지도와 통계 링크를 볼 수 있습니다. 직접 주소는 `https://byungkiryu.github.io/bresearch/#maps?view=visitors`이며, 상세 방문 통계는 `https://mapmyvisitors.com/web/1c9dp`에서 확인합니다.
+
+홈페이지의 어느 메뉴로 처음 들어오든 위젯을 한 번 실행합니다. 같은 문서 안에서 메뉴·검색·필터를 바꿔도 위젯을 다시 만들지 않습니다. 독립 행사 페이지는 이 집계에 포함하지 않습니다. 로컬 파일이나 미리보기 환경은 집계하지 않고, `byungkiryu.github.io/bresearch/`에서만 방문자 서비스를 불러옵니다. 홈페이지 주소를 바꾸면 `src/app.js`의 `initVisitorWidget()` 호스트 조건과 서비스 등록 주소를 함께 수정합니다.
+
+위치는 IP 기반 추정치이며, 서비스의 방문자 수는 IP당 하루 1회 기준입니다. 일별 방문자 수의 합은 장기간 중복을 제거한 실인원과 다릅니다. 설치 이전 방문 기록을 소급 생성하지 않습니다. 외부 서비스나 차단 프로그램 때문에 지도가 열리지 않으면 안내문과 통계 링크를 표시합니다. 방문자 지도에는 인터넷 연결이 필요합니다.
+
 ## Zotero 목록 갱신
 
 논문과 발표를 Zotero에서 각각 **CSV**로 내보냅니다. Zotero CSV에는 `Notes`, `Extra`, `File Attachments`, `Link Attachments`, 로컬 파일 경로가 포함될 수 있으므로 **원본을 공개 저장소에 바로 올리지 않습니다.**
@@ -121,3 +129,4 @@ Actions는 성공적으로 생성된 데이터가 바뀌었을 때만 `Update ge
 - 원본 공개 저장소: [byungkiryu/byungkiryu](https://github.com/byungkiryu/byungkiryu), 사용한 commit `23a1be7b36725e95268465599db9d23e3e10ca1c`
 - 최초 논문·발표 목록: 사용자가 제공한 2026-11-08 Zotero CSV
 - 지도 윤곽: [Natural Earth](https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson), public domain
+

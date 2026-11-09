@@ -36,6 +36,19 @@
     <div class="loading-state"><span class="eyebrow">THERMO-ELECTRIC SCIENCE</span><h1>Opening the research archive.</h1><p>Loading publications, presentations, and research.</p></div>
   </main>
 
+  <!-- Keep the widget outside #app so menu changes cannot reload it. -->
+  <section id="visitor-panel" class="visitor-panel is-parked" aria-labelledby="visitor-title" aria-hidden="true" inert>
+    <div class="visitor-heading">
+      <div><p class="eyebrow">WEBSITE VISITORS</p><h2 id="visitor-title">Visitors around the world</h2><p class="quiet">Thank you for visiting. Discover where readers of this website are connecting from.</p></div>
+      <a class="button button-secondary" href="https://mapmyvisitors.com/web/1c9dp" target="_blank" rel="noopener noreferrer">Visitor counts &amp; statistics <span class="arrow-up-right" aria-hidden="true"></span></a>
+    </div>
+    <div class="visitor-widget-frame">
+      <p id="visitor-status" class="visitor-status quiet" role="status">Loading the visitor map…</p>
+      <div id="visitor-widget" class="visitor-widget"></div>
+    </div>
+    <p class="visitor-note">Map and visitor counts by <a href="https://mapmyvisitors.com/web/1c9dp" target="_blank" rel="noopener noreferrer">MapMyVisitors</a>. Locations are approximate, based on IP addresses. The service counts each IP once per day; returning visits on different days may be counted again.</p>
+  </section>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand"><span class="footer-monogram">BR.</span><div><strong>Byungki Ryu</strong><p>Thermo-Electric Science Group<br>Korea Electrotechnology Research Institute</p></div></div>
@@ -79,3 +92,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+
