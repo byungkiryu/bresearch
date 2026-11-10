@@ -210,7 +210,7 @@
   }
   function renderFacilities() {
     const facilities = publicRows(site.research?.facilities);
-    app.innerHTML = researchViews() + heading('RESEARCH INFRASTRUCTURE', 'Facilities') + `<div class="facility-grid">${facilities.length ? facilities.map(facility => `<article class="facility-card"><h2>${esc(facility.title || facility.title_ko)}</h2>${facility.title && facility.title_ko ? `<p lang="ko">${esc(facility.title_ko)}</p>` : ''}${facility.description ? `<p class="long-text">${esc(facility.description)}</p>` : ''}${contentImage(facility.image, facility.image_alt || facility.title)}${external('Learn more', facility.url)}</article>`).join('') : empty('Facilities information is coming soon', 'Details of our research facilities will be added here.')}</div>`;
+    app.innerHTML = researchViews() + heading('RESEARCH INFRASTRUCTURE', 'Facilities', 'Research facilities and computational tools at the Korea Electrotechnology Research Institute (KERI).') + `<div class="facility-grid">${facilities.length ? facilities.map(facility => `<article class="facility-card"><h2>${esc(facility.title || facility.title_ko)}</h2>${facility.title && facility.title_ko ? `<p lang="ko">${esc(facility.title_ko)}</p>` : ''}${facility.description ? `<p class="long-text">${esc(facility.description)}</p>` : ''}${contentImage(facility.image, facility.image_alt || facility.title)}${external('Learn more', facility.url)}</article>`).join('') : empty('Facilities information is coming soon', 'Details of our research facilities will be added here.')}</div>`;
   }
   function renderResearchOverview() {
     const research = site.research || {};

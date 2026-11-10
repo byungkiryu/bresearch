@@ -536,7 +536,96 @@
         "public": true
       }
     ],
-    "facilities": []
+    "facilities": [
+      {
+        "id": "facility-0001",
+        "title": "High-performance computing (HPC) server",
+        "title_ko": "고성능 계산 서버",
+        "description": "Total resources / 전체 자원\n60 compute nodes · 1,300 CPUs (Slurm) · ~10.78 TB memory\n\nEffective resources as of November 9, 2026 / 2026년 11월 9일 기준 유효 자원\n58 compute nodes · 1,276 CPUs (Slurm) · ~10.51 TB memory\n\nThermoelectric design and research data server / 열전설계 및 연구 데이터 서버",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 1,
+        "public": true
+      },
+      {
+        "id": "facility-0008",
+        "title": "GPU server",
+        "title_ko": "GPU 계산 서버",
+        "description": "CPU: Intel Xeon w9-3595X — 60 cores / 120 threads\nSystem memory / 시스템 메모리: ~503 GiB\nGPU: 3 × NVIDIA RTX PRO 6000 Blackwell Server Edition, 96 GB each\nTotal GPU memory / 총 VRAM: 288 GB class",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "public": true,
+        "order": 2
+      },
+      {
+        "id": "facility-0002",
+        "title": "Computational software",
+        "title_ko": "계산·설계 소프트웨어",
+        "description": "• COMSOL — Multiphysics simulation for thermoelectric and thermal design / 열전·열 설계\n• VASP — First-principles calculations / 제일원리 계산",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 3,
+        "public": true
+      },
+      {
+        "id": "facility-0003",
+        "title": "Materials synthesis",
+        "title_ko": "물질 합성",
+        "description": "• FRITSCH Planetary 5\n• FRITSCH Planetary Micro-Mill (P-7PL)\n• Vacuum induction melting furnace / 진공유도용해로\n• Rocking furnace\n• Box furnace",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 4,
+        "public": true
+      },
+      {
+        "id": "facility-0004",
+        "title": "Sintering & crystal growth",
+        "title_ko": "소결·단결정 합성",
+        "description": "• HP\n• SPS\n• Ed-PAS\n• Heater for single-crystal synthesis / 단결정 합성용 가열기",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 5,
+        "public": true
+      },
+      {
+        "id": "facility-0005",
+        "title": "Physical property measurements",
+        "title_ko": "물성 측정",
+        "description": "• ZEM3-M8\n• ZEM3-M10\n• ZEM5-HT\n• PPMS ECII (Quantum Design)\n• LFA 447\n• LFA 457\n• DSC204F1\n• HMS-5500 (High-temperature Hall measurement system / 고온 홀 측정기기)\n• STPM-1000",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 6,
+        "public": true
+      },
+      {
+        "id": "facility-0006",
+        "title": "Device performance testing",
+        "title_ko": "소자 성능 평가",
+        "description": "• Thermoelectric module multifunctional performance tester / 열전모듈복합성능 시험기\n• mini-PEM",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 7,
+        "public": true
+      },
+      {
+        "id": "facility-0007",
+        "title": "Machining & device fabrication",
+        "title_ko": "가공·소자 제작",
+        "description": "• Wire electrical discharge machine / 방전 wire 가공기\n• Model 3242 Diamond Wire Saw\n• Thermoelectric device bonding system / 열전 소자 접합기",
+        "url": "",
+        "image": "",
+        "image_alt": "",
+        "order": 8,
+        "public": true
+      }
+    ]
   },
   "people": [
     {
