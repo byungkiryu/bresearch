@@ -1,5 +1,6 @@
 """Content input validation and all-or-nothing update behavior."""
 import csv
+from datetime import datetime
 import json
 from pathlib import Path
 import shutil
@@ -11,7 +12,7 @@ from openpyxl import Workbook, load_workbook
 
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "scripts"))
-from content_schema import HELP, SHEETS
+from content_schema import SHEETS, sheet_help
 from import_content import convert_workbook
 from import_zotero import run_import
 from update import run_update
@@ -59,13 +60,15 @@ class ContentPipelineTests(unittest.TestCase):
                 writer.writeheader()
                 writer.writerows(records)
 
-    def write_workbook(self):
+    def write_workbook(self, omit=()):
         book = Workbook()
         book.remove(book.active)
         for name, columns in SHEETS.items():
+            if name in omit:
+                continue
             sheet = book.create_sheet(name)
             sheet.append(columns)
-            sheet.append([HELP.get(column, column) for column in columns])
+            sheet.append(sheet_help(name))
             for row in self.rows.get(name, []):
                 sheet.append([row.get(column) for column in columns])
         book.save(self.root / "input/content.xlsx")
@@ -90,6 +93,77 @@ class ContentPipelineTests(unittest.TestCase):
         self.assertNotIn("title_reference", curated["items"]["pub-0001"])
         self.assertTrue(curated["items"]["pub-0001"]["public"])
         self.assertEqual(json.loads((self.root / "data/presentations.json").read_text())[0]["date"], "2026-01-02")
+
+    def test_legacy_workbook_preserves_optional_research_lists(self):
+        projects = [{"id": "existing-project", "title": "Existing project", "public": False}]
+        facilities = [{"id": "existing-facility", "title": "Existing facility"}]
+        self.original["research"].update(projects=projects, facilities=facilities)
+        self.write_json("content/site.json", self.original)
+        self.write_workbook(omit=("프로젝트", "시설"))
+        site, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+        self.assertEqual(report["status"], "ok", report)
+        self.assertEqual(site["research"]["projects"], projects)
+        self.assertEqual(site["research"]["facilities"], facilities)
+
+        # Explicitly present empty sheets are an editor's instruction to clear
+        # those lists; omission in an older workbook must not do that.
+        self.write_workbook()
+        site, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+        self.assertEqual(report["status"], "ok", report)
+        self.assertEqual(site["research"]["projects"], [])
+        self.assertEqual(site["research"]["facilities"], [])
+
+    def test_legacy_workbook_without_optional_baseline_defaults_to_empty(self):
+        self.write_workbook(omit=("프로젝트", "시설"))
+        site, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+        self.assertEqual(report["status"], "ok", report)
+        self.assertEqual(site["research"]["projects"], [])
+        self.assertEqual(site["research"]["facilities"], [])
+
+    def test_projects_and_facilities_import_bilingual_content_and_assets(self):
+        (self.root / "assets/facility.png").write_bytes(b"png fixture")
+        project = {"id": "project-0001", "title": "Strengthening by stable heterogeneous phases in metal",
+                   "title_ko": "안정한 이질상을 이용한 금속의 강화",
+                   "start_date": datetime(2022, 9, 1), "end_date": "2027-12-31",
+                   "description": "Project description", "reference_numbers": "26A02008 (2022M3C1C8093916)",
+                   "order": 2, "public": False}
+        facility = {"id": "facility-0001", "title": "Measurement facility", "title_ko": "측정 시설",
+                    "description": "Facility description", "url": "https://example.test/facility",
+                    "image": "assets/facility.png", "image_alt": "Facility image", "order": 1}
+        self.rows.update({"프로젝트": [project], "시설": [facility]})
+        self.write_workbook()
+        site, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+        self.assertEqual(report["status"], "ok", report)
+        self.assertEqual(site["research"]["projects"], [{**project, "start_date": "2022-09-01"}])
+        self.assertEqual(site["research"]["facilities"], [{**facility, "public": True}])
+
+    def test_project_invalid_dates_titles_and_duplicate_ids_are_rejected(self):
+        valid = {"id": "project-0001", "title": "Project", "start_date": "2026-01-01", "end_date": "2026-12-31"}
+        for changes, code in (({"end_date": "2025-12-31"}, "invalid_date_range"),
+                              ({"start_date": ""}, "invalid_date_range"),
+                              ({"start_date": "2026-02-30"}, "invalid_date"),
+                              ({"title": ""}, "missing_title")):
+            with self.subTest(changes=changes):
+                self.rows["프로젝트"] = [{**valid, **changes}]
+                self.write_workbook()
+                _, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+                self.assertEqual(report["status"], "invalid_input", report)
+                self.assertIn(code, {issue["code"] for issue in report["errors"]})
+        self.rows["프로젝트"] = [valid, {**valid, "title": "Another project"}]
+        self.write_workbook()
+        _, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+        self.assertIn("duplicate_id", {issue["code"] for issue in report["errors"]})
+
+    def test_facility_missing_title_and_unsafe_assets_are_rejected(self):
+        for changes, code in (({"title": ""}, "missing_title"),
+                              ({"image": "assets/../private.png"}, "invalid_image"),
+                              ({"url": "javascript:alert(1)"}, "invalid_url")):
+            with self.subTest(changes=changes):
+                self.rows["시설"] = [{"id": "facility-0001", "title": "Facility", **changes}]
+                self.write_workbook()
+                _, _, report = convert_workbook(self.root / "input/content.xlsx", self.root)
+                self.assertEqual(report["status"], "invalid_input", report)
+                self.assertIn(code, {issue["code"] for issue in report["errors"]})
 
     def test_formula_bad_reference_duplicate_and_traversal_fail(self):
         self.rows["사람"].append({"id": "person-0001", "name": "Duplicate"})

@@ -10,6 +10,8 @@
   const visible = rows => (rows || []).filter(row => !row.source_missing && !content[row.id]?.hidden);
   const publications = visible(data.publications);
   const presentations = visible(data.presentations);
+  // Numbers belong to the full chronological catalog, not a filtered result or an ID suffix.
+  const recordNumbers = new Map([publications, presentations].flatMap(rows => rows.map((row, index) => [row.id, rows.length - index])));
   const records = new Map([...publications, ...presentations].map(row => [row.id, row]));
   const app = document.getElementById('app');
   const dialog = document.getElementById('detail-dialog');
@@ -17,15 +19,15 @@
   const toast = document.getElementById('toast');
   const visitorPanel = document.getElementById('visitor-panel');
   const mapModes = { Collaborations: 'collaborations', Visits: 'visits', Visitors: 'visitors' };
-  const pageNames = { research: 'Research', people: 'People', publications: 'Publications', presentations: 'Presentations', news: 'News', about: 'About BR', maps: 'Maps', links: 'Link · Data / SW' };
+  const pageNames = { research: 'Research', people: 'People', publications: 'Publications', presentations: 'Presentations', news: 'News & Events', about: 'About BR', maps: 'Maps', links: 'Link · Data / SW' };
   const types = { journalArticle: 'Journal article', conferencePaper: 'Conference paper', thesis: 'Thesis', dataset: 'Dataset', book: 'Book', bookSection: 'Book chapter', report: 'Report', preprint: 'Preprint', magazineArticle: 'Magazine article', newspaperArticle: 'Newspaper article' };
   const roles = { first_author: 'First author', co_first_author: 'Co-first author', corresponding_author: 'Corresponding author', co_corresponding_author: 'Co-corresponding author' };
   const state = {
     page: 'research',
     publications: { query: '', year: '', type: '', role: '', limit: 20 },
     presentations: { query: '', year: '', type: '', eventId: '', limit: 20 },
-    presentationView: 'records',
-    events: { query: '', year: '' },
+    researchView: 'overview',
+    news: { type: 'all', query: '', year: '' },
     people: { category: 'Members' },
     links: { query: '', category: '' },
     maps: { mode: 'collaborations', query: '', selected: null },
@@ -122,12 +124,15 @@
   function upcoming(record) { return record.kind === 'presentation' && /^\d{4}-\d{2}-\d{2}$/.test(record.date || '') && record.date > todaySeoul(); }
   function authorName(name) {
     const pieces = String(name || '').split(',');
+    if (pieces.length === 2 && pieces.every(piece => /^[가-힣\s]+$/u.test(piece.trim()))) {
+      return pieces.map(piece => piece.replace(/\s+/g, '')).join('');
+    }
     return pieces.length === 2 ? `${pieces[1].trim()} ${pieces[0].trim()}` : name;
   }
   function authorsHtml(authors) {
     return arr(authors).map(name => {
       const display = authorName(name);
-      const isBK = /^ryu\s*,\s*(?:byungki|b\.?)$/i.test(name.trim()) || /^byungki\s+ryu$/i.test(name.trim());
+      const isBK = /^ryu\s*,\s*(?:byungki|b\.?)$/i.test(name.trim()) || /^byungki\s+ryu$/i.test(name.trim()) || display === '류병기';
       return isBK ? `<strong class="author-highlight">${esc(display)}</strong>` : esc(display);
     }).join(', ');
   }
@@ -176,10 +181,10 @@
       ? [displayDate(record.date), record.place].filter(Boolean).join(' · ')
       : [record.volume ? `${record.volume}${record.issue ? `(${record.issue})` : ''}` : '', record.pages].filter(Boolean).join(', ');
     const link = sourceUrl(record);
-    return `<article class="record-card${compact ? ' record-card-compact' : ''}">
-      <div class="record-year">${esc(record.year)}</div>
+    return `<article class="record-card${compact ? ' record-card-compact' : ''}" data-record-id="${esc(record.id)}">
+      <div class="record-year record-number" aria-label="Record number ${recordNumbers.get(record.id)}">${recordNumbers.get(record.id)}</div>
       <div class="record-main">
-        <div class="record-kicker"><span>${esc(typeLabel(record))}</span>${upcoming(record) ? '<span class="badge badge-upcoming">Upcoming</span>' : ''}${detail.featured ? '<span class="badge">Selected</span>' : ''}</div>
+        <div class="record-kicker">${compact ? `<span>${esc(record.year)}</span>` : ''}<span>${esc(typeLabel(record))}</span>${upcoming(record) ? '<span class="badge badge-upcoming">Upcoming</span>' : ''}${detail.featured ? '<span class="badge">Selected</span>' : ''}</div>
         <h3 class="record-title"><button type="button" data-open-record="${esc(record.id)}">${esc(record.title)}</button></h3>
         <p class="record-authors">${authorsHtml(record.authors)}</p>
         <p class="record-venue">${esc(record.venue || '')}${meta ? `<span>${record.venue ? ' · ' : ''}${esc(meta)}</span>` : ''}</p>
@@ -189,17 +194,35 @@
     </article>`;
   }
 
+  function researchViews() {
+    return `<nav class="section-tabs" aria-label="Research sections">${[['overview', 'Overview'], ['projects', 'Projects'], ['facilities', 'Facilities']].map(([view, label]) => `<a href="#research?view=${view}"${state.researchView === view ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
+  }
   function renderResearch() {
+    if (state.researchView === 'projects') { renderProjects(); return; }
+    if (state.researchView === 'facilities') { renderFacilities(); return; }
+    renderResearchOverview();
+  }
+  function renderProjects() {
+    const projects = publicRows(site.research?.projects);
+    const period = project => [project.start_date, project.end_date].filter(Boolean).map(date => date.replaceAll('-', '.')).join(' – ');
+    app.innerHTML = researchViews() + heading('RESEARCH PROGRAMS', 'Projects', 'Research projects in materials, interfaces, thermoelectric energy conversion, and cooling.') +
+      `<div class="project-list">${projects.length ? projects.map(project => `<article class="project-row"><p class="project-period">${esc(period(project))}</p><div><h2>${esc(project.title || project.title_ko)}</h2>${project.title && project.title_ko ? `<p class="project-title-ko" lang="ko">${esc(project.title_ko)}</p>` : ''}${project.description ? `<p class="quiet long-text">${esc(project.description)}</p>` : ''}</div></article>`).join('') : empty('No projects listed', '')}</div>`;
+  }
+  function renderFacilities() {
+    const facilities = publicRows(site.research?.facilities);
+    app.innerHTML = researchViews() + heading('RESEARCH INFRASTRUCTURE', 'Facilities') + `<div class="facility-grid">${facilities.length ? facilities.map(facility => `<article class="facility-card"><h2>${esc(facility.title || facility.title_ko)}</h2>${facility.title && facility.title_ko ? `<p lang="ko">${esc(facility.title_ko)}</p>` : ''}${facility.description ? `<p class="long-text">${esc(facility.description)}</p>` : ''}${contentImage(facility.image, facility.image_alt || facility.title)}${external('Learn more', facility.url)}</article>`).join('') : empty('Facilities information is coming soon', 'Details of our research facilities will be added here.')}</div>`;
+  }
+  function renderResearchOverview() {
     const research = site.research || {};
     const topics = publicRows(research.topics);
     const lattice = document.getElementById('lattice-visual');
-    const latestNews = [...publicRows(site.news)].sort((a, b) => String(b.date || '').localeCompare(String(a.date || ''))).slice(0, 3);
+    const latestNews = newsItems().slice(0, 3);
     const selectedIds = list(home.featured_publication_ids);
     const selectedPublications = selectedIds.map(id => publications.find(record => record.id === id)).filter(Boolean);
     const featured = publications.filter(record => content[record.id]?.featured);
     const homePublications = selectedIds.length ? selectedPublications : featured.length ? featured.slice(0, 3) : publications.slice(0, 3);
     const heroImage = contentImage(home.hero_image, home.hero_image_alt || '', 'hero-image');
-    app.innerHTML = `<section class="hero-grid">
+    app.innerHTML = researchViews() + `<section class="hero-grid">
       <div class="hero-copy"><p class="eyebrow">${esc(home.hero_kicker || 'THERMO-ELECTRIC SCIENCE · KERI')}</p>
         <h1 class="hero-title">${lineText(home.hero_title || 'Thermoelectric science,')}<br><em>${lineText(home.hero_emphasis || 'from atoms to applications.')}</em></h1>
         <p class="hero-summary">${lineText(home.hero_summary || research.intro || 'Understanding thermoelectric phenomena through materials physics, computation, data, and experiment.')}</p>
@@ -211,45 +234,19 @@
       ${topics.map((topic, index) => `<article class="topic-row"><span class="topic-index">${String(index + 1).padStart(2, '0')}</span><div class="topic-body"><p class="eyebrow">${esc(topic.kicker || '')}</p><h3>${esc(topic.title)}</h3><p class="long-text">${esc(topic.description || '')}</p>${contentImage(topic.image, topic.image_alt || '')}<div class="topic-links">${arr(topic.links).map(link => external(link.label, link.url)).join('')}</div></div><div class="topic-detail"><ul>${list(topic.details).map(item => `<li>${esc(item)}</li>`).join('')}</ul><div class="topic-tags">${list(topic.keywords).map(keyword => `<button type="button" class="topic-tag" data-topic-search="${esc(keyword)}">${esc(keyword)}</button>`).join('')}</div></div></article>`).join('')}
     </section>
     <section><div class="section-heading"><div><p class="eyebrow">FROM THE ARCHIVE</p><h2>${selectedIds.length || featured.length ? 'Selected publications' : 'Recent publications'}</h2></div><a class="text-link section-link" href="#publications">All ${publications.length} records <span class="arrow-up-right" aria-hidden="true"></span></a></div><div class="record-list">${homePublications.length ? homePublications.map(record => recordCard(record, true)).join('') : empty('No selected publications', 'Check the publication IDs in the home settings.')}</div></section>
-    ${latestNews.length ? `<section class="mini-news"><div class="section-heading"><div><p class="eyebrow">GROUP UPDATES</p><h2>News &amp; notes</h2></div><a class="text-link" href="#news">View all news <span class="arrow-up-right" aria-hidden="true"></span></a></div>${latestNews.map(item => `<article class="timeline-item"><time class="news-date">${esc(displayDate(item.date))}</time><div><h3>${esc(item.title)}</h3><p class="long-text">${esc(item.body || '')}</p>${contentImage(item.image, item.image_alt || '')}${external('Read more', item.url)}</div></article>`).join('')}</section>` : ''}`;
+    ${latestNews.length ? `<section class="mini-news"><div class="section-heading"><div><p class="eyebrow">GROUP UPDATES</p><h2>News &amp; Events</h2></div><a class="text-link" href="#news">View all news &amp; events <span class="arrow-up-right" aria-hidden="true"></span></a></div>${latestNews.map(item => `<article class="timeline-item"><time class="news-date">${esc(displayDate(item.sortDate))}</time><div><p class="eyebrow">${item.type === 'events' ? 'EVENT' : 'NEWS'}</p><h3>${esc(item.title)}</h3><p class="long-text">${esc(item.body || item.description || '')}</p>${contentImage(item.image, item.image_alt || '')}${external('Read more', item.url)}</div></article>`).join('')}</section>` : ''}`;
   }
 
   function filterSelect(label, key, values, selected, catalog) {
     return `<label class="filter-select"><span>${esc(label)}</span><select data-catalog="${catalog}" data-filter="${key}" aria-label="${esc(label)}"><option value="">All ${esc(label.toLowerCase())}</option>${values.map(item => `<option value="${esc(item.value)}"${String(selected) === String(item.value) ? ' selected' : ''}>${esc(item.label)}</option>`).join('')}</select></label>`;
   }
-  function presentationViews() {
-    return `<div class="chip-group presentation-views" aria-label="Presentation views">${[['records', 'Presentations'], ['events', 'Events']].map(([value, label]) => `<button class="chip" type="button" data-presentation-view="${value}" aria-pressed="${state.presentationView === value}">${label}</button>`).join('')}</div>`;
-  }
   function eventDate(event) {
     return [displayDate(event.start_date), event.end_date && event.end_date !== event.start_date ? displayDate(event.end_date) : ''].filter(Boolean).join(' – ');
   }
   function eventStatus(event) {
-    return event.status || (event.start_date && event.start_date > todaySeoul() ? '예정' : '');
+    return event.status || (event.start_date && event.start_date > todaySeoul() ? 'Upcoming' : '');
   }
-  function renderPresentations() {
-    if (state.presentationView === 'events') renderEvents();
-    else renderCatalogue('presentations');
-  }
-  function renderEvents() {
-    const years = unique(publicRows(site.events).map(event => String(event.start_date || '').slice(0, 4))).sort().reverse();
-    app.innerHTML = heading('TALKS · CONFERENCES · SEMINARS', 'Presentations', 'Explore conference contributions, invited talks, posters, and seminars.') + presentationViews() +
-      `<section class="filter-bar" aria-label="Event filters"><label class="search-field"><span class="visually-hidden">Search events</span><input type="search" data-event-search placeholder="Search event, place, or keyword…" value="${esc(state.events.query)}" autocomplete="off"></label><label class="filter-select"><span>Years</span><select data-event-year aria-label="Event year"><option value="">All years</option>${years.map(year => `<option value="${esc(year)}"${state.events.year === year ? ' selected' : ''}>${esc(year)}</option>`).join('')}</select></label><button type="button" class="text-link clear-filters" data-clear-events>Reset</button></section><div class="results-header"><p id="event-count" role="status" aria-live="polite"></p><span class="quiet small">Newest first</span></div><div id="event-results" class="timeline"></div>`;
-    updateEvents();
-  }
-  function updateEvents() {
-    const events = publicRows(site.events);
-    const terms = normalize(state.events.query).split(' ').filter(Boolean);
-    const matches = events.filter(event => {
-      const corpus = normalize([event.title, event.category, event.place, event.description, event.status].join(' '));
-      return terms.every(term => corpus.includes(term)) && (!state.events.year || String(event.start_date || '').startsWith(state.events.year));
-    }).sort((a, b) => String(b.start_date || '').localeCompare(String(a.start_date || '')) || String(a.title).localeCompare(String(b.title)));
-    document.getElementById('event-count').textContent = `${matches.length} of ${events.length} events`;
-    document.getElementById('event-results').innerHTML = matches.length ? matches.map(event => {
-      const linked = presentations.filter(record => content[record.id]?.event_id === event.id);
-      const status = eventStatus(event);
-      return `<article class="timeline-item event-card"><div class="event-date">${esc(eventDate(event) || '미확인')}</div><div>${event.category ? `<p class="eyebrow">${esc(event.category)}</p>` : ''}<h2>${esc(event.title)}</h2>${status ? `<span class="badge">${esc(status)}</span>` : ''}${event.place ? `<p class="event-place">${esc(event.place)}</p>` : ''}${event.description ? `<p class="long-text">${esc(event.description)}</p>` : ''}${contentImage(event.image, event.image_alt || '')}<div class="event-actions">${external('Event website', event.url)}${linked.length ? `<button type="button" class="text-link" data-event-records="${esc(event.id)}">View ${linked.length} presentation${linked.length === 1 ? '' : 's'} <span class="arrow-right" aria-hidden="true"></span></button>` : ''}</div></div></article>`;
-    }).join('') : empty('No matching events', events.length ? 'Try another search or clear the filters.' : 'Events will appear here when added to the event file.');
-  }
+  function renderPresentations() { renderCatalogue('presentations'); }
   function renderCatalogue(catalog) {
     const isTalk = catalog === 'presentations';
     const rows = isTalk ? presentations : publications;
@@ -259,7 +256,7 @@
     const options = unique(rows.flatMap(record => arr(record.roles))).map(value => ({ value, label: roles[value] || value }));
     const eventOptions = publicRows(site.events).map(event => ({ value: event.id, label: event.title }));
     app.innerHTML = heading(isTalk ? 'TALKS · CONFERENCES · SEMINARS' : 'PAPERS · PROCEEDINGS · DATA', isTalk ? 'Presentations' : 'Publications', isTalk ? 'Explore conference contributions, invited talks, posters, and seminars.' : 'Explore research articles, conference papers, datasets, and the doctoral thesis.') +
-      (isTalk ? presentationViews() : '') + `<section class="filter-bar" aria-label="${isTalk ? 'Presentation' : 'Publication'} filters"><label class="search-field"><span class="visually-hidden">Search ${catalog}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.7"/></svg><input type="search" data-catalog="${catalog}" data-filter="query" placeholder="Search title, author, ${isTalk ? 'event' : 'journal, DOI'}, or keyword…" value="${esc(filters.query)}" autocomplete="off"></label>${filterSelect('Years', 'year', years, filters.year, catalog)}${filterSelect('Types', 'type', kinds, filters.type, catalog)}${!isTalk ? filterSelect('Roles', 'role', options, filters.role, catalog) : eventOptions.length ? filterSelect('Events', 'eventId', eventOptions, filters.eventId, catalog) : ''}<button type="button" class="text-link clear-filters" data-clear-catalog="${catalog}">Reset</button></section>
+      `<section class="filter-bar" aria-label="${isTalk ? 'Presentation' : 'Publication'} filters"><label class="search-field"><span class="visually-hidden">Search ${catalog}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.7"/></svg><input type="search" data-catalog="${catalog}" data-filter="query" placeholder="Search title, author, ${isTalk ? 'event' : 'journal, DOI'}, or keyword…" value="${esc(filters.query)}" autocomplete="off"></label>${filterSelect('Years', 'year', years, filters.year, catalog)}${filterSelect('Types', 'type', kinds, filters.type, catalog)}${!isTalk ? filterSelect('Roles', 'role', options, filters.role, catalog) : eventOptions.length ? filterSelect('Events', 'eventId', eventOptions, filters.eventId, catalog) : ''}<button type="button" class="text-link clear-filters" data-clear-catalog="${catalog}">Reset</button></section>
       <div class="results-header"><p id="result-count" role="status" aria-live="polite"></p><span class="quiet small">Newest first</span></div><div id="catalog-results" class="record-list"></div><div id="catalog-more" class="load-more"></div>`;
     updateCatalogue(catalog);
   }
@@ -269,17 +266,26 @@
     return (isTalk ? presentations : publications).filter(record => {
       const detail = content[record.id] || {};
       const linkedEvent = publicRows(site.events).find(event => event.id === detail.event_id);
-      const corpus = normalize([record.title, ...arr(record.authors), record.venue, record.place, record.doi, ...arr(record.manual_tags), ...arr(record.automatic_tags), ...list(detail.tags), record.presentation_type, linkedEvent?.title].filter(Boolean).join(' '));
+      const corpus = normalize([record.title, ...arr(record.authors), ...arr(record.authors).map(authorName), record.venue, record.place, record.doi, ...arr(record.manual_tags), ...arr(record.automatic_tags), ...list(detail.tags), record.presentation_type, linkedEvent?.title].filter(Boolean).join(' '));
       const terms = normalize(filters.query).split(' ').filter(Boolean);
       return terms.every(term => corpus.includes(term)) && (!filters.year || String(record.year) === filters.year) && (!filters.type || (isTalk ? record.presentation_type || '__unspecified__' : record.item_type) === filters.type) && (!filters.role || arr(record.roles).includes(filters.role)) && (!filters.eventId || detail.event_id === filters.eventId);
     });
+  }
+  function catalogueGroups(rows) {
+    const groups = [];
+    for (const record of rows) {
+      const year = String(record.year || 'Year not specified');
+      if (!groups.length || groups[groups.length - 1].year !== year) groups.push({ year, rows: [] });
+      groups[groups.length - 1].rows.push(record);
+    }
+    return groups.map(group => `<section class="catalog-year-group" aria-label="${esc(group.year)}"><h2 class="catalog-year-heading">${esc(group.year)}</h2>${group.rows.map(record => recordCard(record)).join('')}</section>`).join('');
   }
   function updateCatalogue(catalog) {
     const matches = matchingRecords(catalog);
     const total = catalog === 'presentations' ? presentations.length : publications.length;
     const limit = state[catalog].limit;
     document.getElementById('result-count').innerHTML = `<strong>${matches.length}</strong> of ${total} ${catalog === 'presentations' ? 'presentations' : 'records'}`;
-    document.getElementById('catalog-results').innerHTML = matches.length ? matches.slice(0, limit).map(record => recordCard(record)).join('') : empty('No matching records');
+    document.getElementById('catalog-results').innerHTML = matches.length ? catalogueGroups(matches.slice(0, limit)) : empty('No matching records');
     document.getElementById('catalog-more').innerHTML = matches.length > limit ? `<button type="button" class="button button-secondary" data-load-more="${catalog}">Show more <span class="quiet">(${Math.min(20, matches.length - limit)})</span></button><p class="quiet small">Showing ${Math.min(limit, matches.length)} of ${matches.length}</p>` : '';
   }
 
@@ -303,9 +309,31 @@
       button.setAttribute('aria-pressed', String(active));
     });
   }
+  function newsItems() {
+    return [...publicRows(site.news).map(item => ({ ...item, type: 'news', sortDate: item.date || '' })),
+      ...publicRows(site.events).map(item => ({ ...item, type: 'events', sortDate: item.start_date || '' }))]
+      .sort((a, b) => b.sortDate.localeCompare(a.sortDate) || String(a.id).localeCompare(String(b.id)));
+  }
   function renderNews() {
-    const news = [...publicRows(site.news)].sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
-    app.innerHTML = heading('RESEARCH · COMMUNITY · MILESTONES', 'News & notes', 'Updates from the Thermo-Electric Science group.') + `<div class="timeline">${news.length ? news.map(item => `<article class="timeline-item"><time class="news-date" datetime="${esc(item.date)}">${esc(displayDate(item.date))}</time><div>${item.featured ? '<span class="badge">Highlighted update</span>' : ''}<h2>${esc(item.title)}</h2>${item.body ? `<p class="long-text">${esc(item.body)}</p>` : ''}${contentImage(item.image, item.image_alt || '')}${external('Related link', item.url)}</div></article>`).join('') : empty('News will appear here', '')}</div>`;
+    const years = unique(newsItems().map(item => item.sortDate.slice(0, 4))).sort().reverse();
+    app.innerHTML = heading('RESEARCH · COMMUNITY · GATHERINGS', 'News & Events', 'News from the group, workshops, conferences, and upcoming events.') +
+      `<nav class="section-tabs" aria-label="News and event views">${[['all', 'All'], ['news', 'News'], ['events', 'Events']].map(([view, label]) => `<button type="button" data-news-view="${view}" aria-pressed="${state.news.type === view}">${label}</button>`).join('')}</nav>
+      <section class="filter-bar" aria-label="News and event filters"><label class="search-field"><span class="visually-hidden">Search news and events</span><input type="search" data-news-search placeholder="Search news, events, or places…" value="${esc(state.news.query)}" autocomplete="off"></label><label class="filter-select"><span>Years</span><select data-news-year aria-label="News and event year"><option value="">All years</option>${years.map(year => `<option value="${esc(year)}"${state.news.year === year ? ' selected' : ''}>${esc(year)}</option>`).join('')}</select></label><button type="button" class="text-link clear-filters" data-clear-news>Reset</button></section><div class="results-header"><p id="news-count" role="status" aria-live="polite"></p><span class="quiet small">Newest first</span></div><div id="news-results" class="timeline"></div>`;
+    updateNews();
+  }
+  function updateNews() {
+    const items = newsItems();
+    const terms = normalize(state.news.query).split(' ').filter(Boolean);
+    const matches = items.filter(item => (state.news.type === 'all' || item.type === state.news.type) &&
+      (!state.news.year || item.sortDate.startsWith(state.news.year)) &&
+      terms.every(term => normalize([item.title, item.body, item.description, item.place, item.category, item.status].join(' ')).includes(term)));
+    document.getElementById('news-count').textContent = `${matches.length} ${state.news.type === 'all' ? 'news & events' : state.news.type === 'news' ? 'news items' : 'events'}`;
+    document.getElementById('news-results').innerHTML = matches.length ? matches.map(item => {
+      const isEvent = item.type === 'events';
+      const linked = isEvent ? presentations.filter(record => content[record.id]?.event_id === item.id) : [];
+      const status = isEvent ? eventStatus(item) : '';
+      return `<article class="timeline-item${isEvent ? ' event-card' : ''}" data-update-type="${item.type}"><div class="news-date">${esc(isEvent ? eventDate(item) || 'Date to be announced' : displayDate(item.date))}</div><div><p class="eyebrow">${isEvent ? 'EVENT' : 'NEWS'}${isEvent && item.category ? ` · ${esc(item.category)}` : ''}</p><h2>${esc(item.title)}</h2>${status ? `<span class="badge">${esc(status)}</span>` : ''}${item.featured ? '<span class="badge">Highlighted update</span>' : ''}${isEvent && item.place ? `<p class="event-place">${esc(item.place)}</p>` : ''}${item.body || item.description ? `<p class="long-text">${esc(item.body || item.description)}</p>` : ''}${contentImage(item.image, item.image_alt || '')}<div class="event-actions">${external(isEvent ? 'Event website' : 'Related link', item.url)}${linked.length ? `<button type="button" class="text-link" data-event-records="${esc(item.id)}">View ${linked.length} presentation${linked.length === 1 ? '' : 's'} <span class="arrow-right" aria-hidden="true"></span></button>` : ''}</div></div></article>`;
+    }).join('') : empty('No matching news or events');
   }
   function timelineSection(title, rows) {
     return rows.length ? `<section class="detail-section"><h2>${esc(title)}</h2><div class="career-list">${rows.map(row => `<article><span class="quiet small">${esc(row.period || '')}</span><div><h3>${esc(row.title || '')}</h3>${row.organization ? `<p>${esc(row.organization)}</p>` : ''}</div></article>`).join('')}</div></section>` : '';
@@ -454,6 +482,12 @@
   }
   function renderPage(scroll = false) {
     state.page = getPage();
+    const params = new URLSearchParams(location.hash.split('?')[1] || '');
+    if (state.page === 'research') state.researchView = ['projects', 'facilities'].includes(params.get('view')) ? params.get('view') : 'overview';
+    if (state.page === 'news') state.news.type = ['news', 'events'].includes(params.get('view')) ? params.get('view') : 'all';
+    if (state.page === 'presentations' && params.has('event')) {
+      state.presentations.eventId = publicRows(site.events).some(item => item.id === params.get('event')) ? params.get('event') : '';
+    }
     if (state.page === 'maps') {
       const view = new URLSearchParams(location.hash.split('?')[1] || '').get('view');
       if (Object.values(mapModes).includes(view)) state.maps.mode = view;
@@ -478,9 +512,9 @@
       state[catalog].query = target.value;
       state[catalog].limit = 20;
       updateCatalogue(catalog);
-    } else if (target.matches('[data-event-search]')) {
-      state.events.query = target.value;
-      updateEvents();
+    } else if (target.matches('[data-news-search]')) {
+      state.news.query = target.value;
+      updateNews();
     } else if (target.matches('[data-link-search]')) {
       state.links.query = target.value;
       updateLinks();
@@ -495,10 +529,11 @@
       const catalog = target.dataset.catalog;
       state[catalog][target.dataset.filter] = target.value;
       state[catalog].limit = 20;
+      if (catalog === 'presentations' && target.dataset.filter === 'eventId') history.replaceState(null, '', target.value ? `#presentations?event=${encodeURIComponent(target.value)}` : '#presentations');
       updateCatalogue(catalog);
-    } else if (target.matches('[data-event-year]')) {
-      state.events.year = target.value;
-      updateEvents();
+    } else if (target.matches('[data-news-year]')) {
+      state.news.year = target.value;
+      updateNews();
     } else if (target.matches('[data-link-category]')) {
       state.links.category = target.value;
       updateLinks();
@@ -512,22 +547,22 @@
     else if (target.hasAttribute('data-load-more')) {
       state[target.dataset.loadMore].limit += 20;
       updateCatalogue(target.dataset.loadMore);
-    } else if (target.hasAttribute('data-presentation-view')) {
-      state.presentationView = target.dataset.presentationView;
-      renderPresentations();
-      app.querySelector(`[data-presentation-view="${state.presentationView}"]`)?.focus();
+    } else if (target.hasAttribute('data-news-view')) {
+      state.news.type = target.dataset.newsView;
+      history.replaceState(null, '', state.news.type === 'all' ? '#news' : `#news?view=${state.news.type}`);
+      renderNews();
+      app.querySelector(`[data-news-view="${state.news.type}"]`)?.focus({ preventScroll: true });
     } else if (target.hasAttribute('data-event-records')) {
-      state.presentationView = 'records';
       state.presentations = { query: '', year: '', type: '', eventId: target.dataset.eventRecords, limit: 20 };
-      renderPresentations();
-      app.querySelector('select[data-filter="eventId"]')?.focus();
-    } else if (target.hasAttribute('data-clear-events')) {
-      state.events = { query: '', year: '' };
-      renderEvents();
-      app.querySelector('[data-event-search]')?.focus();
+      location.hash = `presentations?event=${encodeURIComponent(target.dataset.eventRecords)}`;
+    } else if (target.hasAttribute('data-clear-news')) {
+      state.news = { type: state.news.type, query: '', year: '' };
+      renderNews();
+      app.querySelector('[data-news-search]')?.focus();
     } else if (target.hasAttribute('data-clear-catalog')) {
       const catalog = target.dataset.clearCatalog;
       state[catalog] = { query: '', year: '', type: '', role: '', eventId: '', limit: 20 };
+      if (catalog === 'presentations') history.replaceState(null, '', '#presentations');
       renderCatalogue(catalog);
       app.querySelector('input[type="search"]')?.focus();
     } else if (target.hasAttribute('data-people-category')) {

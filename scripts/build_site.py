@@ -24,7 +24,9 @@ def public_site(site):
     site = copy.deepcopy(site)
     for key in ("people", "events", "news", "links"):
         site[key] = public_rows(site.get(key, []))
-    site.setdefault("research", {})["topics"] = public_rows(site.get("research", {}).get("topics", []))
+    research = site.setdefault("research", {})
+    for key in ("topics", "projects", "facilities"):
+        research[key] = public_rows(research.get(key, []))
     for key, rows in site.get("maps", {}).items():
         site["maps"][key] = public_rows(rows)
     profile = site.get("profile", {})

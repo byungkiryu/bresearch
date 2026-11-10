@@ -12,6 +12,8 @@ SHEETS = {
     "행사": ["id", "title", "category", "start_date", "end_date", "place", "description", "status", "url", "image", "image_alt", "order", "public"],
     "홈": ["key", "value"],
     "연구": ["id", "title", "kicker", "description", "details", "keywords", "links", "image", "image_alt", "order", "public"],
+    "프로젝트": ["id", "title", "title_ko", "start_date", "end_date", "description", "reference_numbers", "order", "public"],
+    "시설": ["id", "title", "title_ko", "description", "url", "image", "image_alt", "order", "public"],
     "프로필": ["id", "kind", "key", "value", "period", "title", "organization", "entries", "url", "order", "public"],
     "뉴스": ["id", "date", "title", "body", "url", "image", "image_alt", "featured", "order", "public"],
     "자료": ["id", "category", "title", "description", "url", "image", "image_alt", "order", "public"],
@@ -19,6 +21,8 @@ SHEETS = {
     "논문해설": ["id", "title_reference", "summary", "image", "image_alt", "tags", "links", "person_ids", "featured", "order", "public"],
     "발표해설": ["id", "title_reference", "summary", "image", "image_alt", "tags", "links", "person_ids", "event_id", "featured", "order", "public"],
 }
+# Existing workbooks remain valid until the editor adds these sections.
+OPTIONAL_SHEETS = frozenset({"프로젝트", "시설"})
 PROFILE_KINDS = ("scalar", "education", "career", "award", "about", "link")
 PROFILE_SCALARS = ("name", "role", "institution", "location", "email", "description", "image", "image_alt")
 HOME_DEFAULTS = {
@@ -60,6 +64,7 @@ HELP = {
     "tags": "추가 태그 · 세미콜론(;)으로 구분", "event_id": "행사 시트 ID 연결 · 발표 날짜는 Zotero 유지",
     "status": "행사 상태 · 미확인/예정/확정/완료 등 직접 입력",
     "person_ids": "관련 인물 ID · 세미콜론(;) 구분 · 사람 시트 ID 사용",
+    "title_ko": "국문 제목", "reference_numbers": "과제번호 · 제공된 표기 그대로",
 }
 
 
@@ -68,4 +73,6 @@ def sheet_headers(name):
 
 
 def sheet_help(name):
-    return [HELP.get(key, key) for key in SHEETS[name]]
+    overrides = {"start_date": "과제 시작일 YYYY-MM-DD · 모르면 빈칸",
+                 "end_date": "과제 종료일 YYYY-MM-DD · 모르면 빈칸"} if name == "프로젝트" else {}
+    return [overrides.get(key, HELP.get(key, key)) for key in SHEETS[name]]

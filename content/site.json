@@ -196,7 +196,7 @@
         "title": "Appointments",
         "entries": [
           "Principal Researcher, Energy Conversion Research Center, Electrical Materials Division, KERI.",
-          "Professor, Electric Energy and Materials Engineering, KERI School, University of Science and Technology."
+          "Professor, Electrical-Functionality Materials Engineering (전기기능소재공학), KERI School, University of Science and Technology."
         ],
         "id": "profile-about-0004",
         "order": 28,
@@ -221,6 +221,17 @@
         "id": "profile-about-0006",
         "order": 30,
         "public": true
+      },
+      {
+        "id": "profile-about-0007",
+        "order": 33,
+        "public": true,
+        "title": "Professional societies / 학회 활동",
+        "entries": [
+          "Korean Physical Society (KPS) / 한국물리학회 — Member / 회원: since 2007 / 2007년 가입. Fellow / 평의원: since April 2021 / 2021년 4월부터.",
+          "The Korean Institute of Metals and Materials (KIM) / 대한금속·재료학회 — Member / 회원: since March 2018 / 2018년 3월 가입. Council Member / 평의원: 2024–2025, 2026–2027 (two consecutive two-year terms / 2년 임기, 2회 연속). Director-designate / 이사 예정: 2027–2028.",
+          "American Physical Society (APS) / 미국물리학회 — Member / 회원: since 2009 / 2009년 가입."
+        ]
       }
     ],
     "scalar_metadata": {
@@ -456,12 +467,81 @@
         "order": 7,
         "public": true
       }
-    ]
+    ],
+    "projects": [
+      {
+        "id": "project-0001",
+        "title": "Strengthening by stable heterogeneous phases in metal",
+        "title_ko": "안정한 이질상을 이용한 금속의 강화",
+        "start_date": "2022-09-01",
+        "end_date": "2027-12-31",
+        "description": "",
+        "reference_numbers": "26A02008 (2022M3C1C8093916)",
+        "order": 1,
+        "public": true
+      },
+      {
+        "id": "project-0002",
+        "title": "Research on AI Model for Electrical Materials and Alloy Interface Structure-Energy Prediction",
+        "title_ko": "전기재료 합금계면설계용 AI 파운데이션 모델 구축",
+        "start_date": "2026-01-01",
+        "end_date": "2026-12-31",
+        "description": "",
+        "reference_numbers": "26A01005",
+        "order": 2,
+        "public": true
+      },
+      {
+        "id": "project-0003",
+        "title": "Development and demonstration of thermoelectric power generation system utilizing industrial waste heat",
+        "title_ko": "산업 폐열 활용 열전 발전 시스템 개발 및 실증",
+        "start_date": "2021-05-01",
+        "end_date": "2027-08-31",
+        "description": "4th branch - Development of thermoelectric power device-system performance evaluation method and thermoelectric performance prediction technology",
+        "reference_numbers": "2021202080023D",
+        "order": 3,
+        "public": true
+      },
+      {
+        "id": "project-0004",
+        "title": "Efficient Solid-state Cooling for 6G",
+        "title_ko": "6G 통신을 위한 고효율 전고체 냉각 시스템",
+        "start_date": "2025-12-15",
+        "end_date": "2028-12-14",
+        "description": "",
+        "reference_numbers": "26A02066 (RS-2025-25461730)",
+        "order": 4,
+        "public": true
+      },
+      {
+        "id": "project-0005",
+        "title": "Development of an active thermal dissipation module for environments exceeding 90°C in the vehicle's roof area.",
+        "title_ko": "차량 루프형 5G TCU 90°C 이상 과열 환경 대응 능동방열 모듈 개발",
+        "start_date": "2023-07-01",
+        "end_date": "2027-12-31",
+        "description": "Overall project / 총괄: Development of roof integrated 5G TCU applied with hidden flat panel structure for hyper-connected cars. / 초연결 커넥티드카용 히든 평판 구조를 적용한 루프 일체형 5G TCU 개발",
+        "reference_numbers": "20026454 (Overall / 총괄: 20026339)",
+        "order": 5,
+        "public": true
+      },
+      {
+        "id": "project-0006",
+        "title": "AI-ready Electron-induced Transport Data for Inverse Materials Design",
+        "title_ko": "전기소재 역설계를 위한 고품질·고정합 AI-ready 전자 기반 수송물성 데이터셋 구축",
+        "start_date": "2026-11-01",
+        "end_date": "2027-10-31",
+        "description": "NAIS AI Convergence Research Program, Seed stage / NAIS AI 융합연구사업, Seed형(1단계). Period shown in the proposal / 신청서 기준 기간.",
+        "reference_numbers": "",
+        "order": 6,
+        "public": true
+      }
+    ],
+    "facilities": []
   },
   "people": [
     {
       "id": "person-0001",
-      "name": "SuDong PARK",
+      "name": "SuDong PARK (박수동)",
       "category": "Members",
       "title": "Dr.",
       "affiliation": "KERI",
@@ -475,7 +555,7 @@
     },
     {
       "id": "person-0002",
-      "name": "Byungki RYU",
+      "name": "Byungki RYU (류병기)",
       "category": "Members",
       "title": "Dr. Prof.",
       "affiliation": "KERI",
@@ -489,7 +569,7 @@
     },
     {
       "id": "person-0003",
-      "name": "Jaywan CHUNG",
+      "name": "Jaywan CHUNG (정재환)",
       "category": "Members",
       "title": "Dr.",
       "affiliation": "KERI",
@@ -503,7 +583,7 @@
     },
     {
       "id": "person-0004",
-      "name": "Jongho PARK",
+      "name": "Jongho PARK (박종호)",
       "category": "Members",
       "title": "Master",
       "affiliation": "KERI",
@@ -517,7 +597,7 @@
     },
     {
       "id": "person-0005",
-      "name": "Ji Hui SON",
+      "name": "Jihui Son (손지희)",
       "category": "Members",
       "title": "Master",
       "affiliation": "KERI",
@@ -531,7 +611,7 @@
     },
     {
       "id": "person-0006",
-      "name": "Jeongin JANG",
+      "name": "Jeongin JANG (장정인)",
       "category": "Members",
       "title": "Master",
       "affiliation": "KERI",
@@ -545,7 +625,7 @@
     },
     {
       "id": "person-0015",
-      "name": "Dipanwita Bhattacharjee",
+      "name": "Dipanwita Bhattacharjee (디판위타 바타차르지)",
       "category": "Members",
       "title": "Post-doc.",
       "affiliation": "KERI",
@@ -2438,7 +2518,7 @@
     "research_heading": "Research directions",
     "research_description": "We investigate thermoelectric phenomena and the physics of materials, connecting fundamental understanding with energy conversion and thermal management.",
     "featured_publication_ids": "",
-    "footer_text": "Byungki Ryu · Thermo-Electric Science",
-    "footer_location": "Changwon, South Korea"
+    "footer_text": "Byungki Ryu · Thermo-Electric Science · Korea Electrotechnology Research Institute (KERI)",
+    "footer_location": "(51543) 12, Jeongiui-gil, Seongsan-gu, Changwon-si, Gyeongsangnam-do, South Korea"
   }
 }

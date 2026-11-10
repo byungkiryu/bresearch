@@ -4,7 +4,7 @@ Byungki RYU at KERI — thermoelectrics and materials science.
 
 **Excel, Zotero CSV와 이미지 파일을 바꾸면 홈페이지가 갱신됩니다.** GitHub Actions가 입력을 검사하고 GitHub Pages에 게시합니다. 홈페이지 방문자에게는 Python 설치나 로그인이 필요하지 않습니다.
 
-기존 메뉴 8개를 유지합니다: Research · People · Publications · Presentations · News · About BR · Maps · Link (Data / SW).
+기존 메뉴 8개를 유지합니다: Research · People · Publications · Presentations · News & Events · About BR · Maps · Link (Data / SW). Research 안에는 Overview · Projects · Facilities가 있습니다.
 
 ## 처음 한 번: 홈페이지 게시
 
@@ -19,7 +19,7 @@ Byungki RYU at KERI — thermoelectrics and materials science.
 
 | 수정할 내용 | 바꿀 파일 |
 | --- | --- |
-| 사람, 행사, 첫 화면, 연구, 프로필, 뉴스, 자료, 위치 | `input/content.xlsx` |
+| 사람, 행사, 첫 화면, 연구, 프로젝트, 시설, 프로필, 뉴스, 자료, 위치 | `input/content.xlsx` |
 | 논문 서지정보·전체 저자·Zotero 태그 | `input/zotero-publications.csv` |
 | 발표 서지정보·전체 저자·날짜·Zotero 태그 | `input/zotero-presentations.csv` |
 | 논문·발표의 별도 해설, 그림, 관련 인물, 추가 링크 | Excel의 `논문해설`, `발표해설` 시트 |
@@ -39,6 +39,8 @@ GitHub 웹 화면에서는 폴더를 연 뒤 **Add file → Upload files**로 �
 | 행사 | 행사명, 날짜, 장소, 소개, 상태, 관련 자료 |
 | 홈 | 첫 화면 제목·설명·버튼·대표 논문 |
 | 연구 | 연구 주제, 설명, 키워드, 그림·링크 |
+| 프로젝트 | 국문·영문 과제명, 시작·종료일, 설명, 과제번호 |
+| 시설 | 국문·영문 시설명, 설명, 사진·링크 |
 | 프로필 | Byungki Ryu 소개, 학력, 경력, 수상·외부 링크 |
 | 뉴스 | 날짜, 제목, 본문, 사진·링크 |
 | 자료 | 데이터·소프트웨어·외부 자료 |
@@ -53,8 +55,18 @@ GitHub 웹 화면에서는 폴더를 연 뒤 **Add file → Upload files**로 �
 - `tags`, `keywords`, `person_ids`는 세미콜론(`;`)으로 구분합니다. 여러 링크는 한 줄에 하나씩 `표시명|https://주소`로 입력합니다.
 - `title_reference`는 참고용 제목입니다. 논문·발표 제목, 저자와 날짜의 수정은 Zotero에서 합니다.
 - 발표를 행사와 연결하려면 `발표해설.event_id`에 `행사.id`를 적습니다. 발표 날짜 자체는 Zotero 값을 사용합니다.
+- `프로젝트`와 `시설` 시트는 선택 사항입니다. 없는 구형 Excel은 기존 내용을 유지하며, 시트가 있지만 내용이 비어 있으면 해당 목록을 비웁니다. Facilities는 실제 시설 정보를 입력하면 표시됩니다.
+- 프로젝트는 과제명과 기간을 중심으로 표시합니다. `reference_numbers`는 관리용 메타데이터이며 화면에는 노출하지 않습니다.
 
-사람 구분과 연구 소개에는 요청된 수정이 반영되어 있습니다. SH Oh, Nirma, Aadil은 Alumni이며 Dipanwita Bhattacharjee는 새 박사후연구원으로 표시합니다. Ji Hui SON 소개에는 thermoelectric data가 포함됩니다. 저자는 `et al.`로 줄이지 않고 입력된 전체 저자를 표시합니다.
+사람 구분과 연구 소개에는 요청된 수정이 반영되어 있습니다. SH Oh, Nirma, Aadil은 Alumni이며 Dipanwita Bhattacharjee는 새 박사후연구원으로 표시합니다. Jihui Son (손지희) 소개에는 thermoelectric data가 포함됩니다. 현 구성원 이름은 영문 뒤에 국문명을 병기합니다.
+
+## 논문·발표 목록과 뉴스
+
+Publications와 Presentations는 각각 최신 자료부터 표시하며, 왼쪽에 전체 공개 목록 기준 누적번호를 표시합니다. 가장 최근 자료의 번호가 가장 크고, 연도는 항목 사이의 구분 제목으로 표시합니다. 검색·필터·더 보기에서는 각 자료의 번호를 유지합니다. 이 번호는 화면용이며 고정 ID와 별개입니다.
+
+저자는 `et al.`로 줄이지 않고 전체를 표시합니다. Zotero의 `류, 병기` 같은 한글 성·이름은 화면과 인용문에서 `류병기`로 붙여 표시하며 영문 이름의 기존 순서는 유지합니다. 원본 CSV는 변경하지 않습니다.
+
+News & Events는 뉴스와 행사를 날짜 역순으로 함께 표시합니다. **All / News / Events**로 종류를 선택하고 검색·연도 필터를 함께 사용할 수 있습니다. 행사에 연결된 발표는 **View … presentations**로 확인합니다.
 
 ## 행사 전용 페이지
 

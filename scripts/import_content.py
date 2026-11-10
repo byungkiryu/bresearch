@@ -19,7 +19,7 @@ from urllib.parse import urlsplit
 
 from openpyxl import load_workbook
 
-from content_schema import HELP, HOME_DEFAULTS, PROFILE_KINDS, PROFILE_SCALARS, SHEETS
+from content_schema import HOME_DEFAULTS, OPTIONAL_SHEETS, PROFILE_KINDS, PROFILE_SCALARS, SHEETS, sheet_help
 
 ROOT = Path(__file__).resolve().parents[1]
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
@@ -165,12 +165,12 @@ class Reader:
             self.issue(("", 0), "", f"Excel 파일을 읽지 못했습니다: {type(exc).__name__}", "workbook_read_error")
             return rows
         try:
-            missing = set(SHEETS) - set(book.sheetnames)
+            missing = set(SHEETS) - OPTIONAL_SHEETS - set(book.sheetnames)
             for name in sorted(missing):
                 self.issue((name, 1), "", "필수 시트가 없습니다. 기본 Excel의 시트 이름을 유지해 주세요.", "missing_sheet")
             for name in book.sheetnames:
                 if name not in SHEETS:
-                    self.issue((name, 1), "", "지원하지 않는 시트입니다. 정의된 10개 시트만 사용하세요.", "unknown_sheet")
+                    self.issue((name, 1), "", "지원하지 않는 시트입니다. 기본 Excel에 정의된 시트만 사용하세요.", "unknown_sheet")
                     continue
                 sheet = book[name]
                 if (sheet.max_row or 0) > 50000 or (sheet.max_column or 0) > 200:
@@ -187,7 +187,7 @@ class Reader:
                 if headers != expected:
                     self.issue((name, 1), "", "1행 열 이름과 순서를 유지해 주세요. 필요 열: " + ", ".join(expected), "header_mismatch")
                     continue
-                if len(values) < 2 or [_text(c.value) for c in values[1][:len(expected)]] != [HELP.get(key, key) for key in expected]:
+                if len(values) < 2 or [_text(c.value) for c in values[1][:len(expected)]] != sheet_help(name):
                     self.issue((name, 2), "", "2행은 한국어 도움말 행입니다. 삭제하지 마세요.", "missing_help_row")
                 out, seen = [], set()
                 for row_number, cells in enumerate(values, start=1):
@@ -274,6 +274,18 @@ def convert_workbook(workbook, root=ROOT, data_dir=None):
     for row, ctx in sheets["연구"]:
         if not _text(row["title"]):
             reader.issue(ctx, "title", "연구 제목이 필요합니다.", "missing_title")
+    for name, target in (("프로젝트", "projects"), ("시설", "facilities")):
+        research = site["research"]
+        if name not in sheets:
+            research.setdefault(target, [])
+            continue
+        old = {x["id"]: x for x in research.get(target, [])}
+        research[target] = [reader.record(row, ctx, old.get(_text(row["id"]))) for row, ctx in sheets[name]]
+        for record, (_, ctx) in zip(research[target], sheets[name]):
+            if not record.get("title"):
+                reader.issue(ctx, "title", "영문 제목이 필요합니다.", "missing_title")
+            if name == "프로젝트" and record["end_date"] and (not record["start_date"] or record["end_date"] < record["start_date"]):
+                reader.issue(ctx, "end_date", "종료일은 시작일과 같거나 이후여야 합니다.", "invalid_date_range")
     home = dict(HOME_DEFAULTS)
     home.update(site.get("home", {}))
     for row, ctx in sheets["홈"]:

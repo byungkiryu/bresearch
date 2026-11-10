@@ -61,6 +61,19 @@ class PublicBuildTests(unittest.TestCase):
             self.assertTrue(result['image'].startswith('data:image/png;base64,'))
             self.assertEqual(list(copies), ['assets/slides.pdf'])
 
+    def test_research_projects_and_facilities_filter_hidden_and_keep_order(self):
+        source = {'research': {
+            name: [{'id': f'{name}-later', 'order': 3},
+                   {'id': f'{name}-hidden', 'order': 1, 'public': False},
+                   {'id': f'{name}-first', 'order': 2, 'public': True}]
+            for name in ('projects', 'facilities')
+        }}
+        result = build_site.public_site(source)
+        for name in ('projects', 'facilities'):
+            self.assertEqual([row['id'] for row in result['research'][name]],
+                             [f'{name}-first', f'{name}-later'])
+            self.assertEqual(len(source['research'][name]), 3)
+
     def test_asset_cannot_escape_asset_directory(self):
         with tempfile.TemporaryDirectory() as directory:
             old = build_site.ROOT
