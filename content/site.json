@@ -216,7 +216,7 @@
         "entries": [
           "Thermoelectric transport, density-functional theory, and numerical modeling.",
           "VASP, Python, Excel, COMSOL Multiphysics, m3gnet, and SevenNet.",
-          "Korean (native) and English (professional working proficiency)."
+          "Korean (native); English (scientific writing and academic discussion)."
         ],
         "id": "profile-about-0006",
         "order": 30,
@@ -228,9 +228,10 @@
         "public": true,
         "title": "Professional societies / 학회 활동",
         "entries": [
-          "Korean Physical Society (KPS) / 한국물리학회 — Member / 회원: since 2007 / 2007년 가입. Fellow / 평의원: since April 2021 / 2021년 4월부터.",
-          "The Korean Institute of Metals and Materials (KIM) / 대한금속·재료학회 — Member / 회원: since March 2018 / 2018년 3월 가입. Council Member / 평의원: 2024–2025, 2026–2027 (two consecutive two-year terms / 2년 임기, 2회 연속). Director-designate / 이사 예정: 2027–2028.",
-          "American Physical Society (APS) / 미국물리학회 — Member / 회원: since 2009 / 2009년 가입."
+          "Korean Physical Society (KPS) / 한국물리학회 — Member / 회원 (2007–), Fellow / 평의원 (2021.04–)",
+          "The Korean Institute of Metals and Materials (KIM) / 대한금속·재료학회 — Member / 회원 (2018.03–), Council Member / 평의원 (2024–2025, 2026–2027), Director-designate / 이사 예정 (2027–2028)",
+          "American Physical Society (APS) / 미국물리학회 — Member / 회원 (2009–)",
+          "International Thermoelectric Society (ITS) / 국제열전학회 — Member / 회원 (2018–)"
         ]
       }
     ],
