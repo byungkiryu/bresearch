@@ -31,7 +31,7 @@
     .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 4mm 0 2.8mm; }
     h2 { font-size: 11.5pt; line-height: 1.25; font-weight: 700; margin: 0; }
     h2 span { font-weight: 400; color: var(--muted); }
-    .venue { margin: 0; color: var(--muted); font-size: 8.5pt; text-align: right; }
+    .venue { margin: 3mm 0 0; color: var(--muted); font-size: 8.5pt; line-height: 1.4; }
     table { border-collapse: collapse; table-layout: fixed; width: 100%; font-size: 9.2pt; line-height: 1.25; }
     col.time { width: 14%; }
     col.speaker { width: 22%; }
@@ -46,6 +46,7 @@
     td.affiliation { font-size: 8.5pt; color: var(--muted); }
     td.title { color: #233c35; }
     .title-note { font-size: 8pt; font-weight: 400; color: var(--muted); white-space: nowrap; }
+    .session-heading th { padding: 2.2mm 1.8mm; background: var(--ink); color: white; border: 0; text-transform: none; letter-spacing: .1px; font-size: 9.2pt; }
     .break td { padding-top: 1.8mm; padding-bottom: 1.8mm; background: var(--wash); font-size: 8.6pt; font-weight: 600; }
     .break td:first-child { padding-left: 1.8mm; }
     .break td:last-child { color: #3e5950; }
@@ -81,6 +82,9 @@
       .paper { width: auto; max-width: none; margin: 0; padding: 0; box-shadow: none; }
       .schedule-scroll { overflow: visible; }
       table { min-width: 0; }
+      td { padding-top: 1.2mm; padding-bottom: 1.2mm; }
+      .session-heading th { padding-top: 1.5mm; padding-bottom: 1.5mm; }
+      .session-heading { break-after: avoid; page-break-after: avoid; }
       thead { display: table-header-group; }
       tr, .masthead, .section-heading, .program-note, .paper-footer { break-inside: avoid; page-break-inside: avoid; }
       h2 { break-after: avoid; }
@@ -97,42 +101,60 @@
     <header class="masthead">
       <h1><span class="countries">Korean-German-Japanese</span> <span class="event-kind">Small Workshop on</span> <span class="subject">Thermoelectric Matters</span></h1>
       <div class="event-meta">
-        <p><span class="meta-label">Dates</span>2026-Nov-19–21</p>
-        <p><span class="meta-label">Workshop</span><strong class="workshop-date">Nov-20 (Fri)</strong></p>
+        <p><span class="meta-label">Dates</span>November 19–21, 2026</p>
+        <p><span class="meta-label">Workshop</span><strong class="workshop-date">November 20, 2026<br>(Friday)</strong></p>
       </div>
     </header>
+    <p class="venue"><strong>Venue:</strong> Korea Electrotechnology Research Institute (KERI), Changwon, South Korea</p>
     <div class="section-heading">
-      <h2>Presentation Schedule</h2>
-      <p class="venue">KERI · Changwon, South Korea</p>
+      <h2>Presentation Schedule <span>— Plan-A</span></h2>
     </div>
     <div class="schedule-scroll" role="region" aria-label="Workshop presentation schedule" tabindex="0">
       <table aria-label="Presentation schedule for November 20, 2026">
         <colgroup><col class="time"><col class="speaker"><col class="affiliation"><col class="presentation"></colgroup>
         <thead><tr><th scope="col">Time</th><th scope="col">Speaker</th><th scope="col">Affiliation</th><th scope="col">Presentation Title</th></tr></thead>
+        <tbody aria-labelledby="session-1">
+          <tr class="session-heading"><th id="session-1" scope="rowgroup" colspan="4">Session 1 — Thermoelectric Matters</th></tr>
+          <tr class="talk"><td class="time">09:00–09:15</td><td class="speaker">Dr. SuDong Park</td><td class="affiliation">KERI</td><td class="title">Directions in Thermoelectric Research <em class="title-note">(title to be confirmed)</em></td></tr>
+          <tr class="talk"><td class="time">09:15–09:30</td><td class="speaker">Prof. Kornelius Nielsch</td><td class="affiliation">IFW Dresden</td><td class="title">Material Interfaces Taking Control of Thermoelectric Transport</td></tr>
+          <tr class="talk"><td class="time">09:30–09:50</td><td class="speaker">Prof. Tsunehiro Takeuchi</td><td class="affiliation">Toyota Technological Institute</td><td class="title">Extremely Small Lattice Thermal Conductivity in Nano-grained Si–Ge Alloys and a Large Dimensionless Figure of Merit: ZT &gt; 4.0</td></tr>
+        </tbody>
         <tbody>
-          <tr class="talk"><td class="time">09:00–09:20</td><td class="speaker">Dr. SuDong Park</td><td class="affiliation">KERI</td><td class="title">Directions in Thermoelectric Research <em class="title-note">(title to be confirmed)</em></td></tr>
-          <tr class="talk"><td class="time">09:20–09:40</td><td class="speaker">Prof. Kornelius Nielsch</td><td class="affiliation">IFW Dresden</td><td class="title">Material Interfaces Taking Control of Thermoelectric Transport</td></tr>
-          <tr class="talk"><td class="time">09:40–10:00</td><td class="speaker">Prof. Tsunehiro Takeuchi</td><td class="affiliation">Toyota Technological Institute</td><td class="title">Extremely Small Lattice Thermal Conductivity in Nano-grained Si–Ge Alloys and a Large Dimensionless Figure of Merit: ZT &gt; 4.0</td></tr>
-          <tr class="break"><td class="time">10:00–10:20</td><td colspan="3">Coffee &amp; Discussion</td></tr>
-          <tr class="talk"><td class="time">10:20–10:40</td><td class="speaker">Dr. Nicolas Perez Rodriguez</td><td class="affiliation">IFW Dresden</td><td class="title">Thermoelectric Measurements at Low Temperatures in Metallic Alloys</td></tr>
-          <tr class="talk"><td class="time">10:40–10:55</td><td class="speaker">Ms. Jihui Son</td><td class="affiliation">KERI</td><td class="title">Thermoelectric Numbers and Data</td></tr>
-          <tr class="talk"><td class="time">10:55–11:15</td><td class="speaker">Dr. Yukari Katsura</td><td class="affiliation">NIMS</td><td class="title">Thermoelectric Material Data in Starrydata Literature Database</td></tr>
-          <tr class="talk"><td class="time">11:15–11:35</td><td class="speaker">Dr. Byungki Ryu</td><td class="affiliation">KERI</td><td class="title">Thermoelectric Matters</td></tr>
-          <tr class="break"><td class="time">11:35–12:00</td><td colspan="3">Informal Discussion / Break</td></tr>
+          <tr class="break"><td class="time">09:50–10:10</td><td colspan="3">Coffee &amp; Discussion</td></tr>
+        </tbody>
+        <tbody aria-labelledby="session-2">
+          <tr class="session-heading"><th id="session-2" scope="rowgroup" colspan="4">Session 2 — Number Matters</th></tr>
+          <tr class="talk"><td class="time">10:10–10:25</td><td class="speaker">Dr. Yukari Katsura</td><td class="affiliation">NIMS</td><td class="title">Thermoelectric Material Data in Starrydata Literature Database</td></tr>
+          <tr class="talk"><td class="time">10:25–10:40</td><td class="speaker">Ms. Jihui Son</td><td class="affiliation">KERI</td><td class="title">Thermoelectric Numbers and Data</td></tr>
+          <tr class="talk"><td class="time">10:40–11:00</td><td class="speaker">Dr. Byungki Ryu</td><td class="affiliation">KERI</td><td class="title">Thermoelectric Matters</td></tr>
+        </tbody>
+        <tbody>
+          <tr class="break"><td class="time">11:00–12:00</td><td colspan="3">Laboratory Tour at KERI</td></tr>
           <tr class="break"><td class="time">12:00–13:30</td><td colspan="3">Lunch</td></tr>
-          <tr class="talk"><td class="time">13:30–13:50</td><td class="speaker">Dr. Heiko Reith</td><td class="affiliation">IFW Dresden</td><td class="title">Micro-Thermoelectric Devices for IoT Energy Harvesting</td></tr>
-          <tr class="talk"><td class="time">13:50–14:05</td><td class="speaker">Ms. Irene Garcia Santamaria</td><td class="affiliation">IFW Dresden</td><td class="title">Interface Engineering in Thermoelectric α-MgAgSb via Sb₂Te₃ and Cu Powder Atomic Layer Deposition</td></tr>
-          <tr class="talk"><td class="time">14:05–14:25</td><td class="speaker">Dr. Kazuki Imasato</td><td class="affiliation">AIST</td><td class="title">Microstructural and Compositional Design of Thermoelectric Materials for Carbon-Neutral Applications</td></tr>
-          <tr class="break"><td class="time">14:25–14:45</td><td colspan="3">Coffee &amp; Discussion</td></tr>
-          <tr class="talk"><td class="time">14:45–15:05</td><td class="speaker">Prof. Jong-Soo Rhyee</td><td class="affiliation">Kyung Hee University</td><td class="title">Mechanically Robust Dicing-free Thermoelectric Module Fabrication Using Anion–Cation Co-doped Bismuth Tellurides</td></tr>
-          <tr class="talk"><td class="time">15:05–15:25</td><td class="speaker">Dr. Esteban Zuniga Puelles</td><td class="affiliation">IFW Dresden</td><td class="title">From Simple Demonstrators to Industrial Concepts: Advancing the Practical Integration of Thermoelectric Technologies</td></tr>
-          <tr class="talk"><td class="time">15:25–15:45</td><td class="speaker">Speaker TBD</td><td class="affiliation">KERI</td><td class="title">Title TBD</td></tr>
-          <tr class="discussion"><td class="time">15:45–15:55</td><td class="speaker">General Discussion</td><td class="affiliation">All participants</td><td class="title">Joint research interests and future collaboration</td></tr>
-          <tr class="closing"><td class="time">15:55–16:00</td><td class="speaker">Dr. Byungki Ryu</td><td class="affiliation">KERI</td><td class="title">Closing Remarks</td></tr>
+        </tbody>
+        <tbody aria-labelledby="session-3">
+          <tr class="session-heading"><th id="session-3" scope="rowgroup" colspan="4">Session 3 — Material Matters</th></tr>
+          <tr class="talk"><td class="time">13:30–13:50</td><td class="speaker">Dr. Nicolas Perez Rodriguez</td><td class="affiliation">IFW Dresden</td><td class="title">Thermoelectric Measurements at Low Temperatures in Metallic Alloys</td></tr>
+          <tr class="talk"><td class="time">13:50–14:10</td><td class="speaker">Dr. Kazuki Imasato</td><td class="affiliation">AIST</td><td class="title">Microstructural and Compositional Design of Thermoelectric Materials for Carbon-Neutral Applications</td></tr>
+          <tr class="talk"><td class="time">14:10–14:25</td><td class="speaker">Ms. Irene Garcia Santamaria</td><td class="affiliation">IFW Dresden</td><td class="title">Interface Engineering in Thermoelectric α-MgAgSb via Sb₂Te₃ and Cu Powder Atomic Layer Deposition</td></tr>
+          <tr class="discussion"><td class="time">14:25–14:30</td><td class="speaker">Session Discussion</td><td class="affiliation">All participants</td><td class="title"></td></tr>
+        </tbody>
+        <tbody>
+          <tr class="break"><td class="time">14:30–14:50</td><td colspan="3">Coffee &amp; Discussion</td></tr>
+        </tbody>
+        <tbody aria-labelledby="session-4">
+          <tr class="session-heading"><th id="session-4" scope="rowgroup" colspan="4">Session 4 — Application Matters</th></tr>
+          <tr class="talk"><td class="time">14:50–15:10</td><td class="speaker">Prof. Jong-Soo Rhyee</td><td class="affiliation">Kyung Hee University</td><td class="title">Mechanically Robust Dicing-free Thermoelectric Module Fabrication Using Anion–Cation Co-doped Bismuth Tellurides</td></tr>
+          <tr class="talk"><td class="time">15:10–15:30</td><td class="speaker">Dr. Heiko Reith</td><td class="affiliation">IFW Dresden</td><td class="title">Micro-Thermoelectric Devices for IoT Energy Harvesting</td></tr>
+          <tr class="talk"><td class="time">15:30–15:50</td><td class="speaker">Dr. Esteban Zuniga Puelles</td><td class="affiliation">IFW Dresden</td><td class="title">From Simple Demonstrators to Industrial Concepts: Advancing the Practical Integration of Thermoelectric Technologies</td></tr>
+        </tbody>
+        <tbody>
+          <tr class="break closing"><td class="time">15:50–16:00</td><td colspan="3">General Discussion &amp; Closing</td></tr>
         </tbody>
       </table>
     </div>
     <p class="program-note">Presentations are planned for 15–20 minutes, with flexible timing to encourage open discussion.</p>
+    <p class="program-note">If the morning schedule runs late, Dr. Byungki Ryu’s presentation may be moved to the final presentation slot of the workshop.</p>
     <footer class="paper-footer"><span>THERMOELECTRIC MATTERS · 2026</span><a href="https://byungkiryu.github.io/bresearch/events/2026-11-20/">byungkiryu.github.io/bresearch/events/2026-11-20/</a></footer>
   </main>
   <script>document.getElementById('print-program').addEventListener('click', function () { window.print(); });</script>
