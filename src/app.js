@@ -195,7 +195,7 @@
   }
 
   function researchViews() {
-    return `<nav class="section-tabs" aria-label="Research sections">${[['overview', 'Overview'], ['projects', 'Projects'], ['facilities', 'Facilities']].map(([view, label]) => `<a href="#research?view=${view}"${state.researchView === view ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
+    return `<nav class="section-tabs" aria-label="Research sections">${[['overview', 'Research'], ['projects', 'Projects'], ['facilities', 'Facilities']].map(([view, label]) => `<a href="${view === 'overview' ? '#research?section=topics' : `#research?view=${view}`}"${view === 'overview' ? ' data-research-topics' : ''}${state.researchView === view ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav>`;
   }
   function renderResearch() {
     if (state.researchView === 'projects') { renderProjects(); return; }
@@ -205,12 +205,12 @@
   function renderProjects() {
     const projects = publicRows(site.research?.projects);
     const period = project => [project.start_date, project.end_date].filter(Boolean).map(date => date.replaceAll('-', '.')).join(' – ');
-    app.innerHTML = researchViews() + heading('RESEARCH PROGRAMS', 'Projects', 'Research projects in materials, interfaces, thermoelectric energy conversion, and cooling.') +
+    app.innerHTML = heading('RESEARCH PROGRAMS', 'Projects', 'Research projects in materials, interfaces, thermoelectric energy conversion, and cooling.') + researchViews() +
       `<div class="project-list">${projects.length ? projects.map(project => `<article class="project-row"><p class="project-period">${esc(period(project))}</p><div><h2>${esc(project.title || project.title_ko)}</h2>${project.title && project.title_ko ? `<p class="project-title-ko" lang="ko">${esc(project.title_ko)}</p>` : ''}${project.description ? `<p class="quiet long-text">${esc(project.description)}</p>` : ''}</div></article>`).join('') : empty('No projects listed', '')}</div>`;
   }
   function renderFacilities() {
     const facilities = publicRows(site.research?.facilities);
-    app.innerHTML = researchViews() + heading('RESEARCH INFRASTRUCTURE', 'Facilities', 'Research facilities and computational tools at the Korea Electrotechnology Research Institute (KERI).') + `<div class="facility-grid">${facilities.length ? facilities.map(facility => `<article class="facility-card"><h2>${esc(facility.title || facility.title_ko)}</h2>${facility.title && facility.title_ko ? `<p lang="ko">${esc(facility.title_ko)}</p>` : ''}${facility.description ? `<p class="long-text">${esc(facility.description)}</p>` : ''}${contentImage(facility.image, facility.image_alt || facility.title)}${external('Learn more', facility.url)}</article>`).join('') : empty('Facilities information is coming soon', 'Details of our research facilities will be added here.')}</div>`;
+    app.innerHTML = heading('RESEARCH INFRASTRUCTURE', 'Facilities', 'Research facilities and computational tools at the Korea Electrotechnology Research Institute (KERI).') + researchViews() + `<div class="facility-grid">${facilities.length ? facilities.map(facility => `<article class="facility-card"><h2>${esc(facility.title || facility.title_ko)}</h2>${facility.title && facility.title_ko ? `<p lang="ko">${esc(facility.title_ko)}</p>` : ''}${facility.description ? `<p class="long-text">${esc(facility.description)}</p>` : ''}${contentImage(facility.image, facility.image_alt || facility.title)}${external('Learn more', facility.url)}</article>`).join('') : empty('Facilities information is coming soon', 'Details of our research facilities will be added here.')}</div>`;
   }
   function renderResearchOverview() {
     const research = site.research || {};
@@ -222,15 +222,21 @@
     const featured = publications.filter(record => content[record.id]?.featured);
     const homePublications = selectedIds.length ? selectedPublications : featured.length ? featured.slice(0, 3) : publications.slice(0, 3);
     const heroImage = contentImage(home.hero_image, home.hero_image_alt || '', 'hero-image');
-    app.innerHTML = researchViews() + `<section class="hero-grid">
+    app.innerHTML = `<section class="hero-grid">
       <div class="hero-copy"><p class="eyebrow">${esc(home.hero_kicker || 'THERMO-ELECTRIC SCIENCE · KERI')}</p>
         <h1 class="hero-title">${lineText(home.hero_title || 'Thermoelectric science,')}<br><em>${lineText(home.hero_emphasis || 'from atoms to applications.')}</em></h1>
         <p class="hero-summary">${lineText(home.hero_summary || research.intro || 'Understanding thermoelectric phenomena through materials physics, computation, data, and experiment.')}</p>
-        <div class="hero-actions">${actionLink(home.primary_label || 'Explore publications', home.primary_url || '#publications', 'button')}${actionLink(home.secondary_label || 'About Byungki Ryu', home.secondary_url || '#about', 'button button-secondary')}</div>
+        <nav class="hero-actions hero-navigation" aria-label="Explore our research">
+          <a class="button" href="#research?section=topics" data-research-topics>Research</a>
+          <a class="button button-secondary" href="#research?view=projects">Projects</a>
+          <a class="button button-secondary" href="#publications">Publications</a>
+          <a class="button button-secondary" href="#research?view=facilities">Facilities</a>
+          <a class="button button-secondary" href="#about">About BR</a>
+        </nav>
       </div><div class="hero-art"${heroImage ? '' : ' aria-label="Conceptual illustration connecting atomic structure and thermoelectric transport"'}>${heroImage || lattice?.innerHTML || '<div class="science-symbol">σ · S · κ</div>'}</div>
     </section>
     <section class="stats-strip" aria-label="Research archive"><div class="stat"><strong>${publications.length}</strong><span>Publications &amp; datasets</span></div><div class="stat"><strong>${presentations.length}</strong><span>Presentations</span></div><div class="stat"><strong>σ · S · κ</strong><span>Transport across scales</span></div></section>
-    <section class="research-topics"><div class="section-heading"><div><p class="eyebrow">RESEARCH DIRECTIONS</p><h2>${lineText(home.research_heading || 'Connecting structure,\ntransport, and performance.')}</h2></div><p>${lineText(home.research_description || 'Materials physics and computational tools\nfor thermoelectric energy conversion.')}</p></div>
+    <section class="research-topics" aria-labelledby="research-topics-heading"><div class="section-heading"><div><p class="eyebrow">RESEARCH DIRECTIONS</p><h2 id="research-topics-heading" tabindex="-1">${lineText(home.research_heading || 'Connecting structure,\ntransport, and performance.')}</h2></div><p>${lineText(home.research_description || 'Materials physics and computational tools\nfor thermoelectric energy conversion.')}</p></div>
       ${topics.map((topic, index) => `<article class="topic-row"><span class="topic-index">${String(index + 1).padStart(2, '0')}</span><div class="topic-body"><p class="eyebrow">${esc(topic.kicker || '')}</p><h3>${esc(topic.title)}</h3><p class="long-text">${esc(topic.description || '')}</p>${contentImage(topic.image, topic.image_alt || '')}<div class="topic-links">${arr(topic.links).map(link => external(link.label, link.url)).join('')}</div></div><div class="topic-detail"><ul>${list(topic.details).map(item => `<li>${esc(item)}</li>`).join('')}</ul><div class="topic-tags">${list(topic.keywords).map(keyword => `<button type="button" class="topic-tag" data-topic-search="${esc(keyword)}">${esc(keyword)}</button>`).join('')}</div></div></article>`).join('')}
     </section>
     <section><div class="section-heading"><div><p class="eyebrow">FROM THE ARCHIVE</p><h2>${selectedIds.length || featured.length ? 'Selected publications' : 'Recent publications'}</h2></div><a class="text-link section-link" href="#publications">All ${publications.length} records <span class="arrow-up-right" aria-hidden="true"></span></a></div><div class="record-list">${homePublications.length ? homePublications.map(record => recordCard(record, true)).join('') : empty('No selected publications', 'Check the publication IDs in the home settings.')}</div></section>
@@ -480,6 +486,12 @@
     const hash = location.hash.slice(1).split('?')[0];
     return Object.hasOwn(pageNames, hash) ? hash : 'research';
   }
+  function scrollToResearchTopics() {
+    const heading = document.getElementById('research-topics-heading');
+    if (!heading) return;
+    heading.scrollIntoView({ block: 'start', behavior: 'instant' });
+    heading.focus({ preventScroll: true });
+  }
   function renderPage(scroll = false) {
     state.page = getPage();
     const params = new URLSearchParams(location.hash.split('?')[1] || '');
@@ -502,7 +514,8 @@
     });
     const renderers = { research: renderResearch, people: renderPeople, publications: () => renderCatalogue('publications'), presentations: renderPresentations, news: renderNews, about: renderAbout, maps: renderMaps, links: renderLinks };
     renderers[state.page]();
-    if (scroll) window.scrollTo({ top: 0, behavior: 'instant' });
+    if (state.page === 'research' && state.researchView === 'overview' && params.get('section') === 'topics') scrollToResearchTopics();
+    else if (scroll) window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   app.addEventListener('input', event => {
@@ -540,6 +553,12 @@
     }
   });
   app.addEventListener('click', event => {
+    const researchLink = event.target.closest('[data-research-topics]');
+    if (researchLink && location.hash === '#research?section=topics' && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+      event.preventDefault();
+      scrollToResearchTopics();
+      return;
+    }
     const target = event.target.closest('button, [data-select-map]');
     if (!target) return;
     if (target.hasAttribute('data-open-record')) openRecord(target.dataset.openRecord);

@@ -70,6 +70,10 @@ label.filter-select{display:block;padding:0;background:transparent;border:0;min-
 .section-tabs a,.section-tabs button{display:inline-flex;align-items:center;padding:9px 19px;border:1px solid transparent;background:transparent;color:var(--muted);border-radius:3px;font-size:13px;line-height:1.4}
 .section-tabs a:hover,.section-tabs button:hover{background:#e9eee3;color:var(--ink)}
 .section-tabs a[aria-current=page],.section-tabs button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.hero-actions.hero-navigation{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.hero-navigation .button{min-height:44px;padding:12px 8px;font-size:11px;white-space:nowrap}
+#research-topics-heading{scroll-margin-top:24px}
+@media(max-width:1000px){.hero-actions.hero-navigation{grid-template-columns:repeat(6,minmax(0,1fr))}.hero-navigation .button{grid-column:span 2}.hero-navigation .button:nth-child(n+4){grid-column:span 3}}
 .project-list{border-top:1px solid var(--line)}
 .project-row{display:grid;grid-template-columns:210px minmax(0,1fr);gap:32px;padding:30px 0;border-bottom:1px solid var(--line)}
 .project-row h2{font-size:21px;line-height:1.45;margin-bottom:9px;overflow-wrap:anywhere}

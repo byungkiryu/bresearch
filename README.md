@@ -4,7 +4,9 @@ Byungki RYU at KERI — thermoelectrics and materials science.
 
 **Excel, Zotero CSV와 이미지 파일을 바꾸면 홈페이지가 갱신됩니다.** GitHub Actions가 입력을 검사하고 GitHub Pages에 게시합니다. 홈페이지 방문자에게는 Python 설치나 로그인이 필요하지 않습니다.
 
-기존 메뉴 8개를 유지합니다: Research · People · Publications · Presentations · News & Events · About BR · Maps · Link (Data / SW). Research 안에는 Overview · Projects · Facilities가 있습니다.
+기존 메뉴 8개를 유지합니다: Research · People · Publications · Presentations · News & Events · About BR · Maps · Link (Data / SW). Research 안에서 연구 주제와 Projects · Facilities를 둘러볼 수 있습니다.
+
+첫 화면은 큰 소개 문구와 설명 아래에 **Research · Projects · Publications · Facilities · About BR** 바로가기를 표시합니다. Research는 같은 화면의 연구 주제로 이동하며, 작은 화면에서는 다섯 버튼을 두 줄로 배치합니다. Projects와 Facilities의 하위 메뉴는 각 페이지 제목과 설명 아래에 표시합니다. 이 다섯 바로가기의 이름·순서·목적지는 `src/app.js`에서 관리하며, 기존 Excel `홈` 시트의 `primary_label`, `primary_url`, `secondary_label`, `secondary_url` 값은 이 메뉴에 사용하지 않습니다.
 
 ## 처음 한 번: 홈페이지 게시
 
